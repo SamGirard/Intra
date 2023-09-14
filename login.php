@@ -98,10 +98,10 @@
             <div class="row">
                 <div class="col-md-6 offset-3">
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" class="mt-5">
-                        <input type="text" class="form-control mb-2" placeholder="Nom d'usager" name="usager" value="">
+                        <input type="text" class="form-control mb-2" placeholder="Nom d'usager" name="usager">
                         <p class="error"><?php echo $usagerErreur; ?></p>
 
-                        <input type="password" class="form-control mb-2" placeholder="Mot de passe" name="mdp" value="">
+                        <input type="password" class="form-control mb-2" placeholder="Mot de passe" name="mdp">
                         <p class="error"><?php echo $mdpErreur; ?></p>
 
 

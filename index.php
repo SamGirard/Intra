@@ -14,6 +14,11 @@
     </head>
 
     <body>
+
+    <?php 
+        if($_SESSION['connexion'] == true){
+    ?>
+
         <div class="container-fluid">
             <div class="row text-center">
                 <div class="col-md-2 offset-3">
@@ -29,6 +34,12 @@
         </div>
 
 
+
+        <?php
+            } else {
+                header("Location: login.php");
+            }
+    ?>
 
     
         <script src="https://kit.fontawesome.com/2ad1095675.js" crossorigin="anonymous"></script>
