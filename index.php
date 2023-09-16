@@ -19,8 +19,8 @@
         if($_SESSION['connexion'] == true){
     ?>
 
-        <div class="container-fluid">
-            <div class="row text-center">
+        <div class="container-fluid h-100">
+            <div class="row h-100 align-items-center">
                 <div class="col-md-2 offset-3">
                     <a href="evenement.php"><h1>Événement</h1></a>
                 </div>
@@ -28,7 +28,7 @@
                     <a href="creationEvent.php"><h1>Créer un événement</h1></a>
                 </div>
                 <div class="col-md-2">
-                    <a href="sourire.php"><h1>Sourire</h1></a>
+                    <a href="choixEvenement.php"><h1>Sourire</h1></a>
                 </div>
             </div>
         </div>
