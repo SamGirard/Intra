@@ -13,7 +13,7 @@
         <div class="container-fluid h-100">
             <div class="row text-center">
                 <div class="col-md-2 offset-3">
-                    <img src="img/content.jpg" height="300" width="200">
+                    <img src="img/content.jpg" height="300" width="300">
                 </div>
                 <div class="col-md-2">
                     <img src="img/bof.jpg" height="300" width="300">
