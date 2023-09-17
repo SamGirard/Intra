@@ -53,7 +53,15 @@
                         }
                 ?>
                     <div class="col-md-3 col-10 boite mx-auto mt-5">
-                        <h2 class="mt-3 titre"><?php echo $row['nom']?></h1>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <h2 class="mt-3 titre"><?php echo $row['nom']?></h1>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="infoEvent.php"><i class=" mt-3 fa-solid fa-square-up-right fa-3x"></i></a>
+                            </div>
+                        </div>
+                        
                         <p class="desc"><?php echo $row['description']?></p>
                         <h3 class="my-4"><?php echo $row['departement']?></h3>
                         <div class="row text-center">
