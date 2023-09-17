@@ -6,3 +6,32 @@
 textarea {
     height: 100px;
 }
+
+.boite{
+    border: solid black 1px;
+    border-radius: 20px;
+    justify-content: space-around;
+}
+
+.rowEmployeur{
+    border-radius: 0px 0px 18px 18px;
+    color: white;
+    padding: 20px 0px 20px 0px;
+}
+
+.desc{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.titre{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 29pt;
+}
+
+.boite h5{
+    font-size: 20pt;
+}

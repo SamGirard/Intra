@@ -72,8 +72,8 @@
             $departement = trojan($_POST['nDepartement']);
 
             if($erreur != true){
-            $sql = "INSERT INTO evenement (nom, description, departement, content, moyen, pasContent)
-            VALUES ('$nom', '$description', '$departement', 0, 0, 0)";
+            $sql = "INSERT INTO evenement (nom, description, departement, contentEtu, moyenEtu, pasContentEtu, contentEmp, moyenEmp, pasContentEmp)
+            VALUES ('$nom', '$description', '$departement', 0, 0, 0, 0, 0, 0)";
 
                 if (mysqli_query($conn, $sql)) {
                     echo "Enregistrement réussi";
