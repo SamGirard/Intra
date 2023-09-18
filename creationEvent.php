@@ -36,8 +36,8 @@
         echo "Connection Réussi!";
 
 
-        $nom = $description = $departement = "";
-        $nomErreur = $descriptionErreur = $departementErreur = "";
+        $nom = $description = $departement = $lieu = $date = "";
+        $nomErreur = $descriptionErreur = $departementErreur = $LieuErreur = $dateErreur = "";
         $content = $moyen = $pasContent = 0;
 
         $erreur = false;
@@ -63,17 +63,33 @@
                 $erreur = true;
             }
             else {
-                $departement = trojan($_POST['type']);
+                $departement = trojan($_POST['nDepartement']);
+            }
+            if(empty($_POST['nLieu'])){
+                $LieuErreur = "Le lieu ne peut pas être vide";
+                $erreur = true;
+            }
+            else {
+                $lieu = trojan($_POST['nLieu']);
+            }
+            if(empty($_POST['nDate'])){
+                $dateErreur = "Le date ne peut pas être vide";
+                $erreur = true;
+            }
+            else {
+                $date = trojan($_POST['nDate']);
             }
             
 
             $nom = trojan($_POST['nNom']);
             $description = trojan($_POST['nDescription']);
             $departement = trojan($_POST['nDepartement']);
+            $lieu = trojan($_POST['nLieu']);
+            $date = trojan($_POST['nDate']);
 
             if($erreur != true){
-            $sql = "INSERT INTO evenement (nom, description, departement, contentEtu, moyenEtu, pasContentEtu, contentEmp, moyenEmp, pasContentEmp)
-            VALUES ('$nom', '$description', '$departement', 0, 0, 0, 0, 0, 0)";
+            $sql = "INSERT INTO evenement (nom, description, departement, lieu, date, contentEtu, moyenEtu, pasContentEtu, contentEmp, moyenEmp, pasContentEmp)
+            VALUES ('$nom', '$description', '$departement', '$lieu', '$date', 0, 0, 0, 0, 0, 0)";
 
                 if (mysqli_query($conn, $sql)) {
                     echo "Enregistrement réussi";
@@ -107,7 +123,12 @@
                                 <button type="button" class="form-control mb-2" value="<?php echo $departement;?>"><i class="fa-solid fa-plus"></i></button>
                             </div>
                         </div>
-                        
+
+                        <input type="text" class="form-control mb-2" placeholder="Lieu" name="nLieu" value="<?php echo $lieu;?>">
+                        <p class="error"><?php echo $LieuErreur; ?></p>
+
+                        <input type="date" class="form-control mb-2" placeholder="Date" name="nDate" value="<?php echo $date;?>">
+                        <p class="error"><?php echo $dateErreur; ?></p>
 
                         <textarea type="textarea" class="form-control mb-2" placeholder="Description" name="nDescription" value="<?php echo $description;?>"></textarea>
                         <p class="error"><?php echo $descriptionErreur; ?></p>

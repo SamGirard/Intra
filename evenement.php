@@ -52,7 +52,7 @@
                             echo '</div><div class="row">';
                         }
                 ?>
-                    <div class="col-md-3 col-10 boite mx-auto mt-5">
+                    <div class="col-md-3 col-10 boite mx-auto mt-5 mb-5">
                         <div class="row">
                             <div class="col-md-10">
                                 <h2 class="mt-3 titre"><?php echo $row['nom']?></h1>
@@ -64,6 +64,8 @@
                         
                         <p class="desc"><?php echo $row['description']?></p>
                         <h3 class="my-4">Département : <?php echo $row['departement']?></h3>
+                        <h4 class="my-4">Lieu : <?php echo $row['lieu']?></h4>
+                        <h4 class="my-4">Date : <?php echo $row['date']?></h4>
                         <div class="row text-center">
                             <div class="col-md-4">
                                 <h5><?php echo $row['contentEtu']?><i class="fa-solid fa-face-smile mx-2"></i></h5>
