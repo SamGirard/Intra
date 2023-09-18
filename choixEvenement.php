@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -29,36 +28,69 @@
             $conn->query('SET NAMES utf8');
             $sql = "SELECT * FROM evenement";
             $result = $conn->query($sql);
+
+
+            $choix = "";
+            $choixErreur = "";
+            $erreur = false;
+
+            if ($_SERVER['REQUEST_METHOD'] == "POST"){
+
+                $choix = $_POST['val_id'];
+
+                if($choix == "rien"){
+                    $choixErreur = "Choisissez un évènement";
+                    $erreur = true;
+                }
+
+                $action = $_POST['action'];
+
+                $conn->close();
+            }
+
+
+            if ($_SERVER['REQUEST_METHOD'] != "POST" || $erreur == true){
+                
+                ?>
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6 offset-3">
+                            <h2 class="text-center">Pour qu'elle évènement voulez-vous partir un sondage?</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 offset-3">
+                            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+                                <Select class="form-control" name="val_id">
+                                <option value="rien" class="form-control">...</option>
+                                    <?php
+                                        $ctr = 0;
+                                        while($row = $result->fetch_assoc()){
+                                    ?>
+                                        <option value="<?php echo $row['id']; ?>" class="form-control"><?php echo $row['nom']?></option>
+                                    <?php
+                                        $ctr++;
+                                        }
+                                    ?>
+                                </Select>
+                                
+                                <p type="text" class="error mt-1"><?php echo $choixErreur ?></p>
+
+                                <button class="form-control mt-3" type="submit" name="action">Afficher le sondage</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <?php
+
+        } else {
+            $id = $_POST['val_id'];
+            header("Location: sourire.php?id=" . $id);
+            die;
+        }
         ?>
 
-
-
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6 offset-3 text-center">
-                    <h2>Pour qu'elle évènement voulez-vous partir un sondage?</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 offset-3 text-center">
-                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                        <Select class="form-control">
-                            <?php
-                                $ctr = 0;
-                                while($row = $result->fetch_assoc()){
-                            ?>
-                                <option value="rien" class="form-control">...</option>
-                                <option value="<?php $ctr?>" class="form-control"><?php echo $row['nom']?></option>
-                            <?php
-                                $ctr++;
-                                }
-                            ?>
-                        </Select>
-
-                        <button class="form-control mt-3">Afficher le sondage</button>
-                    </form>
-                </div>
-            </div>
-        </div>
     </body>
 </html>
