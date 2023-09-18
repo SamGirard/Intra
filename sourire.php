@@ -12,57 +12,60 @@
     <body>
 
     <?php
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        
-            $id = $_POST['id'];
-            
-                //Faire la connection
-                $servername = "localhost";
-                $username = "root";
-                $password = "root";
-                $db = "intra smiley";
+        $id = $_GET['id'];
 
-                //Creer la connection
-                $conn = new mysqli($servername, $username, $password, $db);
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-                //vérifier la connection
-                if($conn->connect_error) {
-                    die("Connection échoué: " . $conn->connect_error);
-                }
+            // Récupérer les valeurs des compteurs depuis la requête AJAX
+            $ctrValueBon = intval($_POST['counter1']);
+            $ctrValueMoyen = intval($_POST['counter2']);
+            $ctrValuePasBon = intval($_POST['counter3']);
 
-                //Afficher les donnée
-                $conn->query('SET NAMES utf8');
-                $sql = "SELECT * FROM evenement";
-                $result = $conn->query($sql);
+            // Faire la connexion à la base de données
+            $servername = "localhost";
+            $username = "root";
+            $password = "root";
+            $db = "intra smiley";
 
-                if ($result->num_rows > 0) {
-                    $row = $result->fetch_assoc();
-                    $nom = $row['nom'];
-                    echo "<h1>$nom</h1>";
-                } else {
-                    echo "Aucun élément trouvé avec cet ID.";
-                }
+            $conn = new mysqli($servername, $username, $password, $db);
 
-            }else {
-                echo "ID non spécifié dans la requête.";
+            // Vérifier la connexion
+            if ($conn->connect_error) {
+                die("Connection échouée : " . $conn->connect_error);
             }
-?>
 
-        <div class="container-fluid h-100">
-            <div class="row text-center">
-                <div class="col-md-3 mx-auto">
-                    <button id="btnContent"><img src="img/content.jpg" height="400" width="400"></button>
-                </div>
-                <div class="col-md-3 mx-auto">
-                    <img src="img/bof.jpg" height="400" width="400">
-                </div>
-                <div class="col-md-3 mx-auto">
-                    <img src="img/pas content.jpg" height="400" width="400">
-                </div>
+            // Mettre à jour les valeurs dans la base de données
+            $sql = "UPDATE evenement SET contentEtu = '$ctrValueBon', moyenEtu = '$ctrValueMoyen', pasContentEtu = '$ctrValuePasBon' WHERE id = $id";
+
+            if ($conn->query($sql) === TRUE) {
+                echo "Mise à jour réussie.";
+            } else {
+                echo "Erreur lors de la mise à jour : " . $conn->error;
+            }
+
+            // Fermer la connexion
+            $conn->close();
+        }
+    ?>
+
+    <div class="container-fluid h-100">
+        <div class="row text-center">
+            <div class="col-md-3 mx-auto">
+                <button id="btnContent" onclick="clickContent()"><img src="img/content.jpg" height="400" width="400"></button>
+            </div>
+            <div class="col-md-3 mx-auto">
+                <button onclick="clickMoyen()"><img src="img/bof.jpg" height="400" width="400"></button>
+            </div>
+            <div class="col-md-3 mx-auto">
+                <button onclick="clickPasContent()"><img src="img/pas content.jpg" height="400" width="400"></button>
             </div>
         </div>
-        <h1><?php echo $nom;?></h1>
+    </div>
+    <h1><?php echo $id;?></h1>
+    <h2 id="ctr1">0</h2>
+    <h2 id="ctr2">0</h2>
+    <h2 id="ctr3">0</h2>
 
-        <script src="js/sourire.js"></script>
+    <script src="js/sourire.js"></script>
     </body>
 </html>
