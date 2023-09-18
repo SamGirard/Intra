@@ -34,7 +34,7 @@
             $choixErreur = "";
             $erreur = false;
 
-            if ($_SERVER['REQUEST_METHOD'] === "POST"){
+            if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
                 $choix = $_POST['val_id'];
 
@@ -42,6 +42,10 @@
                     $choixErreur = "Choisissez un évènement";
                     $erreur = true;
                 }
+
+                $action = $_POST['action'];
+
+                $conn->close();
             }
 
 
@@ -57,7 +61,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6 offset-3">
-                            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
                                 <Select class="form-control" name="val_id">
                                 <option value="rien" class="form-control">...</option>
                                     <?php
@@ -73,7 +77,7 @@
                                 
                                 <p type="text" class="error mt-1"><?php echo $choixErreur ?></p>
 
-                                <button class="form-control mt-3" type="submit">Afficher le sondage</button>
+                                <button class="form-control mt-3" type="submit" name="action">Afficher le sondage</button>
                             </form>
                         </div>
                     </div>
