@@ -35,6 +35,13 @@
         }
         echo "Connection Réussi!";
 
+        //Afficher les donnée pour departemnet
+        $conn->query('SET NAMES utf8');
+        $sql = "SELECT * FROM departement";
+        $result = $conn->query($sql);
+
+       
+
 
         $nom = $description = $departement = $lieu = $date = "";
         $nomErreur = $descriptionErreur = $departementErreur = $LieuErreur = $dateErreur = "";
@@ -58,13 +65,6 @@
             else {
                 $description = trojan($_POST['nDescription']);
             }
-            if(empty($_POST['nDepartement'])){
-                $departementErreur = "Le département ne peut pas être vide";
-                $erreur = true;
-            }
-            else {
-                $departement = trojan($_POST['nDepartement']);
-            }
             if(empty($_POST['nLieu'])){
                 $LieuErreur = "Le lieu ne peut pas être vide";
                 $erreur = true;
@@ -79,11 +79,19 @@
             else {
                 $date = trojan($_POST['nDate']);
             }
+
+            $choix = $_POST['departe'];
+
+            if ($choix == "rien") {
+                $choixErreur = "Choisissez un département";
+                $erreur = true;
+            } else {
+                $departement = $choix;
+            }
             
 
             $nom = trojan($_POST['nNom']);
             $description = trojan($_POST['nDescription']);
-            $departement = trojan($_POST['nDepartement']);
             $lieu = trojan($_POST['nLieu']);
             $date = trojan($_POST['nDate']);
 
@@ -116,11 +124,23 @@
 
                         <div class="row">
                             <div class="col-md-10">
-                                <input type="text" class="form-control mb-2" placeholder="Départment associé" name="nDepartement" value="<?php echo $departement;?>">
-                                <p class="error"><?php echo $departementErreur; ?></p>
+                                <Select class="form-control" name="departe">
+                                    <option value="rien" class="form-control">Choisissez un département</option>
+                                        <?php
+                                            $ctr = 0;
+                                            while($row = $result->fetch_assoc()){
+                                        ?>
+                                            <option value="<?php echo $row['nomDepartement'];?>" class="form-control"><?php echo $row['nomDepartement']?></option>
+                                        <?php
+                                            $ctr++;
+                                            }
+                                        ?>
+                                    </Select>
                             </div>
                             <div class="col-md-2">
-                                <button type="button" class="form-control mb-2" value="<?php echo $departement;?>"><i class="fa-solid fa-plus"></i></button>
+                                <a href="creationDepart.php">
+                                    <button type="button" class="form-control mb-2" value="<?php echo $departement;?>"><i class="fa-solid fa-plus"></i></button>
+                                </a>
                             </div>
                         </div>
 
