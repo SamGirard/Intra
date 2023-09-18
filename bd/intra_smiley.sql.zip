@@ -1,0 +1,107 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.4.1
+-- http://www.phpmyadmin.net
+--
+-- Client :  localhost
+-- Généré le :  Lun 18 Septembre 2023 à 15:13
+-- Version du serveur :  5.7.11
+-- Version de PHP :  7.0.3
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données :  `intra smiley`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `evenement`
+--
+
+CREATE TABLE `evenement` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(255) NOT NULL,
+  `description` varchar(1000) NOT NULL,
+  `departement` varchar(255) NOT NULL,
+  `lieu` varchar(255) NOT NULL,
+  `date` date NOT NULL,
+  `contentEtu` int(11) NOT NULL,
+  `moyenEtu` int(11) NOT NULL,
+  `pasContentEtu` int(11) NOT NULL,
+  `contentEmp` int(11) NOT NULL,
+  `moyenEmp` int(11) NOT NULL,
+  `pasContentEmp` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `evenement`
+--
+
+INSERT INTO `evenement` (`id`, `nom`, `description`, `departement`, `lieu`, `date`, `contentEtu`, `moyenEtu`, `pasContentEtu`, `contentEmp`, `moyenEmp`, `pasContentEmp`) VALUES
+(1, 'Test', 'Le premier evenement creer', 'Info', 'Cégep', '2023-09-20', 0, 0, 0, 0, 0, 0),
+(2, 'Réunion du département de marketing', 'La réunion du département de marketing aura lieu le jeudi 20 octobre 2023 Ã  14h00. L\'objectif de cette réunion est de discuter des prochaines campagnes publicitaires pour le quatrième trimestre et de planifier les stratégies de marketing numérique. Tous les membres de l\'équipe sont invités Ã  assister Ã  cette réunion importante pour contribuer Ã  la croissance de notre entreprise', 'Marketing', 'Chez moi', '2023-09-28', 0, 0, 0, 0, 0, 0),
+(3, 'Event au pub', 'Un pub (mot dâ€™origine anglais venant de public house1) est un Ã©tablissement oÃ¹ l\'on consomme des boissons gÃ©nÃ©ralement alcoolisÃ©es (biÃ¨re, whisky) qui se trouve en grand nombre en Grande-Bretagne, en Irlande, et en Bretagne mais qui sâ€™est Ã©galement exportÃ© dans dâ€™autres pays anglo-saxons comme l\'Australie.', 'Soins Infirmier', 'Hopital', '2024-02-23', 0, 0, 0, 0, 0, 0),
+(4, 'Test 2', 'TESTETSTETTSTETSTTETSTETSTTETSTETSTTETSTETTS', 'Soins Infirmier', 'Hoptial', '2023-09-13', 0, 0, 0, 0, 0, 0),
+(5, 'Test', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'Soins Infirmier', 'DADSAD', '2023-06-06', 0, 0, 0, 0, 0, 0),
+(6, 'Test 2', 'TEST DU LIEU  et de la date', 'Logique', 'Cegep', '2023-09-14', 0, 0, 0, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `utilisateur`
+--
+
+CREATE TABLE `utilisateur` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(255) NOT NULL,
+  `password` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `utilisateur`
+--
+
+INSERT INTO `utilisateur` (`id`, `nom`, `password`) VALUES
+(1, 'Samuel', '4c8adb23b40476cf7f603df1c7b19f8a');
+
+--
+-- Index pour les tables exportées
+--
+
+--
+-- Index pour la table `evenement`
+--
+ALTER TABLE `evenement`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `evenement`
+--
+ALTER TABLE `evenement`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT pour la table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

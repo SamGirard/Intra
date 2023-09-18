@@ -43,7 +43,7 @@
                 die("Connection erreur : " . $conn->connect_error);
             }
 
-            $sql = "SELECT * FROM utilisateur WHERE user = '$usager' AND password ='$password'";
+            $sql = "SELECT * FROM utilisateur WHERE nom = '$usager' AND password ='$password'";
             //echo $sql;
 
             $result = $conn->query($sql);
