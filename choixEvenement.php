@@ -34,16 +34,13 @@
             $choixErreur = "";
             $erreur = false;
 
-            if ($_SERVER['REQUEST_METHOD'] == "POST"){
+            if ($_SERVER['REQUEST_METHOD'] === "POST"){
 
                 $choix = $_POST['val_id'];
 
                 if($choix == "rien"){
                     $choixErreur = "Choisissez un évènement";
                     $erreur = true;
-                }
-                else {
-                    $id = $_POST['id'];
                 }
             }
 
@@ -85,6 +82,7 @@
                 <?php
 
         } else {
+            $id = $_POST['val_id'];
             header("Location: sourire.php?id=" . $id);
             die;
         }

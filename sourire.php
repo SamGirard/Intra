@@ -12,63 +12,41 @@
     <body>
 
     <?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id = $_POST['id'];
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        
+            $id = $_POST['id'];
+            
+                //Faire la connection
+                $servername = "localhost";
+                $username = "root";
+                $password = "root";
+                $db = "intra smiley";
 
-    // Faites la mise à jour de la base de données ici en utilisant l'ID reçu
+                //Creer la connection
+                $conn = new mysqli($servername, $username, $password, $db);
 
-    // Vous pouvez renvoyer une réponse JSON pour indiquer le résultat de la mise à jour
-    $response = array();
+                //vérifier la connection
+                if($conn->connect_error) {
+                    die("Connection échoué: " . $conn->connect_error);
+                }
 
-    // Faire la connexion à la base de données
-    $servername = "localhost";
-    $username = "root";
-    $password = "root";
-    $db = "intra smiley"; // Notez que j'ai corrigé le nom de la base de données
+                //Afficher les donnée
+                $conn->query('SET NAMES utf8');
+                $sql = "SELECT * FROM evenement";
+                $result = $conn->query($sql);
 
-    $conn = new mysqli($servername, $username, $password, $db);
+                if ($result->num_rows > 0) {
+                    $row = $result->fetch_assoc();
+                    $nom = $row['nom'];
+                    echo "<h1>$nom</h1>";
+                } else {
+                    echo "Aucun élément trouvé avec cet ID.";
+                }
 
-    // Vérifier la connexion
-    if ($conn->connect_error) {
-        $response['success'] = false;
-        $response['message'] = "Connection échouée : " . $conn->connect_error;
-    } else {
-        // Sélectionner la valeur actuelle de contentEtu
-        $sql = "SELECT contentEtu FROM evenement WHERE id = $id";
-        $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            $currentContent = $row['contentEtu'];
-
-            // Incrémenter la valeur de contentEtu
-            $newContent = $currentContent + 1;
-
-            // Mettre à jour la base de données avec la nouvelle valeur
-            $updateSql = "UPDATE evenement SET contentEtu = $newContent WHERE id = $id";
-            if ($conn->query($updateSql) === TRUE) {
-                $response['success'] = true;
-                $response['message'] = "Mise à jour réussie.";
-            } else {
-                $response['success'] = false;
-                $response['message'] = "Erreur lors de la mise à jour : " . $conn->error;
+            }else {
+                echo "ID non spécifié dans la requête.";
             }
-        } else {
-            $response['success'] = false;
-            $response['message'] = "Événement non trouvé.";
-        }
-
-        // Fermer la connexion
-        $conn->close();
-    }
-
-    // Renvoyer la réponse JSON
-    echo json_encode($response);
-}
 ?>
-
-
-
 
         <div class="container-fluid h-100">
             <div class="row text-center">
@@ -83,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
             </div>
         </div>
-
+        <h1><?php echo $nom;?></h1>
 
         <script src="js/sourire.js"></script>
     </body>

@@ -58,12 +58,12 @@
                                 <h2 class="mt-3 titre"><?php echo $row['nom']?></h1>
                             </div>
                             <div class="col-md-2">
-                                <a href="infoEvent.php"><i class=" mt-3 fa-solid fa-square-up-right fa-3x"></i></a>
+                                <a href="infoEvent.php?id=<?php echo $row['id']?>"><i class="mt-3 fa-solid fa-square-pen fa-3x"></i></a>
                             </div>
                         </div>
                         
                         <p class="desc"><?php echo $row['description']?></p>
-                        <h3 class="my-4"><?php echo $row['departement']?></h3>
+                        <h3 class="my-4">Département : <?php echo $row['departement']?></h3>
                         <div class="row text-center">
                             <div class="col-md-4">
                                 <h5><?php echo $row['contentEtu']?><i class="fa-solid fa-face-smile mx-2"></i></h5>
