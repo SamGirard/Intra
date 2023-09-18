@@ -54,11 +54,14 @@
                 ?>
                     <div class="col-md-3 col-10 boite mx-auto mt-5 mb-5">
                         <div class="row">
-                            <div class="col-md-10">
+                            <div class="col-md-8">
                                 <h2 class="mt-3 titre"><?php echo $row['nom']?></h1>
                             </div>
                             <div class="col-md-2">
-                                <a href="infoEvent.php?id=<?php echo $row['id']?>"><i class="mt-3 fa-solid fa-square-pen fa-3x"></i></a>
+                                <a href="infoEvent.php?id=<?php echo $row['id']?>"><i class="mt-3 fa-solid fa-square-pen fa-3x" style="color: #292929"></i></a>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="supprime.php?id=<?php echo $row['id']?>"><i class="mt-3 fa-solid fa-square-xmark fa-3x" style="color: #ff4242;"></i></a>
                             </div>
                         </div>
                         
