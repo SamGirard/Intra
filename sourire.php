@@ -17,9 +17,9 @@
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // Récupérer les valeurs des compteurs depuis la requête AJAX
-            $ctrValueBon = intval($_POST['counter1']);
-            $ctrValueMoyen = intval($_POST['counter2']);
-            $ctrValuePasBon = intval($_POST['counter3']);
+            $ctrValueBon = intval($_POST['ctr1']);
+            $ctrValueMoyen = intval($_POST['ctr2']);
+            $ctrValuePasBon = intval($_POST['ctr3']);
 
             // Faire la connexion à la base de données
             $servername = "localhost";
@@ -62,9 +62,9 @@
         </div>
     </div>
     <h1><?php echo $id;?></h1>
-    <h2 id="ctr1">0</h2>
-    <h2 id="ctr2">0</h2>
-    <h2 id="ctr3">0</h2>
+    <h2 id="ctr1"></h2>
+    <h2 id="ctr2"></h2>
+    <h2 id="ctr3"></h2>
 
     <script src="js/sourire.js"></script>
     </body>
