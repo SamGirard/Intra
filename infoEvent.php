@@ -32,6 +32,16 @@
                     $sql = "SELECT * FROM evenement WHERE id = $id";
                     $result = $conn->query($sql);
 
+                    $conn->query('SET NAMES utf8');
+                    $sql2 = "SELECT * FROM departement";
+                    $result2 = $conn->query($sql2);
+
+                    //connection avec la table departement
+                    if ($result2->num_rows > 0) {
+                        $row2 = $result2->fetch_assoc();
+                        $nomDep = $row2['nomDepartement'];
+                    }
+
                     if ($result->num_rows > 0) {
                         $row = $result->fetch_assoc();
                         $nom = $row['nom'];
@@ -75,17 +85,22 @@
                             $departementErreur = "Le département ne peut pas être vide";
                             $erreur = true;
                         }
-                        else {
-                            $departement = trojan($_POST['departement']);
-                        }
                         
                             
                         $nom = trojan($_POST['nom']);
                         $departement = trojan($_POST['departement']);
     
 
-                        $sql = "UPDATE evenement SET nom = '$nom', description = '$description', departement = '$departement', contentEtu = '$contentEtu', moyenEtu = '$moyenEtu', pasContentEtu = '$pasContentEtu', contentEmp = '$contentEmp', moyenEmp = '$moyenEmp', pasContentEmp = '$pasContentEmp' WHERE id='$id'";
-
+                        if (!$erreur) {
+                            // Mettre à jour la base de données
+                            $sql = "UPDATE evenement SET nom = '$nom', description = '$description', departement = '$departement', contentEtu = '$contentEtu', moyenEtu = '$moyenEtu', pasContentEtu = '$pasContentEtu', contentEmp = '$contentEmp', moyenEmp = '$moyenEmp', pasContentEmp = '$pasContentEmp' WHERE id='$id'";
+                            
+                            if ($conn->query($sql) === TRUE) {
+                                echo "Mise à jour réussie.";
+                            } else {
+                                echo "Erreur lors de la mise à jour : " . $conn->error;
+                            }
+                        }
                         $conn->close();
 
                     }
@@ -97,6 +112,7 @@
                     <div class="row">
                         <div class="col-md-4 offset-4">
                             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="mt-5">
+                            
                                 <label>Nom : </label>
                                 <input type="text" class="form-control" value="<?php echo $nom; ?>" name="nom">
                                 <p class="error"><?php echo $nomErreur; ?></p>
@@ -105,7 +121,20 @@
                                 <textarea type="text" class="form-control" value="<?php echo $description; ?>" name="description"><?php echo $description;?></textarea>
 
                                 <label class="mt-3">Département : </label>
-                                <input type="text" class="form-control" value="<?php echo $departement; ?>" name="departement">
+                                
+                                <Select class="form-control" name="departe">
+                                    <option value="rien" class="form-control">Choisissez un département</option>
+                                        <?php
+                                            $ctr = 0;
+                                            while($row2 = $result2->fetch_assoc()){
+                                                $selected = ($row2['nomDepartement'] == $departement) ? "selected" : "";
+                                        ?>
+                                            <option value="<?php echo $row2['nomDepartement'];?>" class="form-control"><?php echo $row2['nomDepartement']?></option>
+                                        <?php
+                                            $ctr++;
+                                            }
+                                        ?>
+                                    </Select>
                                 <p class="error"><?php echo $departementErreur; ?></p>
 
                                 <label class="mt-3">Nombre d'avis satisfait (Étudiant) : </label>
@@ -136,7 +165,7 @@
                 <?php
         
             } else {
-                header("Location: index.php");
+                header("Location: evenement.php");
                 die;
          
         ?>

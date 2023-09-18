@@ -17,7 +17,7 @@
     <?php
 
     $_SESSION["connexion"] = true;
-    echo "Connexion réussi" . $_SESSION["connexion"];
+    
 
 
         //Faire la connection
@@ -33,7 +33,6 @@
         if($conn->connect_error) {
             die("Connection échoué: " . $conn->connect_error);
         }
-        echo "Connection Réussi!";
 
         //Afficher les donnée pour departemnet
         $conn->query('SET NAMES utf8');
