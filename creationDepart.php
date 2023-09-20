@@ -16,8 +16,8 @@
     <body>
     <?php
 
-$_SESSION["connexion"] = true;
-echo "Connexion réussi" . $_SESSION["connexion"];
+    $_SESSION["connexion"] = true;
+    echo "Connexion réussi" . $_SESSION["connexion"];
 
 
     //Faire la connection
@@ -37,7 +37,7 @@ echo "Connexion réussi" . $_SESSION["connexion"];
 
     //Afficher les donnée pour departemnet
     $conn->query('SET NAMES utf8');
-    $sql = "SELECT * FROM departement";
+    $sql = "SELECT * FROM tbdepartement";
     $result = $conn->query($sql);
 
    

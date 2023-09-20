@@ -16,10 +16,8 @@
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-            // Récupérer les valeurs des compteurs depuis la requête AJAX
-            $ctrValueBon = intval($_POST['ctr1']);
-            $ctrValueMoyen = intval($_POST['ctr2']);
-            $ctrValuePasBon = intval($_POST['ctr3']);
+            $type = $_POST['type'];
+            $value = intval($_POST['value']);
 
             // Faire la connexion à la base de données
             $servername = "localhost";
@@ -35,13 +33,28 @@
             }
 
             // Mettre à jour les valeurs dans la base de données
-            $sql = "UPDATE evenement SET contentEtu = '$ctrValueBon', moyenEtu = '$ctrValueMoyen', pasContentEtu = '$ctrValuePasBon' WHERE id = $id";
-
-            if ($conn->query($sql) === TRUE) {
-                echo "Mise à jour réussie.";
-            } else {
-                echo "Erreur lors de la mise à jour : " . $conn->error;
+            $updateField = "";
+            switch ($type) {
+                case "content":
+                    $updateField = "contentEtu";
+                    break;
+                case "moyen":
+                    $updateField = "moyenEtu";
+                    break;
+                case "pasContent":
+                    $updateField = "pasContentEtu";
+                    break;
             }
+
+    if (!empty($updateField)) {
+        $sql = "UPDATE `evenement` SET `contentEtu`='".$updateField"',`moyenEtu`=[value-8],`pasContentEtu`=[value-9],`contentEmp`=[value-10],`moyenEmp`=[value-11],`pasContentEmp`=[value-12] WHERE `id`";
+
+        if ($conn->query($sql) === TRUE) {
+            echo "Mise à jour réussie.";
+        } else {
+            echo "Erreur lors de la mise à jour : " . $conn->error;
+        }
+    }
 
             // Fermer la connexion
             $conn->close();

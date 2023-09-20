@@ -16,6 +16,7 @@
     <body class="pageEvent">
 
     <?php
+
         //Faire la connection
         $servername = "localhost";
         $username = "root";
@@ -34,6 +35,10 @@
             $conn->query('SET NAMES utf8');
             $sql = "SELECT * FROM evenement";
             $result = $conn->query($sql);
+
+            if (isset($_GET['id'])) {
+                $id = $_GET['id'];
+            }
         ?>
 
 

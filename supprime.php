@@ -65,7 +65,7 @@
                     <button type="submit" class="form-control">Oui</button>
                 </div>
                 <div class="col-md-2">
-                    <a href="evenement.php"><button class="form-control">Annuler</button></a>
+                    <a href="evenement.php"><button class="form-control" type="">Annuler</button></a>
                 </div>
             </form>
             </div>

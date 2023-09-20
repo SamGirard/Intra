@@ -33,7 +33,7 @@
                     $result = $conn->query($sql);
 
                     $conn->query('SET NAMES utf8');
-                    $sql2 = "SELECT * FROM departement";
+                    $sql2 = "SELECT * FROM tbdepartement";
                     $result2 = $conn->query($sql2);
 
                     //connection avec la table departement
@@ -46,6 +46,8 @@
                         $row = $result->fetch_assoc();
                         $nom = $row['nom'];
                         $description = $row['description'];
+                        $lieu = $row['lieu'];
+                        $date = $row['date'];
                         $departement = $row['departement'];
                         $contentEtu = $row['contentEtu'];
                         $moyenEtu = $row['moyenEtu'];
@@ -57,22 +59,10 @@
                         // Gérer l'erreur si aucun enregistrement correspondant n'est trouvé
                     }
 
-                    $nomErreur = $departementErreur = "";
+                    $nomErreur = $departementErreur = $lieuErreur = $dateErreur = "";
                     $erreur = false;
                     
                     if ($_SERVER['REQUEST_METHOD'] == "POST"){
-
-                        $nom = trojan($_POST['nom']);
-                        $description = trojan($_POST['description']);
-                        $departement = trojan($_POST['departement']);
-                        $contentEtu = $_POST['contentEtu'];
-                        $moyenEtu = $_POST['moyenEtu'];
-                        $pasContentEtu = $_POST['pasContentEtu'];
-                        $contentEmp = $_POST['contentEmp'];
-                        $moyenEmp = $_POST['moyenEmp'];
-                        $pasContentEmp = $_POST['pasContentEmp'];
-
-                        $action = $_POST['action'];
 
                         if(empty($_POST['nom'])){
                             $nomErreur = "Le nom ne peut pas être vide";
@@ -85,22 +75,36 @@
                             $departementErreur = "Le département ne peut pas être vide";
                             $erreur = true;
                         }
+                        if(empty($_POST['lieu'])){
+                            $lieuErreur = "Le lieu ne peut pas être vide";
+                            $erreur = true;
+                        }
+                        else {
+                            $lieu = trojan($_POST['lieu']);
+                        }
                         
-                            
-                        $nom = trojan($_POST['nom']);
-                        $departement = trojan($_POST['departement']);
+                        $departement = $_POST['departement'];
+                        $date = $_POST['date'];
+                        $contentEtu = $_POST['contentEtu'];
+                        $moyenEtu = $_POST['moyenEtu'];
+                        $pasContentEtu = $_POST['pasContentEtu'];
+                        $contentEmp = $_POST['contentEmp'];
+                        $moyenEmp = $_POST['moyenEmp'];
+                        $pasContentEmp = $_POST['pasContentEmp'];
     
 
                         if (!$erreur) {
                             // Mettre à jour la base de données
-                            $sql = "UPDATE evenement SET nom = '$nom', description = '$description', departement = '$departement', contentEtu = '$contentEtu', moyenEtu = '$moyenEtu', pasContentEtu = '$pasContentEtu', contentEmp = '$contentEmp', moyenEmp = '$moyenEmp', pasContentEmp = '$pasContentEmp' WHERE id='$id'";
+                            $sql = "UPDATE evenement SET nom = '$nom' WHERE id = '$id'";
+                                    
                             
-                            if ($conn->query($sql) === TRUE) {
+                            if ($conn->query($sql) == TRUE) {
                                 echo "Mise à jour réussie.";
                             } else {
                                 echo "Erreur lors de la mise à jour : " . $conn->error;
                             }
                         }
+                        
                         $conn->close();
 
                     }
@@ -120,10 +124,18 @@
                                 <label class="mt-3">Description : </label>
                                 <textarea type="text" class="form-control" value="<?php echo $description; ?>" name="description"><?php echo $description;?></textarea>
 
+                                <label>Lieu : </label>
+                                <input type="text" class="form-control" value="<?php echo $lieu; ?>" name="lieu">
+                                <p class="error"><?php echo $lieuErreur; ?></p>
+
+                                <label>Date : </label>
+                                <input type="date" class="form-control" value="<?php echo $date; ?>" name="date">
+                                <p class="error"><?php echo $dateErreur; ?></p>
+
                                 <label class="mt-3">Département : </label>
                                 
-                                <Select class="form-control" name="departe">
-                                    <option value="rien" class="form-control">Choisissez un département</option>
+                                <Select class="form-control" name="departement">
+                                    <option value="<?php echo $departement?>" class="form-control"><? echo $departement?></option>
                                         <?php
                                             $ctr = 0;
                                             while($row2 = $result2->fetch_assoc()){

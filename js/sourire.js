@@ -1,36 +1,56 @@
-let ctr1 = 0;
-let ctr2 = 0;
-let ctr3 = 0;
-let ctrVal1 = document.getElementById("ctr1");
-let ctrVal2 = document.getElementById("ctr2");
-let ctrVal3 = document.getElementById("ctr3");
+// Dans sourire.js
 
-// Fonction générique pour incrémenter le compteur et envoyer au serveur
-function incrementCounter(counterName, counterElement) {
-    counterName++;
-    counterElement.innerHTML = counterName;
+// Fonction pour gérer le clic sur le bouton Content
+function clickContent() {
+    // Augmentez le compteur
+    ctrValueBon++;
+    // Mettez à jour l'affichage
+    document.getElementById('ctr1').textContent = 'Content: ' + ctrValueBon;
+    // Envoyez la valeur du compteur à la base de données
+    updateDatabase('content', ctrValueBon);
+}
 
-    // Envoi de la valeur au serveur PHP via une requête AJAX
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", "sourire.php", true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+// Fonction pour gérer le clic sur le bouton Moyen
+function clickMoyen() {
+    // Augmentez le compteur
+    ctrValueMoyen++;
+    // Mettez à jour l'affichage
+    document.getElementById('ctr2').textContent = 'Moyen: ' + ctrValueMoyen;
+    // Envoyez la valeur du compteur à la base de données
+    updateDatabase('moyen', ctrValueMoyen);
+}
+
+// Fonction pour gérer le clic sur le bouton Pas Content
+function clickPasContent() {
+    // Augmentez le compteur
+    ctrValuePasBon++;
+    // Mettez à jour l'affichage
+    document.getElementById('ctr3').textContent = 'Pas Content: ' + ctrValuePasBon;
+    // Envoyez la valeur du compteur à la base de données
+    updateDatabase('pasContent', ctrValuePasBon);
+}
+
+// Fonction pour envoyer la valeur du compteur à la base de données
+function updateDatabase(type, value) {
+    // Créez une instance XMLHttpRequest
+    var xhr = new XMLHttpRequest();
+    // Définissez la méthode et l'URL pour la requête
+    xhr.open('POST', 'sourire.php', true);
+    // Configurez l'en-tête de la requête
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    // Définissez la fonction de rappel pour la réponse
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            // Réponse du serveur (peut contenir un message de confirmation)
+            // Réponse de la requête
             console.log(xhr.responseText);
         }
     };
-    xhr.send(counterName + "=" + counterName);
+    // Créez les données à envoyer
+    var data = 'type=' + type + '&value=' + value;
+    // Envoyez la requête
+    xhr.send(data);
 }
 
-function clickContent() {
-    incrementCounter(ctr1, ctrVal1);
-}
-
-function clickMoyen() {
-    incrementCounter(ctr2, ctrVal2);
-}
-
-function clickPasContent() {
-    incrementCounter(ctr3, ctrVal3);
-}
+var ctrValueBon = 0;
+var ctrValueMoyen = 0;
+var ctrValuePasBon = 0;

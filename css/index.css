@@ -183,6 +183,15 @@ button{
     border-radius: 20px;
 }
 
+.plus{
+    height: 60px;
+}
+
+select{
+    height: 60px;
+    font-size: 30pt;
+}
+
 input{
     height: 60px;
     font-size: 30pt;

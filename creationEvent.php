@@ -36,7 +36,7 @@
 
         //Afficher les donnée pour departemnet
         $conn->query('SET NAMES utf8');
-        $sql = "SELECT * FROM departement";
+        $sql = "SELECT * FROM tbdepartement";
         $result = $conn->query($sql);
 
        
@@ -138,7 +138,7 @@
                             </div>
                             <div class="col-md-2">
                                 <a href="creationDepart.php">
-                                    <button type="button" class="form-control mb-2" value="<?php echo $departement;?>"><i class="fa-solid fa-plus"></i></button>
+                                    <button type="button" class="form-control mb-2 plus" value="<?php echo $departement;?>"><i class="fa-solid fa-plus"></i></button>
                                 </a>
                             </div>
                         </div>
