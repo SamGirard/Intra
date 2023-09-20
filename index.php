@@ -18,9 +18,18 @@
     <?php 
         if($_SESSION['connexion'] == true){
     ?>
-
-        <a href="newUser.php" class="col-md-1 offset-11 utilisateur">Ajouter un utilisateur</a>
-        <div class="container-fluid h-100 d-flex justify-content-center align-items-center p-0">
+        <div class="container-fluid mx-0 navBar">
+            <div class = "row">
+                <div class="col-md-1">
+                    <a href="deconnecter.php" class="deco">Deconnexion</a>
+                </div>
+                <div class="col-md-1 offset-10 text-right">
+                    <a href="newUser.php" class="utilisateur utilisateur">Ajouter un utilisateur</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container-fluid navBar1 d-flex justify-content-center align-items-center p-0">
             <div class="row align-items-center text-center ranger">
                 <div class="col-md-4 px-0">
                     <a href="evenement.php" class="event mx-4 d-flex flex-column align-items-center">

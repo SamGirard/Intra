@@ -13,7 +13,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     </head>
 
-    <body>
+    <body class="login">
 
     <?php
 
@@ -89,24 +89,20 @@
         ?>
 
 
-        <div class="container-fluid">
-            <div class="row">
-                <div class = "col-md-6 offset-3 text-center">
+        <div class="container-fluid mt-5">
+            <div class="row mt-5">
+                <div class="col-md-4 offset-4 mt-5">
+                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" class="loginForm">
                     <h1>Se connecter</h1>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 offset-3">
-                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" class="mt-5">
-                        <input type="text" class="form-control mb-2" placeholder="Nom d'usager" name="usager">
+                        <input type="text" class="form-control mb-4" placeholder="Nom d'usager" name="usager">
                         <p class="error"><?php echo $usagerErreur; ?></p>
 
-                        <input type="password" class="form-control mb-2" placeholder="Mot de passe" name="mdp">
+                        <input type="password" class="form-control mb-5" placeholder="Mot de passe" name="mdp">
                         <p class="error"><?php echo $mdpErreur; ?></p>
 
 
                         <p class="error"><?php echo $erreurLogin?></p>
-                        <button type="submit" class="form-control mb-1 mt-5" name="action" value="connecter">Se connecter</button>
+                        <button type="submit" class="form-control mb-1 mt-5 bg-dark text-white" name="action" value="connecter">Se connecter</button>
                     </form>
                 </div>
             
