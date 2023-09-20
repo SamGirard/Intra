@@ -8,13 +8,21 @@ textarea {
 }
 
 .boite{
-    border: solid black 1px;
     border-radius: 20px;
+    background: #e0e0e0;
+    box-shadow:  30px 30px 60px #b3b3b3,
+                 -30px -30px 60px #ffffff;
     justify-content: space-around;
 }
 
+.pageEvent{
+    background-color: #e0e0e0;
+}
+
 .rowEmployeur{
-    border-radius: 0px 0px 18px 18px;
+    border-radius: 0px 0px 20px 20px;
+    background: #343a40;
+    box-shadow:  20px 20px 60px #202428;
     color: white;
     padding: 20px 0px 20px 0px;
 }
@@ -43,15 +51,20 @@ a{
 .index, .container{
     height: 100%;
     padding: 0px;
+    background-color: #e0e0e0;
 }
 
 
 .creer{
-    border: solid 1px black;
+    
     padding-top: 50px;
     padding-bottom: 100px;
     text-decoration: none;
     border-radius: 20px;
+    background: #e0e0e0;
+    box-shadow:  30px 30px 60px #b3b3b3,
+                 -30px -30px 60px #ffffff;
+    transition: 0.4s;
 }
 .creer h2{
     font-size: 40pt;
@@ -67,13 +80,22 @@ a{
     margin-bottom: 50px;
 }
 
+.creer:hover{
+    box-shadow:  37px 37px 74px #8b8b8b,
+             -37px -37px 74px #ffffff;
+}
+
 
 .event{
-    border: solid 1px black;
+    
     padding-top: 50px;
     padding-bottom: 100px;
     text-decoration: none;
     border-radius: 20px;
+    background: #e0e0e0;
+    box-shadow:  30px 30px 60px #b3b3b3,
+                 -30px -30px 60px #ffffff;
+    transition: 0.4s;
 }
 .event h2{
     font-size: 40pt;
@@ -89,14 +111,23 @@ a{
     margin-bottom: 50px;
 }
 
+.event:hover{
+    box-shadow:  37px 37px 74px #8b8b8b,
+             -37px -37px 74px #ffffff;
+}
+
 
 
 .sourire{
-    border: solid 1px black;
+   
     padding-top: 50px;
     padding-bottom: 100px;
     text-decoration: none;
     border-radius: 20px;
+    background: #e0e0e0;
+    box-shadow:  30px 30px 60px #b3b3b3,
+                 -30px -30px 60px #ffffff;
+    transition: 0.4s;
 }
 .sourire h2{
     font-size: 40pt;
@@ -112,7 +143,12 @@ a{
     margin-bottom: 50px;
 }
 
+.sourire:hover{
+    box-shadow:  37px 37px 74px #8b8b8b,
+             -37px -37px 74px #ffffff;
+}
+
 .utilisateur{
     text-decoration: none;
-    
+
 }

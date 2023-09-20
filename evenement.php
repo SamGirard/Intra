@@ -13,7 +13,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     </head>
 
-    <body>
+    <body class="pageEvent">
 
     <?php
         //Faire la connection
@@ -80,7 +80,7 @@
                                 <h5><?php echo $row['pasContentEtu']?><i class="fa-solid fa-face-frown mx-2"></i></h5>
                             </div>
                         </div>
-                        <div class="row text-center mt-3 rowEmployeur bg-dark">
+                        <div class="row text-center mt-3 rowEmployeur">
                             <div class="col-md-4">
                                 <h5><?php echo $row['contentEmp']?><i class="fa-regular fa-face-smile mx-2"></i></h5>
                             </div>
