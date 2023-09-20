@@ -19,6 +19,7 @@
         if($_SESSION['connexion'] == true){
     ?>
 
+        <a href="newUser.php" class="col-md-1 offset-11 utilisateur">Ajouter un utilisateur</a>
         <div class="container-fluid h-100 d-flex justify-content-center align-items-center p-0">
             <div class="row align-items-center text-center ranger">
                 <div class="col-md-4 px-0">
