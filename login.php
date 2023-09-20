@@ -89,9 +89,8 @@
         ?>
 
 
-        <div class="container-fluid mt-5">
-            <div class="row mt-5">
-                <div class="col-md-4 offset-4 mt-5">
+        <div class="container d-flex justify-content-center align-items-center">
+            
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" class="loginForm">
                     <h1>Se connecter</h1>
                         <input type="text" class="form-control mb-4" placeholder="Nom d'usager" name="usager">
@@ -104,9 +103,6 @@
                         <p class="error"><?php echo $erreurLogin?></p>
                         <button type="submit" class="form-control mb-1 mt-5 bg-dark text-white" name="action" value="connecter">Se connecter</button>
                     </form>
-                </div>
-            
-            </div>
         </div>
 
         <?php

@@ -13,11 +13,10 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     </head>
 
-    <body>
+    <body class="pageDepart">
     <?php
 
     $_SESSION["connexion"] = true;
-    echo "Connexion réussi" . $_SESSION["connexion"];
 
 
     //Faire la connection
@@ -33,7 +32,6 @@
     if($conn->connect_error) {
         die("Connection échoué: " . $conn->connect_error);
     }
-    echo "Connection Réussi!";
 
     //Afficher les donnée pour departemnet
     $conn->query('SET NAMES utf8');
@@ -79,18 +77,17 @@
 
     ?>
 
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-4 offset-4">
-                    <h1 class="mt-5">Créer un évènement</h1>
-                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="mt-5">
+        <div class="container min-vh-100 d-flex justify-content-center align-items-center">
+
+                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="departForm">
+                    <a href="creationEvent.php"><i class="fa-solid fa-3x fa-arrow-left p-0 m-0"></i></a>
+                    <h1>Créer un département</h1>
+
                         <input class="form-control" type="text" name="nNom" value="<?php echo $nom;?>" placeholder="Nom du nouveau département">
                         <p class="error"><?php echo $nomErreur; ?></p>
                         
-                        <button type="submit" class="form-control mt-3">Créer</button>
+                        <button type="submit" class="form-control mt-3 bg-dark text-white">Créer</button>
                     </form>
-                </div>
-            </div>
         </div>
 
         <?php
@@ -114,5 +111,7 @@
 
 
         ?>
+
+        <script src="https://kit.fontawesome.com/2ad1095675.js" crossorigin="anonymous"></script>
     </body>
 </html>

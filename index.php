@@ -21,10 +21,10 @@
         <div class="container-fluid mx-0 navBar">
             <div class = "row">
                 <div class="col-md-1">
-                    <a href="deconnecter.php" class="deco">Deconnexion</a>
+                    <a href="deconnecter.php"><i class="fa-solid fa-3x fa-right-from-bracket mt-2"></i></a>
                 </div>
                 <div class="col-md-1 offset-10 text-right">
-                    <a href="newUser.php" class="utilisateur utilisateur">Ajouter un utilisateur</a>
+                    <a href="newUser.php"><i class="fa-solid fa-user-plus mt-2 fa-3x"></i></a>
                 </div>
             </div>
         </div>

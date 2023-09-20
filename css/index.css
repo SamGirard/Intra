@@ -172,7 +172,31 @@ a{
     background: #e0e0e0;
     box-shadow:  30px 30px 60px #b3b3b3,
                  -30px -30px 60px #ffffff;
+    width: 700px;
+    height: 600px;
 }
+
+.creerForme{
+    padding: 100px 70px 100px 70px;
+    margin-top: 190px;
+    border-radius: 20px;
+    background: #e0e0e0;
+    box-shadow:  30px 30px 30px #b3b3b3,
+                 -30px -30px 30px #ffffff;
+    width: 700px;
+    height: 800px;
+}
+
+.departForm{
+    padding: 90px 70px 100px 70px;
+    border-radius: 20px;
+    background: #e0e0e0;
+    box-shadow:  30px 30px 30px #b3b3b3,
+                 -30px -30px 30px #ffffff;
+    width: 700px;
+    height: 500px;
+}
+
 
 .login{
     background-color: #e0e0e0;
@@ -197,6 +221,7 @@ input{
     font-size: 30pt;
 }
 
+
 input[type="text"]{
     font-size: 15pt;
 }
@@ -208,3 +233,8 @@ input[type="date"]{
 input[type="password"]{
     font-size: 15pt;
 }
+
+.pageCreer, .pageDepart{
+    background-color: #e0e0e0;
+}
+

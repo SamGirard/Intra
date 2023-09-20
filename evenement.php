@@ -45,7 +45,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-2">
-                    <a href="index.php">Retour</a>
+                    <a href="index.php"><i class="fa-solid fa-3x fa-arrow-left p-0 mt-2"></i></a>
                 </div>
             </div>
             
