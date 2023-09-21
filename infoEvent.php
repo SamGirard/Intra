@@ -3,13 +3,14 @@
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Information</title>
+            <title>Modifier</title>
             <link rel="stylesheet" href="css/index.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         </head>
 
         <body class="pageModif">
             <?php
+
 
                 $id = $_GET['id'];
 
@@ -37,9 +38,12 @@
                     $result2 = $conn->query($sql2);
 
                     //connection avec la table departement
+                    //le result2 fait peut etre lagger
                     if ($result2->num_rows > 0) {
                         $row2 = $result2->fetch_assoc();
                         $nomDep = $row2['nomDepartement'];
+                    } else {
+                        echo "donnee = 0";
                     }
 
                     if ($result->num_rows > 0) {
@@ -59,7 +63,7 @@
                         echo "pas de donnée";
                     }
 
-                    $nomErreur = $departementErreur = $lieuErreur = $dateErreur = "";
+                    $nomErreur = $lieuErreur = $dateErreur = $choixErreur = "";
                     $erreur = false;
                     
                     if ($_SERVER['REQUEST_METHOD'] == "POST"){
@@ -71,10 +75,7 @@
                         else {
                             $nom = trojan($_POST['nom']);
                         }
-                        if(empty($_POST['departement'])){
-                            $departementErreur = "Le département ne peut pas être vide";
-                            $erreur = true;
-                        }
+                        
                         if(empty($_POST['lieu'])){
                             $lieuErreur = "Le lieu ne peut pas être vide";
                             $erreur = true;
@@ -83,36 +84,45 @@
                             $lieu = trojan($_POST['lieu']);
                         }
 
+                        $choix = $_POST['departe'];
+
+                        if ($choix == "rien") {
+                            $choixErreur = "Choisissez un département";
+                            $erreur = true;
+                        } else {
+                            $nomDepartement = $choix;
+                        }
+
                         $nom = trojan($_POST['nom']);
                         $description = trojan($_POST['description']);
                         $lieu = trojan($_POST['lieu']);
                         $date = trojan($_POST['date']);
-                        
-                        $departement = $_POST['departement'];
-                        $date = $_POST['date'];
-                        $contentEtu = $_POST['contentEtu'];
-                        $moyenEtu = $_POST['moyenEtu'];
-                        $pasContentEtu = $_POST['pasContentEtu'];
-                        $contentEmp = $_POST['contentEmp'];
-                        $moyenEmp = $_POST['moyenEmp'];
-                        $pasContentEmp = $_POST['pasContentEmp'];
-    
 
-                        if (!$erreur) {
+                        $nomDepartement = $_POST['departe'];
+                        $date = $_POST['date'];
+                        //$contentEtu = $_POST['contentEtu'];
+                        //$moyenEtu = $_POST['moyenEtu'];
+                        //$pasContentEtu = $_POST['pasContentEtu'];
+                        //$contentEmp = $_POST['contentEmp'];
+                        //$moyenEmp = $_POST['moyenEmp'];
+                        //pasContentEmp = $_POST['pasContentEmp'];
+    
                             // Mettre à jour la base de données
-                            $sql = "UPDATE evenement SET nom = '$nom' WHERE id=$id";
+                        $sql = "UPDATE evenement SET nom = '$nom' WHERE id=$id";
                                     
                             
-                            if ($conn->query($sql) == TRUE) {
-                                echo "Mise à jour réussie.";
-                            } else {
-                                echo "Erreur lors de la mise à jour : " . $conn->error;
-                            }
+                        if ($conn->query($sql) == TRUE) {
+                            echo "Mise à jour réussie.";
+                        } else {
+                            echo "Erreur lors de la mise à jour : " . $conn->error;
                         }
+
                         
                         $conn->close();
 
                     }
+
+
                 
                     if ($_SERVER['REQUEST_METHOD'] != "POST" || $erreur == true){
                 ?>
@@ -139,20 +149,20 @@
 
                                 <label class="mt-3">Département : </label>
                                 
-                                <Select class="form-control" name="departement">
-                                    <option value="<?php echo $departement?>" class="form-control"><? echo $departement?></option>
+                                <Select class="form-control" name="departe">
+                                    <option value="rien" class="form-control">Choisissez un département</option>
                                     <?php
                                             $ctr = 0;
                                             while($row2 = $result2->fetch_assoc()){
                                         ?>
-                                            <option value="<?php echo $row2['nomDepartement'];?>" class="form-control"><?php echo $row2['nomDepartement']?></option>
+                                            <option value="<?php echo $row2['nomDepartement'];?>" class="form-control"><?php echo $nomDep;?></option>
                                         <?php
                                             $ctr++;
                                             }
                                         ?>
                                     </Select>
-                                <p class="error"><?php echo $departementErreur; ?></p>
-
+                                <p class="error"><?php echo $choixErreur; ?></p>
+<!--
                                 <label class="mt-3">Nombre d'avis satisfait (Étudiant) : </label>
                                 <input type="number" class="form-control" value="<?php echo $contentEtu; ?>" name="contentEtu">
 
@@ -170,8 +180,9 @@
 
                                 <label class="mt-3">Nombre d'avis pas satisfait (Employeur) : </label>
                                 <input type="number" class="form-control" value="<?php echo $pasContentEmp; ?>" name="pasContentEmp">
-
+--> 
                                 <button type="submit" name="action" class="form-control mt-3 bg-dark text-white">Modifier</button>
+                               
                             </form>
 
                 </div>

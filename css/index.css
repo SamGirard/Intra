@@ -184,7 +184,8 @@ a{
     box-shadow:  30px 30px 30px #b3b3b3,
                  -30px -30px 30px #ffffff;
     width: 700px;
-    height: 800px;
+    min-height: 800px;
+    max-height: 1000px;
 }
 
 .departForm{
@@ -216,7 +217,7 @@ a{
     box-shadow:  30px 30px 30px #b3b3b3,
                  -30px -30px 30px #ffffff;
     width: 700px;
-    height: 1450px;
+    height: 900px;
 }
 
 .choixForm{
