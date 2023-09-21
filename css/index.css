@@ -266,6 +266,9 @@ input[type="date"]{
 input[type="password"]{
     font-size: 15pt;
 }
+input[type="number"]{
+    font-size: 15pt;
+}
 
 .pageCreer, .pageDepart, .pageUser, .pageModif, .pageChoix, .pageEtu{
     background-color: #e0e0e0;
@@ -273,4 +276,11 @@ input[type="password"]{
 
 .pageEmp{
     background-color: #343a40;
+}
+
+#btnContent, #btnMoyen, #btnPasContent{
+    visibility: hidden;
+}
+#btnContent img, #btnMoyen img, #btnPasContent img{
+    visibility: visible;
 }
