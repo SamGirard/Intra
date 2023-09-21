@@ -133,7 +133,7 @@
                                             $ctr++;
                                             }
                                         ?>
-                                    </Select>
+                                </Select>
                             </div>
                             <div class="col-md-2">
                                 <a href="creationDepart.php">

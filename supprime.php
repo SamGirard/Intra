@@ -65,7 +65,7 @@
                     <button type="submit" class="form-control">Oui</button>
                 </div>
                 <div class="col-md-2">
-                    <a href="evenement.php"><button class="form-control" type="">Annuler</button></a>
+                    <a class="mt-5" href="evenement.php">Annuler</a>
                 </div>
             </form>
             </div>

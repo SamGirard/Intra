@@ -56,7 +56,7 @@
                         $moyenEmp = $row['moyenEmp'];
                         $pasContentEmp = $row['pasContentEmp'];
                     } else {
-                        // Gérer l'erreur si aucun enregistrement correspondant n'est trouvé
+                        echo "pas de donnée";
                     }
 
                     $nomErreur = $departementErreur = $lieuErreur = $dateErreur = "";
@@ -82,6 +82,11 @@
                         else {
                             $lieu = trojan($_POST['lieu']);
                         }
+
+                        $nom = trojan($_POST['nom']);
+                        $description = trojan($_POST['description']);
+                        $lieu = trojan($_POST['lieu']);
+                        $date = trojan($_POST['date']);
                         
                         $departement = $_POST['departement'];
                         $date = $_POST['date'];
@@ -95,7 +100,7 @@
 
                         if (!$erreur) {
                             // Mettre à jour la base de données
-                            $sql = "UPDATE evenement SET nom = '$nom' WHERE id = '$id'";
+                            $sql = "UPDATE evenement SET nom = '$nom' WHERE id=$id";
                                     
                             
                             if ($conn->query($sql) == TRUE) {
@@ -136,10 +141,9 @@
                                 
                                 <Select class="form-control" name="departement">
                                     <option value="<?php echo $departement?>" class="form-control"><? echo $departement?></option>
-                                        <?php
+                                    <?php
                                             $ctr = 0;
                                             while($row2 = $result2->fetch_assoc()){
-                                                $selected = ($row2['nomDepartement'] == $departement) ? "selected" : "";
                                         ?>
                                             <option value="<?php echo $row2['nomDepartement'];?>" class="form-control"><?php echo $row2['nomDepartement']?></option>
                                         <?php
@@ -167,7 +171,7 @@
                                 <label class="mt-3">Nombre d'avis pas satisfait (Employeur) : </label>
                                 <input type="number" class="form-control" value="<?php echo $pasContentEmp; ?>" name="pasContentEmp">
 
-                                <button type="submit" name="action" class="form-control mt-3 bg-dark text-white">Soumettre</button>
+                                <button type="submit" name="action" class="form-control mt-3 bg-dark text-white">Modifier</button>
                             </form>
 
                 </div>
