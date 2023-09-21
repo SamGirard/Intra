@@ -7,7 +7,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     </head>
     
-    <body>
+    <body class="pageChoix">
 
         <?php
         //Faire la connection
@@ -53,15 +53,12 @@
                 
                 ?>
 
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-6 offset-3">
-                            <h2 class="text-center">Pour qu'elle évènement voulez-vous partir un sondage?</h2>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 offset-3">
-                            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+                <div class="container min-vh-100 d-flex justify-content-center align-items-center">
+
+
+                            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class ="choixForm">
+                            <a href="index.php"><i class="fa-solid fa-3x fa-arrow-left p-0 m-0"></i></a>
+                            <h2>Pour qu'elle évènement voulez-vous partir un sondage?</h2>
                                 <Select class="form-control" name="val_id">
                                 <option value="rien" class="form-control">...</option>
                                     <?php
@@ -77,10 +74,9 @@
                                 
                                 <p type="text" class="error mt-1"><?php echo $choixErreur ?></p>
 
-                                <button class="form-control mt-3" type="submit" name="action">Afficher le sondage</button>
+                                <button class="form-control mt-3 bg-dark text-white" type="submit" name="action">Afficher le sondage</button>
                             </form>
-                        </div>
-                    </div>
+
                 </div>
 
                 <?php
@@ -91,6 +87,8 @@
             die;
         }
         ?>
+
+        <script src="https://kit.fontawesome.com/2ad1095675.js" crossorigin="anonymous"></script>
 
     </body>
 </html>

@@ -47,7 +47,7 @@
             }
 
     if (!empty($updateField)) {
-        $sql = "UPDATE `evenement` SET `contentEtu`='".$updateField"',`moyenEtu`=[value-8],`pasContentEtu`=[value-9],`contentEmp`=[value-10],`moyenEmp`=[value-11],`pasContentEmp`=[value-12] WHERE `id`";
+        $sql = "UPDATE `evenement` SET `contentEtu`='".$updateField."',`moyenEtu`='".$updateField."',`pasContentEtu`='".$updateField."',`contentEmp`='".$updateField."',`moyenEmp`='".$updateField."',`pasContentEmp`='".$updateField."' WHERE `id`";
 
         if ($conn->query($sql) === TRUE) {
             echo "Mise à jour réussie.";

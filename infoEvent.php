@@ -8,7 +8,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         </head>
 
-        <body>
+        <body class="pageModif">
             <?php
 
                 $id = $_GET['id'];
@@ -112,11 +112,11 @@
                     if ($_SERVER['REQUEST_METHOD'] != "POST" || $erreur == true){
                 ?>
 
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-4 offset-4">
-                            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="mt-5">
-                            
+                <div class="container d-flex justify-content-center align-items-center">
+
+                            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="modifForm">
+                            <a href="evenement.php"><i class="fa-solid fa-3x fa-arrow-left p-0 m-0"></i></a>
+                            <h1>Modifier l'évènement</h1>
                                 <label>Nom : </label>
                                 <input type="text" class="form-control" value="<?php echo $nom; ?>" name="nom">
                                 <p class="error"><?php echo $nomErreur; ?></p>
@@ -167,10 +167,9 @@
                                 <label class="mt-3">Nombre d'avis pas satisfait (Employeur) : </label>
                                 <input type="number" class="form-control" value="<?php echo $pasContentEmp; ?>" name="pasContentEmp">
 
-                                <button type="submit" name="action" class="form-control mt-3">Soumettre</button>
+                                <button type="submit" name="action" class="form-control mt-3 bg-dark text-white">Soumettre</button>
                             </form>
-                        </div>
-                    </div>
+
                 </div>
 
 
@@ -196,5 +195,7 @@
 
 
         ?>
+
+            <script src="https://kit.fontawesome.com/2ad1095675.js" crossorigin="anonymous"></script>
         </body>
     </html>
