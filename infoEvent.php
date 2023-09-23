@@ -55,17 +55,18 @@
 
                     if ($result->num_rows > 0) {
                         $row = $result->fetch_assoc();
+                        $idd = $row['id'];
                         $nom = $row['nom'];
                         $description = $row['description'];
                         $lieu = $row['lieu'];
                         $date = $row['date'];
                         $departement = $row['departement'];
-                        $contentEtu = $row['contentEtu'];
-                        $moyenEtu = $row['moyenEtu'];
-                        $pasContentEtu = $row['pasContentEtu'];
-                        $contentEmp = $row['contentEmp'];
-                        $moyenEmp = $row['moyenEmp'];
-                        $pasContentEmp = $row['pasContentEmp'];
+                        //$contentEtu = $row['contentEtu'];
+                        //$moyenEtu = $row['moyenEtu'];
+                        //$pasContentEtu = $row['pasContentEtu'];
+                        //$contentEmp = $row['contentEmp'];
+                        //$moyenEmp = $row['moyenEmp'];
+                        //$pasContentEmp = $row['pasContentEmp'];
                     } else {
                         echo "pas de donnée";
                     }
@@ -115,9 +116,8 @@
                         //pasContentEmp = $_POST['pasContentEmp'];
     
                         // Mettre à jour la base de données
-                        $sql = "UPDATE evenement SET nom = '$nom' WHERE id=$id";
+                        $sql = "UPDATE evenement SET nom = '$nom' WHERE id=$idd";
                                     
-                            
                         if ($stmt->execute()) {
                             echo "Mise à jour réussie.";
                         } else {
@@ -193,6 +193,7 @@
                             </form>
 
                 </div>
+
 
 
                 <?php
