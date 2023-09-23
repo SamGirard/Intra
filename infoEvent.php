@@ -6,6 +6,7 @@
     <html lang="en">
         <head>
             <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Modifier</title>
             <link rel="stylesheet" href="css/index.css">
@@ -15,8 +16,8 @@
         <body class="pageModif">
             <?php
 
-
                 $id = $_GET['id'];
+
 
                 //Faire la connection
                 $servername = "localhost";
@@ -34,14 +35,16 @@
 
                 //Afficher les donnée
                     $conn->query('SET NAMES utf8');
-                    $sql = "SELECT * FROM evenement WHERE id = $id";
-                    $result = $conn->query($sql);
+                    $sql = "SELECT * FROM evenement WHERE id = ?";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->bind_param("i", $id); // "i" signifie que $id est un entier
+                    $stmt->execute();
+                    $result = $stmt->get_result();
 
                     $conn->query('SET NAMES utf8');
                     $sql2 = "SELECT * FROM tbdepartement";
                     $result2 = $conn->query($sql2);
 
-                    //connection avec la table departement
                     //le result2 fait peut etre lagger
                     if ($result2->num_rows > 0) {
                         $row2 = $result2->fetch_assoc();
@@ -111,14 +114,14 @@
                         //$moyenEmp = $_POST['moyenEmp'];
                         //pasContentEmp = $_POST['pasContentEmp'];
     
-                            // Mettre à jour la base de données
+                        // Mettre à jour la base de données
                         $sql = "UPDATE evenement SET nom = '$nom' WHERE id=$id";
                                     
                             
-                        if ($conn->query($sql) == TRUE) {
+                        if ($stmt->execute()) {
                             echo "Mise à jour réussie.";
                         } else {
-                            echo "Erreur lors de la mise à jour : " . $conn->error;
+                            echo "Erreur lors de la mise à jour : " . $stmt->error;
                         }
 
                         
@@ -197,6 +200,8 @@
             } else {
                 header("Location: evenement.php");
                 die;
+
+            
          
         ?>
             
