@@ -57,7 +57,7 @@
                             echo '</div><div class="row">';
                         }
                 ?>
-                    <div class="col-md-3 col-10 boite mx-auto mt-5 mb-5">
+                    <div class="col-md-3 col-lg-10 boite mx-auto mt-5 mb-5">
                         <div class="row">
                             <div class="col-md-8">
                                 <h2 class="mt-3 titre"><?php echo $row['nom']?></h1>
