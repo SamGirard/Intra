@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -43,7 +47,6 @@
                     $erreur = true;
                 }
 
-                $action = $_POST['action'];
 
                 $conn->close();
             }
@@ -74,7 +77,8 @@
                                 
                                 <p type="text" class="error mt-1"><?php echo $choixErreur ?></p>
 
-                                <button class="form-control mt-3 bg-dark text-white" type="submit" name="action">Afficher le sondage</button>
+                                <button class="form-control mt-5 bg-dark text-white" type="submit" name="etudiant" value="Etudiant">Commencer le sondage pour les étudiants</button>
+                                <button class="form-control mt-3 bg-dark text-white" type="submit" name="employeur" value="Employeur">Commencer le sondage pour les employeurs</button>
                             </form>
 
                 </div>
@@ -82,9 +86,17 @@
                 <?php
 
         } else {
-            $id = $_POST['val_id'];
-            header("Location: sourire.php?id=" . $id);
-            die;
+
+            if (isset($_POST['employeur'])) {
+                $id = $_POST['val_id'];
+                header("Location: sourireEmp.php?id=" . $id);
+                die;
+            }
+            else if (isset($_POST['etudiant'])) {
+                $id = $_POST['val_id'];
+                header("Location: sourireEtu.php?id=" . $id);
+                die;
+            }
         }
         ?>
 

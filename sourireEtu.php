@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,7 +13,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     </head>
 
-    <body>
+    <body class="pageEtu">
 
     <?php
         $id = $_GET['id'];
@@ -61,24 +65,24 @@
         }
     ?>
 
-    <div class="container-fluid h-100">
-        <div class="row text-center">
-            <div class="col-md-3 mx-auto">
+
+    <div class="container d-flex justify-content-center align-items-center p-0">
+
+            <div class="col-md-4 mx-auto px-0">
                 <button id="btnContent" onclick="clickContent()"><img src="img/content.jpg" height="400" width="400"></button>
             </div>
-            <div class="col-md-3 mx-auto">
-                <button onclick="clickMoyen()"><img src="img/bof.jpg" height="400" width="400"></button>
+            <div class="col-md-4 mx-auto px-0">
+                <button id="btnMoyen" onclick="clickMoyen()"><img src="img/bof.jpg" height="400" width="400"></button>
             </div>
-            <div class="col-md-3 mx-auto">
-                <button onclick="clickPasContent()"><img src="img/pas content.jpg" height="400" width="400"></button>
+            <div class="col-md-4 mx-auto px-0">
+                <button id="btnPasContent" onclick="clickPasContent()"><img src="img/pas content.jpg" height="400" width="400"></button>
             </div>
-        </div>
+
     </div>
-    <h1><?php echo $id;?></h1>
     <h2 id="ctr1"></h2>
     <h2 id="ctr2"></h2>
     <h2 id="ctr3"></h2>
 
-    <script src="js/sourire.js"></script>
+    <script src="js/sourireEtu.js"></script>
     </body>
 </html>

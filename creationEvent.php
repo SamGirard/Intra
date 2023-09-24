@@ -43,7 +43,7 @@
 
 
         $nom = $description = $departement = $lieu = $date = "";
-        $nomErreur = $descriptionErreur = $departementErreur = $LieuErreur = $dateErreur = "";
+        $nomErreur = $descriptionErreur = $departementErreur = $LieuErreur = $dateErreur = $choixErreur=  "";
         $content = $moyen = $pasContent = 0;
 
         $erreur = false;
@@ -133,7 +133,8 @@
                                             $ctr++;
                                             }
                                         ?>
-                                    </Select>
+                                </Select>
+                                <p class="error"><?php echo $choixErreur; ?></p>
                             </div>
                             <div class="col-md-2">
                                 <a href="creationDepart.php">

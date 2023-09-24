@@ -22,7 +22,7 @@ textarea {
 .rowEmployeur{
     border-radius: 0px 0px 20px 20px;
     background: #343a40;
-    box-shadow:  20px 20px 60px #202428;
+    box-shadow:  10px 10px 60px #3e3f41;
     color: white;
     padding: 20px 0px 20px 0px;
 }
@@ -184,7 +184,8 @@ a{
     box-shadow:  30px 30px 30px #b3b3b3,
                  -30px -30px 30px #ffffff;
     width: 700px;
-    height: 800px;
+    min-height: 800px;
+    max-height: 1000px;
 }
 
 .departForm{
@@ -216,7 +217,7 @@ a{
     box-shadow:  30px 30px 30px #b3b3b3,
                  -30px -30px 30px #ffffff;
     width: 700px;
-    height: 1450px;
+    height: 900px;
 }
 
 .choixForm{
@@ -226,7 +227,7 @@ a{
     box-shadow:  30px 30px 30px #b3b3b3,
                  -30px -30px 30px #ffffff;
     width: 700px;
-    height: 500px;
+    height: 550px;
 }
 
 
@@ -265,10 +266,21 @@ input[type="date"]{
 input[type="password"]{
     font-size: 15pt;
 }
+input[type="number"]{
+    font-size: 15pt;
+}
 
-.pageCreer, .pageDepart, .pageUser, .pageModif, .pageChoix{
+.pageCreer, .pageDepart, .pageUser, .pageModif, .pageChoix, .pageEtu{
     background-color: #e0e0e0;
 }
 
+.pageEmp{
+    background-color: #343a40;
+}
 
-
+#btnContent, #btnMoyen, #btnPasContent{
+    visibility: hidden;
+}
+#btnContent img, #btnMoyen img, #btnPasContent img{
+    visibility: visible;
+}

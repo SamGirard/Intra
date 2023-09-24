@@ -35,7 +35,7 @@ function updateDatabase(type, value) {
     // Créez une instance XMLHttpRequest
     var xhr = new XMLHttpRequest();
     // Définissez la méthode et l'URL pour la requête
-    xhr.open('POST', 'sourire.php', true);
+    xhr.open('POST', 'sourireEtu.php', true);
     // Configurez l'en-tête de la requête
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     // Définissez la fonction de rappel pour la réponse
