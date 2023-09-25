@@ -69,7 +69,7 @@
     <div class="container emp d-flex justify-content-center align-items-center p-0">
        
             <div class="col-md-4 mx-auto px-0">
-                <button id="btnContent" id="btnContent" onclick="clickContent()"><img src="img/contentEmp.jpg" height="400" width="400"></button>
+                <button id="btnContent" onclick="clickContent()"><img src="img/contentEmp.jpg" height="400" width="400"></button>
             </div>
             <div class="col-md-4 mx-auto px-0">
                 <button id="btnMoyen" onclick="clickMoyen()"><img src="img/moyenEmp.jpg" height="400" width="400"></button>
