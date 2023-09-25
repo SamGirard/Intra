@@ -31,19 +31,19 @@
         
         <div class="container-fluid navBar1 d-flex justify-content-center align-items-center p-0">
             <div class="row align-items-center text-center ranger">
-                <div class="col-xl-4 px-0">
+                <div class="col-md-4 boite-menu px-0">
                     <a href="evenement.php" class="event mx-4 d-flex flex-column align-items-center">
                         <h2>Évènement</h2>
                         <p>Afficher ou éditer les évènements passé</p>
                     </a>
                 </div>
-                <div class="col-xl-4 px-0">
+                <div class="col-md-4 boite-menu px-0">
                     <a href="creationEvent.php" class="creer mx-4 d-flex flex-column align-items-center">
                         <h2>Créer</h2>
                         <p>Créer un nouvel évènement et l'enregistrer</p>
                     </a>
                 </div>
-                <div class="col-xl-4 px-0">
+                <div class="col-md-4 boite-menu px-0">
                     <a href="choixEvenement.php" class="sourire mx-4 d-flex flex-column align-items-center">
                         <h2>Sondage</h2>
                         <p>Commencer un sondage pour un évènement</p>

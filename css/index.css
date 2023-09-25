@@ -4,7 +4,7 @@
 }
 
 /*mode paysage*/
-@media only screen and (orientation: landscape) {
+
     textarea {
         height: 100px;
     }
@@ -305,11 +305,57 @@
         background-color: #343a40;
     }
 
-}
+    .face{
+        margin-top: -200px;
+    }
+
+
 
 /*mode portrait*/
 @media only screen and (orientation: portrait) {
-    h2 {
-        color: red;
+    .boite-menu{
+        width: 83.33333% !important;
+        margin-bottom: 100px;
+        margin-left: auto;
+        margin-right: auto;
     }
+
+    .boite{
+        width: 83.33333% !important;
+    }
+
+    .creerForme{
+        min-height: 1000px;
+        max-height: 1400px;
+    }
+
+    .modifForm{
+        height: 1000px;
+    }
+
+    input {
+        height: 80px;
+        font-size: 35pt;
+    }
+
+    select {
+        height: 80px;
+    }
+
+    select.form-control{
+        font-size: 20pt;
+    }
+
+    input.form-control{
+        font-size: 20pt;
+    }
+
+    textarea.form-control{
+        font-size: 20pt;
+    }
+
+    .plus {
+        height: 80px;
+    }
+
 }

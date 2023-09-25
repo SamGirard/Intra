@@ -63,16 +63,18 @@
                     ?>
                 </div>
             </div>
+
             <form method="POST">
                 <div class="row">  
-                <div class="col-md-2 offset-4">
-                    <button type="submit" class="form-control">Oui</button>
-                </div>
-                <div class="col-md-2">
-                    <a class="mt-5" href="evenement.php">Annuler</a>
+                    <div class="col-md-2 offset-4">
+                        <button type="submit" class="form-control">Oui</button>
+                    </div>
+                    <div class="col-md-2">
+                        <a class="mt-5" href="evenement.php">Annuler</a>
                 </div>
             </form>
             </div>
         </div>
+
     </body>
 </html>

@@ -16,6 +16,7 @@
         <body class="pageModif">
             <?php
 
+            if(isset($_GET['id'])) {
                 $id = $_GET['id'];
 
 
@@ -33,25 +34,10 @@
                     die("Connection échoué: " . $conn->connect_error);
                 }
 
-                //Afficher les donnée
+                //Afficher les donnée des evenement
                     $conn->query('SET NAMES utf8');
-                    $sql = "SELECT * FROM evenement WHERE id = ?";
-                    $stmt = $conn->prepare($sql);
-                    $stmt->bind_param("i", $id); // "i" signifie que $id est un entier
-                    $stmt->execute();
-                    $result = $stmt->get_result();
-
-                    $conn->query('SET NAMES utf8');
-                    $sql2 = "SELECT * FROM tbdepartement";
-                    $result2 = $conn->query($sql2);
-
-                    //le result2 fait peut etre lagger
-                    if ($result2->num_rows > 0) {
-                        $row2 = $result2->fetch_assoc();
-                        $nomDep = $row2['nomDepartement'];
-                    } else {
-                        echo "donnee = 0";
-                    }
+                    $sql = "SELECT * FROM evenement WHERE id = $id";
+                    $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
                         $row = $result->fetch_assoc();
@@ -70,6 +56,20 @@
                     } else {
                         echo "pas de donnée";
                     }
+
+                    //afficher les donner de tbdepartement
+                    $conn->query('SET NAMES utf8');
+                    $sql2 = "SELECT * FROM tbdepartement";
+                    $result2 = $conn->query($sql2);
+
+                    if ($result2->num_rows > 0) {
+                        $row2 = $result2->fetch_assoc();
+                        $nomDep = $row2['nomDepartement'];
+                    } else {
+                        echo "donnee = 0";
+                    }
+
+                    
 
                     $nomErreur = $lieuErreur = $dateErreur = $choixErreur = "";
                     $erreur = false;
@@ -116,12 +116,12 @@
                         //pasContentEmp = $_POST['pasContentEmp'];
     
                         // Mettre à jour la base de données
-                        $sql = "UPDATE `evenement` SET nom = '$nom' WHERE `evenement`.`id` = $id";
+                        $sql = "UPDATE evenement SET nom = '$nom' WHERE id = $id";
 
-                        if ($stmt->execute()) {
+                        if ($conn->$query($sql) === TRUE) {
                             echo "Mise à jour réussie.";
                         } else {
-                            echo "Erreur lors de la mise à jour : " . $stmt->error;
+                            echo "Erreur lors de la mise à jour";
                         }
 
 
@@ -130,16 +130,21 @@
 
                     }
 
+                }
+
 
                 
                     if ($_SERVER['REQUEST_METHOD'] != "POST" || $erreur == true){
                 ?>
 
-                <div class="container d-flex justify-content-center align-items-center">
+                <div class="container min-vh-100 d-flex justify-content-center align-items-center">
 
                             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="modifForm">
-                            <a href="evenement.php"><i class="fa-solid fa-3x fa-arrow-left p-0 m-0"></i></a>
-                            <h1>Modifier l'évènement</h1>
+                                <a href="evenement.php"><i class="fa-solid fa-3x fa-arrow-left p-0 m-0"></i></a>
+                                <h1>Modifier l'évènement</h1>
+
+                                <input type="hidden" name="id" value="<?php echo $id; ?>">
+
                                 <label>Nom : </label>
                                 <input type="text" class="form-control" value="<?php echo $nom; ?>" name="nom">
                                 <p class="error"><?php echo $nomErreur; ?></p>
@@ -191,6 +196,7 @@
                                 <button type="submit" name="action" class="form-control mt-3 bg-dark text-white">Modifier</button>
                                
                             </form>
+                            <h1><?php echo $id?></h1>
 
                 </div>
 

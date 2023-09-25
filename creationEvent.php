@@ -112,7 +112,7 @@
         if ($_SERVER['REQUEST_METHOD'] != "POST" || $erreur == true){
 
     ?>
-        <div class="container d-flex justify-content-center align-items-center">
+        <div class="container min-vh-100 d-flex justify-content-center align-items-center">
             
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="creerForme">
                     <a href="index.php"><i class="fa-solid fa-3x fa-arrow-left p-0 m-0 mb-3"></i></a>
