@@ -40,15 +40,15 @@
 
         ?>
         <div class="container min-vh-100 d-flex justify-content-center align-items-center p-0">
-
+            
             <div class="col-md-4 face mx-auto px-0">
-                <button id="btnContent" onclick="clickContent()"><img src="img/contentEtu.jpg" height="400" width="400"></button>
+                <button id="btnContent" onclick="click()" data-type="content"><img src="img/contentEtu.jpg" height="400" width="400"></button>
             </div>
             <div class="col-md-4 face mx-auto px-0">
-                <button id="btnMoyen" onclick="clickMoyen()"><img src="img/moyenEtu.jpg" height="400" width="400"></button>
+                <button id="btnMoyen" onclick="click()" data-type="moyen"><img src="img/moyenEtu.jpg" height="400" width="400"></button>
             </div>
             <div class="col-md-4 face mx-auto px-0">
-                <button id="btnPasContent" onclick="clickPasContent()"><img src="img/pasContentEtu.jpg" height="400" width="400"></button>
+                <button id="btnPasContent" onclick="click()" data-type="pasContent"><img src="img/pasContentEtu.jpg" height="400" width="400"></button>
             </div>
 
         </div>
@@ -58,9 +58,14 @@
         <h2 id="ctr3"></h2>
 
     <?php
+    }
 
         if($_SERVER["REQUEST_METHOD"] == "POST"){
 
+            $id = $_POST['id'];
+
+            $type = $_POST['type'];
+            $value = intval($_POST['value']);
 
             $updateField = "";
             switch ($type) {
@@ -74,9 +79,6 @@
                     $updateField = "pasContentEtu";
                     break;
             }
-            
-            $type = $_POST['type'];
-            $value = intval($_POST['value']);
 
             $servername = "localhost";
             $username = "root";
@@ -99,7 +101,9 @@
 
 
             if (!empty($updateField)) {
-                $sql = "UPDATE `evenement` SET `contentEtu`='".$updateField."',`moyenEtu`='".$updateField."',`pasContentEtu`='".$updateField."',`contentEmp`='".$updateField."',`moyenEmp`='".$updateField."',`pasContentEmp`='".$updateField."' WHERE `id`";
+                $sql = "UPDATE `evenement` SET `$updateField` = '$value' WHERE `id` = $id";
+
+
 
                 if ($conn->query($sql) === TRUE) {
                     echo "Mise à jour réussie.";
@@ -108,10 +112,10 @@
                 }
             }
 
-                    // Fermer la connexion
-                    $conn->close();
+                // Fermer la connexion
+                $conn->close();
         }
-    }
+    
         
     ?>
 
