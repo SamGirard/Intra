@@ -36,9 +36,6 @@
             $sql = "SELECT * FROM evenement";
             $result = $conn->query($sql);
 
-            if (isset($_GET['id'])) {
-                $id = $_GET['id'];
-            }
         ?>
 
 
@@ -60,7 +57,7 @@
                     <div class="col-md-5 boite mx-auto my-5">
                         <div class="row">
                             <div class="col-md-10">
-                                <h2 class="mt-3 titre"><?php echo $row['nom'];?></h1>
+                                <h2 class="mt-3 titre"><?php echo $row['nomEvent'];?></h1>
                             </div>
                             <div class="col-md-1">
                                 <a href="infoEvent.php?id=<?php echo $row['id'];?>"><i class="mt-3 fa-solid fa-square-pen fa-4x" style="color: #292929"></i></a>

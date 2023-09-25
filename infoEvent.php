@@ -41,8 +41,7 @@
 
                     if ($result->num_rows > 0) {
                         $row = $result->fetch_assoc();
-                        $id = $row['id'];
-                        $nom = $row['nom'];
+                        $nom = $row['nomEvent'];
                         $description = $row['description'];
                         $lieu = $row['lieu'];
                         $date = $row['date'];
@@ -115,17 +114,16 @@
                         //$moyenEmp = $_POST['moyenEmp'];
                         //pasContentEmp = $_POST['pasContentEmp'];
     
-                        // Mettre à jour la base de données
-                        $sql = "UPDATE evenement SET nom = '$nom' WHERE id = $id";
 
-                        if ($conn->$query($sql) === TRUE) {
+                        // Mettre à jour la base de données
+                        $sql = "UPDATE evenement SET nomEvent = '$nom' WHERE id = $id";
+
+                        if ($conn->$query($sql) == TRUE) {
                             echo "Mise à jour réussie.";
                         } else {
                             echo "Erreur lors de la mise à jour";
                         }
 
-
-                        
                         $conn->close();
 
                     }
@@ -207,15 +205,11 @@
             } else {
                 header("Location: evenement.php");
                 die;
-
-            
-         
+            }
         ?>
             
 
         <?php
-        }
-
             function trojan($data){
                 $data = trim($data); //Enleve les caractères invisibles
                 $data = addslashes($data); //Mets des backslashs devant les ' et les  "
@@ -223,8 +217,6 @@
             
                 return $data;
             }
-
-
         ?>
 
             <script src="https://kit.fontawesome.com/2ad1095675.js" crossorigin="anonymous"></script>

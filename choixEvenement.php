@@ -38,19 +38,6 @@
             $choixErreur = "";
             $erreur = false;
 
-            if ($_SERVER['REQUEST_METHOD'] == "POST"){
-
-                $choix = $_POST['val_id'];
-
-                if($choix == "rien"){
-                    $choixErreur = "Choisissez un évènement";
-                    $erreur = true;
-                }
-
-
-                $conn->close();
-            }
-
 
             if ($_SERVER['REQUEST_METHOD'] != "POST" || $erreur == true){
                 
@@ -63,12 +50,11 @@
                             <a href="index.php"><i class="fa-solid fa-3x fa-arrow-left p-0 m-0"></i></a>
                             <h2>Pour qu'elle évènement voulez-vous partir un sondage?</h2>
                                 <Select class="form-control" name="val_id">
-                                <option value="rien" class="form-control">...</option>
                                     <?php
                                         $ctr = 0;
                                         while($row = $result->fetch_assoc()){
                                     ?>
-                                        <option value="<?php echo $row['id']; ?>" class="form-control"><?php echo $row['nom']?></option>
+                                        <option value="<?php echo $row['id']; ?>" class="form-control"><?php echo $row['nomEvent']?></option>
                                     <?php
                                         $ctr++;
                                         }

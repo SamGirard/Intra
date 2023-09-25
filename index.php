@@ -34,13 +34,13 @@
                 <div class="col-md-4 boite-menu px-0">
                     <a href="evenement.php" class="event mx-4 d-flex flex-column align-items-center">
                         <h2>Évènement</h2>
-                        <p>Afficher ou éditer les évènements passé</p>
+                        <p>Afficher, éditer ou supprimer les évènements passés</p>
                     </a>
                 </div>
                 <div class="col-md-4 boite-menu px-0">
                     <a href="creationEvent.php" class="creer mx-4 d-flex flex-column align-items-center">
                         <h2>Créer</h2>
-                        <p>Créer un nouvel évènement et l'enregistrer</p>
+                        <p>Créer un nouvel évènement ou un département et l'enregistrer</p>
                     </a>
                 </div>
                 <div class="col-md-4 boite-menu px-0">

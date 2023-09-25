@@ -38,9 +38,6 @@
     $sql = "SELECT * FROM tbdepartement";
     $result = $conn->query($sql);
 
-   
-
-
     $nom =  "";
     $nomErreur = "";
 
@@ -59,7 +56,7 @@
         $nom = trojan($_POST['nNom']);
 
         if($erreur != true){
-        $sql = "INSERT INTO departement (nom)
+        $sql = "INSERT INTO tbdepartement (nomDepartement)
         VALUES ('$nom')";
 
             if (mysqli_query($conn, $sql)) {

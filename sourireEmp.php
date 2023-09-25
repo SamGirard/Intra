@@ -66,15 +66,15 @@
     ?>
 
 
-    <div class="container emp d-flex justify-content-center align-items-center p-0">
+    <div class="container emp min-vh-100 d-flex justify-content-center align-items-center p-0">
        
-            <div class="col-md-4 mx-auto px-0">
+            <div class="col-md-4 face mx-auto px-0">
                 <button id="btnContent" onclick="clickContent()"><img src="img/contentEmp.jpg" height="400" width="400"></button>
             </div>
-            <div class="col-md-4 mx-auto px-0">
+            <div class="col-md-4 face mx-auto px-0">
                 <button id="btnMoyen" onclick="clickMoyen()"><img src="img/moyenEmp.jpg" height="400" width="400"></button>
             </div>
-            <div class="col-md-4 mx-auto px-0">
+            <div class="col-md-4 face mx-auto px-0">
                 <button id="btnPasContent" onclick="clickPasContent()"><img src="img/pasContentEmp.jpg" height="400" width="400"></button>
 
         </div>

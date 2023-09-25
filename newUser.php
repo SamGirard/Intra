@@ -103,7 +103,7 @@
                         <input type="text" placeholder="Créer un nom d'utilisateur" class="form-control mt-4" name="nUsername" value=<?php echo $username?>>
                         <p class="error mt-1"><?php echo $usernameErreur; ?></p>
 
-                        <input type="password" placeholder="Créer un nom mot de passe" name="nMdp" class="form-control mt-4">
+                        <input type="password" placeholder="Créer un mot de passe" name="nMdp" class="form-control mt-4">
                         <p class="error mt-1"><?php echo $mdpErreur; ?></p>
 
                         <input type="password" placeholder="Confirmer le mot de passe" name="nConfMdp" class="form-control mt-4">
