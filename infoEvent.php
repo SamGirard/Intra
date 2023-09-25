@@ -16,6 +16,9 @@
         <body class="pageModif">
             <?php
 
+            $erreur = false;
+
+            if($_SERVER["REQUEST_METHOD"] == "GET") {
             if(isset($_GET['id'])) {
                 $id = $_GET['id'];
 
@@ -33,6 +36,7 @@
                 if($conn->connect_error) {
                     die("Connection échoué: " . $conn->connect_error);
                 }
+
 
                 //Afficher les donnée des evenement
                     $conn->query('SET NAMES utf8');
@@ -68,12 +72,113 @@
                         echo "donnee = 0";
                     }
 
-                    
 
                     $nomErreur = $lieuErreur = $dateErreur = $choixErreur = "";
-                    $erreur = false;
+               ?>
+
+                        <div class="container min-vh-100 d-flex justify-content-center align-items-center">
+        
+                                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="modifForm">
+                                        <a href="evenement.php"><i class="fa-solid fa-3x fa-arrow-left p-0 m-0"></i></a>
+                                        <h1>Modifier l'évènement</h1>
+        
+                                        <input type="hidden" name="id" value="<?php echo $id; ?>">
+        
+                                        <label>Nom : </label>
+                                        <input type="text" class="form-control" value="<?php echo $nom; ?>" name="nom">
+                                        <p class="error"><?php echo $nomErreur; ?></p>
+        
+                                        <label class="mt-3">Description : </label>
+                                        <textarea type="text" class="form-control" value="<?php echo $description; ?>" name="description"><?php echo $description;?></textarea>
+        
+                                        <label>Lieu : </label>
+                                        <input type="text" class="form-control" value="<?php echo $lieu; ?>" name="lieu">
+                                        <p class="error"><?php echo $lieuErreur; ?></p>
+        
+                                        <label>Date : </label>
+                                        <input type="date" class="form-control" value="<?php echo $date; ?>" name="date">
+                                        <p class="error"><?php echo $dateErreur; ?></p>
+        
+                                        <label class="mt-3">Département : </label>
+                                        
+                                        <Select class="form-control" name="departe">
+                                            <?php
+                                                    $ctr = 0;
+                                                    while($row2 = $result2->fetch_assoc()){
+                                                ?>
+                                                    <option value="<?php echo $row2['nomDepartement'];?>" class="form-control"><?php echo $nomDep;?></option>
+                                                <?php
+                                                    $ctr++;
+                                                    }
+                                                ?>
+                                            </Select>
+                                        <p class="error"><?php echo $choixErreur; ?></p>
+<!--
+                                        <label class="mt-3">Nombre d'avis satisfait (Étudiant) : </label>
+                                        <input type="number" class="form-control" value="<?php echo $contentEtu; ?>" name="contentEtu">
+        
+                                        <label class="mt-3">Nombre d'avis moyennement satisfait (Étudiant) : </label>
+                                        <input type="number" class="form-control" value="<?php echo $moyenEtu; ?>" name="moyenEtu">
+        
+                                        <label class="mt-3">Nombre d'avis pas satisfait (Étudiant) : </label>
+                                        <input type="number" class="form-control" value="<?php echo $pasContentEtu; ?>" name="pasContentEtu">
+        
+                                        <label class="mt-3">Nombre d'avis satisfait (Employeur) : </label>
+                                        <input type="number" class="form-control" value="<?php echo $contentEmp; ?>" name="contentEmp">
+        
+                                        <label class="mt-3">Nombre d'avis moyennement satisfait (Employeur) : </label>
+                                        <input type="number" class="form-control" value="<?php echo $moyenEmp; ?>" name="moyenEmp">
+        
+                                        <label class="mt-3">Nombre d'avis pas satisfait (Employeur) : </label>
+                                        <input type="number" class="form-control" value="<?php echo $pasContentEmp; ?>" name="pasContentEmp">
+--> 
+                                        <button type="submit" name="action" class="form-control mt-3 bg-dark text-white">Modifier</button>
+                                       
+                                    </form>
+        
+                        </div>
+        
+        
+                            
+                        <?php
+            }
+        }
+
+                    if($_SERVER["REQUEST_METHOD"] == "POST" || $erreur == true){
+                
                     
-                    if ($_SERVER['REQUEST_METHOD'] == "POST"){
+                        $servername = "localhost";
+                        $username = "root";
+                        $password = "root";
+                        $db = "intra smiley";
+
+                        //Creer la connection
+                        $conn = new mysqli($servername, $username, $password, $db);
+
+                        //vérifier la connection
+                        if($conn->connect_error) {
+                            die("Connection échoué: " . $conn->connect_error);
+                        }
+
+                        $id = $_POST['id'];
+
+                        //Afficher les donnée des evenement
+                            $conn->query('SET NAMES utf8');
+                            $sql = "SELECT * FROM evenement WHERE id = $id";
+                            $result = $conn->query($sql);
+
+                            $sql_Nom = $_POST["nom"];
+                            $sql_Description = $_POST["description"];
+                            $sql_Lieu = $_POST["lieu"];
+                            $sql_Date = $_POST["date"];
+
+                            //afficher les donner de tbdepartement
+                            $conn->query('SET NAMES utf8');
+                            $sql2 = "SELECT * FROM tbdepartement";
+                            $result2 = $conn->query($sql2);
+
+                            $sql2_Departement = $_POST["nomDepartement"];
+                
 
                         if(empty($_POST['nom'])){
                             $nomErreur = "Le nom ne peut pas être vide";
@@ -116,97 +221,26 @@
     
 
                         // Mettre à jour la base de données
-                        $sql = "UPDATE evenement SET nomEvent = '$nom' WHERE id = $id";
+                        $sql = "UPDATE evenement SET nomEvent = '$sql_Nom', description = '$sql_Description', departement = '$sql2_Departement', lieu = '$sql_Lieu', date = '$sql_Date' WHERE id = $id";
 
-                        if ($conn->$query($sql) == TRUE) {
+                        echo $sql;
+                        if ($conn->query($sql) === TRUE) {
                             echo "Mise à jour réussie.";
                         } else {
-                            echo "Erreur lors de la mise à jour";
+                            echo "Erreur lors de la mise à jour: " . $conn->error;
                         }
+                        
 
                         $conn->close();
 
+                        header("Location: evenement.php");
+
                     }
-
-                }
-
-
                 
-                    if ($_SERVER['REQUEST_METHOD'] != "POST" || $erreur == true){
+                
+
                 ?>
-
-                <div class="container min-vh-100 d-flex justify-content-center align-items-center">
-
-                            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="modifForm">
-                                <a href="evenement.php"><i class="fa-solid fa-3x fa-arrow-left p-0 m-0"></i></a>
-                                <h1>Modifier l'évènement</h1>
-
-                                <input type="hidden" name="id" value="<?php echo $id; ?>">
-
-                                <label>Nom : </label>
-                                <input type="text" class="form-control" value="<?php echo $nom; ?>" name="nom">
-                                <p class="error"><?php echo $nomErreur; ?></p>
-
-                                <label class="mt-3">Description : </label>
-                                <textarea type="text" class="form-control" value="<?php echo $description; ?>" name="description"><?php echo $description;?></textarea>
-
-                                <label>Lieu : </label>
-                                <input type="text" class="form-control" value="<?php echo $lieu; ?>" name="lieu">
-                                <p class="error"><?php echo $lieuErreur; ?></p>
-
-                                <label>Date : </label>
-                                <input type="date" class="form-control" value="<?php echo $date; ?>" name="date">
-                                <p class="error"><?php echo $dateErreur; ?></p>
-
-                                <label class="mt-3">Département : </label>
-                                
-                                <Select class="form-control" name="departe">
-                                    <?php
-                                            $ctr = 0;
-                                            while($row2 = $result2->fetch_assoc()){
-                                        ?>
-                                            <option value="<?php echo $row2['nomDepartement'];?>" class="form-control"><?php echo $nomDep;?></option>
-                                        <?php
-                                            $ctr++;
-                                            }
-                                        ?>
-                                    </Select>
-                                <p class="error"><?php echo $choixErreur; ?></p>
-<!--
-                                <label class="mt-3">Nombre d'avis satisfait (Étudiant) : </label>
-                                <input type="number" class="form-control" value="<?php echo $contentEtu; ?>" name="contentEtu">
-
-                                <label class="mt-3">Nombre d'avis moyennement satisfait (Étudiant) : </label>
-                                <input type="number" class="form-control" value="<?php echo $moyenEtu; ?>" name="moyenEtu">
-
-                                <label class="mt-3">Nombre d'avis pas satisfait (Étudiant) : </label>
-                                <input type="number" class="form-control" value="<?php echo $pasContentEtu; ?>" name="pasContentEtu">
-
-                                <label class="mt-3">Nombre d'avis satisfait (Employeur) : </label>
-                                <input type="number" class="form-control" value="<?php echo $contentEmp; ?>" name="contentEmp">
-
-                                <label class="mt-3">Nombre d'avis moyennement satisfait (Employeur) : </label>
-                                <input type="number" class="form-control" value="<?php echo $moyenEmp; ?>" name="moyenEmp">
-
-                                <label class="mt-3">Nombre d'avis pas satisfait (Employeur) : </label>
-                                <input type="number" class="form-control" value="<?php echo $pasContentEmp; ?>" name="pasContentEmp">
---> 
-                                <button type="submit" name="action" class="form-control mt-3 bg-dark text-white">Modifier</button>
-                               
-                            </form>
-                            <h1><?php echo $id?></h1>
-
-                </div>
-
-
-
-                <?php
-        
-            } else {
-                header("Location: evenement.php");
-                die;
-            }
-        ?>
+                   
             
 
         <?php

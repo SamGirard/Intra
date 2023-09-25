@@ -16,12 +16,10 @@
     <body class="pageEtu">
 
     <?php
-        $id = $_GET['id'];
+        if($_SERVER["REQUEST_METHOD"] == "GET") {
+            if(isset($_GET['id'])) {
+                $id = $_GET['id'];
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-            $type = $_POST['type'];
-            $value = intval($_POST['value']);
 
             // Faire la connexion à la base de données
             $servername = "localhost";
@@ -37,6 +35,33 @@
             }
 
             // Mettre à jour les valeurs dans la base de données
+
+        }
+
+        ?>
+        <div class="container min-vh-100 d-flex justify-content-center align-items-center p-0">
+
+            <div class="col-md-4 face mx-auto px-0">
+                <button id="btnContent" onclick="clickContent()"><img src="img/contentEtu.jpg" height="400" width="400"></button>
+            </div>
+            <div class="col-md-4 face mx-auto px-0">
+                <button id="btnMoyen" onclick="clickMoyen()"><img src="img/moyenEtu.jpg" height="400" width="400"></button>
+            </div>
+            <div class="col-md-4 face mx-auto px-0">
+                <button id="btnPasContent" onclick="clickPasContent()"><img src="img/pasContentEtu.jpg" height="400" width="400"></button>
+            </div>
+
+        </div>
+
+        <h2 id="ctr1"></h2>
+        <h2 id="ctr2"></h2>
+        <h2 id="ctr3"></h2>
+
+    <?php
+
+        if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+
             $updateField = "";
             switch ($type) {
                 case "content":
@@ -49,39 +74,49 @@
                     $updateField = "pasContentEtu";
                     break;
             }
+            
+            $type = $_POST['type'];
+            $value = intval($_POST['value']);
 
-    if (!empty($updateField)) {
-        $sql = "UPDATE `evenement` SET `contentEtu`='".$updateField."',`moyenEtu`='".$updateField."',`pasContentEtu`='".$updateField."',`contentEmp`='".$updateField."',`moyenEmp`='".$updateField."',`pasContentEmp`='".$updateField."' WHERE `id`";
+            $servername = "localhost";
+            $username = "root";
+            $password = "root";
+            $db = "intra smiley";
 
-        if ($conn->query($sql) === TRUE) {
-            echo "Mise à jour réussie.";
-        } else {
-            echo "Erreur lors de la mise à jour : " . $conn->error;
+            //Creer la connection
+            $conn = new mysqli($servername, $username, $password, $db);
+
+            //vérifier la connection
+            if($conn->connect_error) {
+                die("Connection échoué: " . $conn->connect_error);
+            }
+
+            $id = $_POST['id'];
+
+            $conn->query('SET NAMES utf8');
+            $sql = "SELECT * FROM evenement WHERE id = $id";
+            $result = $conn->query($sql);
+
+
+            if (!empty($updateField)) {
+                $sql = "UPDATE `evenement` SET `contentEtu`='".$updateField."',`moyenEtu`='".$updateField."',`pasContentEtu`='".$updateField."',`contentEmp`='".$updateField."',`moyenEmp`='".$updateField."',`pasContentEmp`='".$updateField."' WHERE `id`";
+
+                if ($conn->query($sql) === TRUE) {
+                    echo "Mise à jour réussie.";
+                } else {
+                    echo "Erreur lors de la mise à jour : " . $conn->error;
+                }
+            }
+
+                    // Fermer la connexion
+                    $conn->close();
         }
     }
-
-            // Fermer la connexion
-            $conn->close();
-        }
+        
     ?>
 
 
-    <div class="container min-vh-100 d-flex justify-content-center align-items-center p-0">
-
-            <div class="col-md-4 face mx-auto px-0">
-                <button id="btnContent" onclick="clickContent()"><img src="img/contentEtu.jpg" height="400" width="400"></button>
-            </div>
-            <div class="col-md-4 face mx-auto px-0">
-                <button id="btnMoyen" onclick="clickMoyen()"><img src="img/moyenEtu.jpg" height="400" width="400"></button>
-            </div>
-            <div class="col-md-4 face mx-auto px-0">
-                <button id="btnPasContent" onclick="clickPasContent()"><img src="img/pasContentEtu.jpg" height="400" width="400"></button>
-            </div>
-
-    </div>
-    <h2 id="ctr1"></h2>
-    <h2 id="ctr2"></h2>
-    <h2 id="ctr3"></h2>
+    
 
     <script src="js/sourireEtu.js"></script>
     </body>
