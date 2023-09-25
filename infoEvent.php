@@ -236,13 +236,9 @@
                         header("Location: evenement.php");
 
                     }
-                
-                
 
                 ?>
                    
-            
-
         <?php
             function trojan($data){
                 $data = trim($data); //Enleve les caractères invisibles

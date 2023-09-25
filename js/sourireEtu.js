@@ -3,41 +3,33 @@ var ctr2 = document.getElementById("ctr2");
 var ctr3 = document.getElementById("ctr3");
 
 
+function submitForm(voteType) {
+    // Mettez à jour la valeur du champ masqué avec le type de vote
+    document.getElementById("voteType").value = voteType;
 
-document.getElementById('btnContent').addEventListener('click', function () {
-    ctrValueBon += 1;
-    ctr1.innerHTML = ctrValueBon;
-    sendVote('content');
-});
+    var urlParams = new URLSearchParams(window.location.search);
+    var id = urlParams.get('id');
 
-document.getElementById('btnMoyen').addEventListener('click', function () {
-    ctrValueMoyen += 1;
-    ctr2.innerHTML = ctrValueMoyen;
-    sendVote('moyen');
-});
+    // Placez l'ID dans le champ masqué du formulaire
+    document.getElementById("id").value = id;
 
-document.getElementById('btnPasContent').addEventListener('click', function () {
-    ctrValuePasBon += 1;
-    ctr3.innerHTML = ctrValuePasBon;
-    sendVote('pasContent');
-});
+    // Soumettez le formulaire
+    document.getElementById("voteForm").submit();
+}
 
-function sendVote(type) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'sourireEtu.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            // La réponse du serveur, si nécessaire
-            console.log(xhr.responseText);
+function clickButton(type) {
+    $.ajax({
+        type: "POST",
+        url: "sourireEtu.php",
+        data: { voteType: type },
+        success: function (data) {
+            // Gérez ici la réponse du serveur, si nécessaire
+            console.log("Vote enregistré pour : " + type);
+        },
+        error: function () {
+            console.error("Erreur lors de l'envoi du vote.");
         }
-    };
-
-    // Les données à envoyer au serveur
-    var data = 'type=' + type;
-
-    xhr.send(data);
+    });
 }
 
 
