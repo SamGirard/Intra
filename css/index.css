@@ -231,10 +231,6 @@ a{
 }
 
 
-.login{
-    background-color: #e0e0e0;
-}
-
 button{
     height: 70px;
     border-radius: 20px;
@@ -270,7 +266,7 @@ input[type="number"]{
     font-size: 15pt;
 }
 
-.pageCreer, .pageDepart, .pageUser, .pageModif, .pageChoix, .pageEtu{
+.pageCreer, .pageDepart, .pageUser, .pageModif, .pageChoix, .pageEtu, .login{
     background-color: #e0e0e0;
 }
 
@@ -285,3 +281,6 @@ input[type="number"]{
     visibility: visible;
 }
 
+.emp{
+    background-color: #343a40;
+}

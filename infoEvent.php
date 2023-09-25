@@ -55,7 +55,7 @@
 
                     if ($result->num_rows > 0) {
                         $row = $result->fetch_assoc();
-                        $idd = $row['id'];
+                        $id = $row['id'];
                         $nom = $row['nom'];
                         $description = $row['description'];
                         $lieu = $row['lieu'];
@@ -116,13 +116,14 @@
                         //pasContentEmp = $_POST['pasContentEmp'];
     
                         // Mettre à jour la base de données
-                        $sql = "UPDATE evenement SET nom = '$nom' WHERE id=$idd";
-                                    
+                        $sql = "UPDATE `evenement` SET nom = '$nom' WHERE `evenement`.`id` = $id";
+
                         if ($stmt->execute()) {
                             echo "Mise à jour réussie.";
                         } else {
                             echo "Erreur lors de la mise à jour : " . $stmt->error;
                         }
+
 
                         
                         $conn->close();
@@ -157,7 +158,6 @@
                                 <label class="mt-3">Département : </label>
                                 
                                 <Select class="form-control" name="departe">
-                                    <option value="rien" class="form-control">Choisissez un département</option>
                                     <?php
                                             $ctr = 0;
                                             while($row2 = $result2->fetch_assoc()){

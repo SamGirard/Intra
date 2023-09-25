@@ -69,13 +69,13 @@
     <div class="container d-flex justify-content-center align-items-center p-0">
 
             <div class="col-md-4 mx-auto px-0">
-                <button id="btnContent" onclick="clickContent()"><img src="img/content.jpg" height="400" width="400"></button>
+                <button id="btnContent" onclick="clickContent()"><img src="img/contentEtu.jpg" height="400" width="400"></button>
             </div>
             <div class="col-md-4 mx-auto px-0">
-                <button id="btnMoyen" onclick="clickMoyen()"><img src="img/bof.jpg" height="400" width="400"></button>
+                <button id="btnMoyen" onclick="clickMoyen()"><img src="img/moyenEtu.jpg" height="400" width="400"></button>
             </div>
             <div class="col-md-4 mx-auto px-0">
-                <button id="btnPasContent" onclick="clickPasContent()"><img src="img/pas content.jpg" height="400" width="400"></button>
+                <button id="btnPasContent" onclick="clickPasContent()"><img src="img/pasContentEtu.jpg" height="400" width="400"></button>
             </div>
 
     </div>

@@ -66,18 +66,17 @@
     ?>
 
 
-<h1>emp</h1>
-    <div class="container-fluid h-100">
-        <div class="row text-center">
-            <div class="col-md-3 mx-auto">
-                <button id="btnContent" onclick="clickContent()"><img src="img/content.jpg" height="400" width="400"></button>
+    <div class="container emp d-flex justify-content-center align-items-center p-0">
+       
+            <div class="col-md-4 mx-auto px-0">
+                <button id="btnContent" id="btnContent" onclick="clickContent()"><img src="img/contentEmp.jpg" height="400" width="400"></button>
             </div>
-            <div class="col-md-3 mx-auto">
-                <button onclick="clickMoyen()"><img src="img/bof.jpg" height="400" width="400"></button>
+            <div class="col-md-4 mx-auto px-0">
+                <button id="btnMoyen" onclick="clickMoyen()"><img src="img/moyenEmp.jpg" height="400" width="400"></button>
             </div>
-            <div class="col-md-3 mx-auto">
-                <button onclick="clickPasContent()"><img src="img/pas content.jpg" height="400" width="400"></button>
-            </div>
+            <div class="col-md-4 mx-auto px-0">
+                <button id="btnPasContent" onclick="clickPasContent()"><img src="img/pasContentEmp.jpg" height="400" width="400"></button>
+
         </div>
     </div>
     <h1><?php echo $id;?></h1>
