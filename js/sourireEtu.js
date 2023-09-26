@@ -2,7 +2,6 @@ var ctr1 = document.getElementById("ctr1");
 var ctr2 = document.getElementById("ctr2");
 var ctr3 = document.getElementById("ctr3");
 
-
 function submitForm(voteType) {
     // Mettez à jour la valeur du champ masqué avec le type de vote
     document.getElementById("voteType").value = voteType;
@@ -31,7 +30,6 @@ function clickButton(type) {
         }
     });
 }
-
 
 var ctrValueBon = 0;
 var ctrValueMoyen = 0;

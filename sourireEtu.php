@@ -69,7 +69,7 @@ session_start();
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-            $voteType = $_POST['voteType'];
+            
 
 
             $servername = "localhost";
@@ -86,7 +86,8 @@ session_start();
             }
 
             $id = $_POST['id'];
-
+            $voteType = $_POST['voteType'];
+            
             $conn->query('SET NAMES utf8');
             $sql = "SELECT * FROM evenement WHERE id = $id";
             $result = $conn->query($sql);

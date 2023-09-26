@@ -95,7 +95,7 @@
             $date = trojan($_POST['nDate']);
 
             if($erreur != true){
-            $sql = "INSERT INTO evenement (nom, description, departement, lieu, date, contentEtu, moyenEtu, pasContentEtu, contentEmp, moyenEmp, pasContentEmp)
+            $sql = "INSERT INTO evenement (nomEvent, description, departement, lieu, date, contentEtu, moyenEtu, pasContentEtu, contentEmp, moyenEmp, pasContentEmp)
             VALUES ('$nom', '$description', '$departement', '$lieu', '$date', 0, 0, 0, 0, 0, 0)";
 
                 if (mysqli_query($conn, $sql)) {
