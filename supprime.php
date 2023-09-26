@@ -13,7 +13,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     </head>
 
-    <body>
+    <body class="pageSupp">
 
         <?php
             $id = $_GET['id'];
@@ -51,29 +51,20 @@
                 
         ?>
 
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-10 offset-1 text-center mt-5">
-                    <h1>Confirmer la suppression ?</h1>
-                    <?php
+        <div class="container min-vh-100 d-flex justify-content-center align-items-center">
+            <form method="POST" class="suppForm">
+                <h1>Confirmer la suppression ?</h1>
+                <?php
                         if ($result->num_rows > 0) {
                             $row = $result->fetch_assoc();
-                            echo "<p>Nom de l'événement : " . $row['nom'] . "</p>";
+                            echo "<p>Nom de l'événement : " . $row['nomEvent'] . "</p>";
                         }
                     ?>
-                </div>
-            </div>
-
-            <form method="POST">
-                <div class="row">  
-                    <div class="col-md-2 offset-4">
-                        <button type="submit" class="form-control">Oui</button>
-                    </div>
-                    <div class="col-md-2">
-                        <a class="mt-5" href="evenement.php">Annuler</a>
+                <div class="d-flex flex-column align-items-center">
+                    <button type="submit" class="form-control oui">Oui</button>
+                    <a class="mt-5 annule" href="evenement.php">Annuler</a>
                 </div>
             </form>
-            </div>
         </div>
 
     </body>

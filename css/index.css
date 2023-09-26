@@ -238,6 +238,16 @@
         height: 550px;
     }
 
+    .suppForm {
+        padding: 90px 70px 100px 70px;
+        border-radius: 20px;
+        background: #e0e0e0;
+        box-shadow: 30px 30px 30px #b3b3b3,
+            -30px -30px 30px #ffffff;
+        width: 700px;
+        height: 460px;
+    }
+
 
     button {
         height: 70px;
@@ -281,7 +291,8 @@
     .pageModif,
     .pageChoix,
     .pageEtu,
-    .login {
+    .login,
+    .pageSupp {
         background-color: #e0e0e0;
     }
 
@@ -307,6 +318,35 @@
 
     .face{
         margin-top: -200px;
+    }
+
+    .visage{
+        border-radius: 100%;
+        background: #e0e0e0;
+        box-shadow: 30px 30px 60px #b3b3b3,
+            -30px -30px 60px #ffffff;
+    }
+
+    .visage2{
+        border-radius: 100%;
+        background: #343a40;
+        box-shadow: 30px 30px 60px #2c3136,
+            -30px -30px 60px #3c434a;
+    }
+
+    .annule{
+        text-decoration: none;
+        font-size: 25pt;
+    }
+
+    .oui.form-control{
+        transition: 0.4s;
+        height: 120px;
+        font-size: 20pt;
+    }
+
+    .oui:hover{
+        background-color: rgb(253, 57, 57);
     }
 
 
@@ -357,5 +397,21 @@
     .plus {
         height: 80px;
     }
+
+    .suppForm {
+        height: 500px;
+    }
+
+    .annule{
+        text-decoration: none;
+        font-size: 30pt;
+    }
+
+    .oui.form-control{
+        transition: 0.4s;
+        height: 160px;
+        font-size: 20pt;
+    }
+
 
 }

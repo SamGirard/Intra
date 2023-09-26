@@ -24,7 +24,13 @@
                     <a href="deconnecter.php"><i class="fa-solid fa-3x fa-right-from-bracket mt-2"></i></a>
                 </div>
                 <div class="col-sm-1 offset-10 mr-auto text-right p-0">
-                    <a href="newUser.php"><i class="fa-solid fa-user-plus mt-2 fa-3x"></i></a>
+                    <div class="row">
+                    <div class="col-md-6"></div>
+                        <div class="col-md-6">
+                            <a href="newUser.php"><i class="fa-solid fa-user-plus mt-2 fa-3x"></i></a>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>
