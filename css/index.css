@@ -5,371 +5,371 @@
 
 /*mode paysage*/
 
-    textarea {
-        height: 150px;
-    }
+textarea {
+    height: 150px;
+}
 
-    .boite {
-        border-radius: 20px;
-        background: #e0e0e0;
-        box-shadow: 30px 30px 60px #b3b3b3,
-            -30px -30px 60px #ffffff;
-        justify-content: space-around;
-    }
+.boite {
+    border-radius: 20px;
+    background: #e0e0e0;
+    box-shadow: 30px 30px 60px #b3b3b3,
+        -30px -30px 60px #ffffff;
+    justify-content: space-around;
+}
 
-    .pageEvent {
-        background-color: #e0e0e0;
-    }
+.pageEvent {
+    background-color: #e0e0e0;
+}
 
-    .rowEmployeur {
-        border-radius: 0px 0px 20px 20px;
-        background: #343a40;
-        box-shadow: 10px 10px 60px #3e3f41;
-        color: white;
-        padding: 20px 0px 20px 0px;
-    }
+.rowEmployeur {
+    border-radius: 0px 0px 20px 20px;
+    background: #343a40;
+    box-shadow: 10px 10px 60px #3e3f41;
+    color: white;
+    padding: 20px 0px 20px 0px;
+}
 
-    .desc {
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-    }
+.desc {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
 
-    .titre {
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        font-size: 29pt;
-    }
+.titre {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 29pt;
+}
 
-    .boite h5 {
-        font-size: 20pt;
-    }
+.boite h5 {
+    font-size: 20pt;
+}
 
-    a {
-        text-decoration: none;
-    }
+a {
+    text-decoration: none;
+}
 
-    .index,
-    .container {
-        height: 100%;
-        padding: 0px;
-        background-color: #e0e0e0;
-    }
-
-
-    .creer {
-
-        padding-top: 50px;
-        padding-bottom: 100px;
-        text-decoration: none;
-        border-radius: 20px;
-        background: #e0e0e0;
-        box-shadow: 30px 30px 60px #b3b3b3,
-            -30px -30px 60px #ffffff;
-        transition: 0.4s;
-    }
-
-    .creer h2 {
-        font-size: 40pt;
-        font-weight: lighter;
-        letter-spacing: 3px;
-    }
-
-    .creer p {
-        color: rgba(22, 22, 22, 0.7);
-        font-size: 15pt;
-        padding-left: 150px;
-        padding-right: 150px;
-        margin-top: 100px;
-        margin-bottom: 50px;
-    }
-
-    .creer:hover {
-        box-shadow: 37px 37px 74px #8b8b8b,
-            -37px -37px 74px #ffffff;
-    }
+.index,
+.container {
+    height: 100%;
+    padding: 0px;
+    background-color: #e0e0e0;
+}
 
 
-    .event {
+.creer {
 
-        padding-top: 50px;
-        padding-bottom: 100px;
-        text-decoration: none;
-        border-radius: 20px;
-        background: #e0e0e0;
-        box-shadow: 30px 30px 60px #b3b3b3,
-            -30px -30px 60px #ffffff;
-        transition: 0.4s;
-    }
+    padding-top: 50px;
+    padding-bottom: 100px;
+    text-decoration: none;
+    border-radius: 20px;
+    background: #e0e0e0;
+    box-shadow: 30px 30px 60px #b3b3b3,
+        -30px -30px 60px #ffffff;
+    transition: 0.4s;
+}
 
-    .event h2 {
-        font-size: 40pt;
-        font-weight: lighter;
-        letter-spacing: 3px;
-    }
+.creer h2 {
+    font-size: 40pt;
+    font-weight: lighter;
+    letter-spacing: 3px;
+}
 
-    .event p {
-        color: rgba(22, 22, 22, 0.7);
-        font-size: 15pt;
-        padding-left: 150px;
-        padding-right: 150px;
-        margin-top: 100px;
-        margin-bottom: 50px;
-    }
+.creer p {
+    color: rgba(22, 22, 22, 0.7);
+    font-size: 15pt;
+    padding-left: 150px;
+    padding-right: 150px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
 
-    .event:hover {
-        box-shadow: 37px 37px 74px #8b8b8b,
-            -37px -37px 74px #ffffff;
-    }
-
-
-
-    .sourire {
-
-        padding-top: 50px;
-        padding-bottom: 100px;
-        text-decoration: none;
-        border-radius: 20px;
-        background: #e0e0e0;
-        box-shadow: 30px 30px 60px #b3b3b3,
-            -30px -30px 60px #ffffff;
-        transition: 0.4s;
-    }
-
-    .sourire h2 {
-        font-size: 40pt;
-        font-weight: lighter;
-        letter-spacing: 3px;
-    }
-
-    .sourire p {
-        color: rgba(22, 22, 22, 0.7);
-        font-size: 15pt;
-        padding-left: 150px;
-        padding-right: 150px;
-        margin-top: 100px;
-        margin-bottom: 50px;
-    }
-
-    .sourire:hover {
-        box-shadow: 37px 37px 74px #8b8b8b,
-            -37px -37px 74px #ffffff;
-    }
-
-    .utilisateur {
-        text-decoration: none;
-        text-align: right;
-    }
-
-    .deco {
-        text-decoration: none;
-    }
-
-    .navBar {
-        max-height: 1%;
-    }
-
-    .navBar1 {
-        min-height: 99%;
-    }
-
-    .loginForm {
-        padding: 100px 70px 100px 70px;
-        margin-top: 240px;
-        border-radius: 20px;
-        background: #e0e0e0;
-        box-shadow: 30px 30px 60px #b3b3b3,
-            -30px -30px 60px #ffffff;
-        width: 700px;
-        height: 600px;
-    }
-
-    .creerForme {
-        padding: 100px 70px 100px 70px;
-        border-radius: 20px;
-        background: #e0e0e0;
-        box-shadow: 30px 30px 30px #b3b3b3,
-            -30px -30px 30px #ffffff;
-        width: 700px;
-        min-height: 800px;
-        max-height: 1000px;
-    }
-
-    .departForm {
-        padding: 90px 70px 100px 70px;
-        border-radius: 20px;
-        background: #e0e0e0;
-        box-shadow: 30px 30px 30px #b3b3b3,
-            -30px -30px 30px #ffffff;
-        width: 700px;
-        height: 500px;
-    }
-
-    .userForm {
-        padding: 90px 70px 100px 70px;
-        border-radius: 20px;
-        background: #e0e0e0;
-        box-shadow: 30px 30px 30px #b3b3b3,
-            -30px -30px 30px #ffffff;
-        width: 700px;
-        height: 700px;
-    }
-
-    .modifForm {
-        padding: 90px 70px 100px 70px;
-        border-radius: 20px;
-        margin-top: 100px;
-        margin-bottom: 100px;
-        background: #e0e0e0;
-        box-shadow: 30px 30px 30px #b3b3b3,
-            -30px -30px 30px #ffffff;
-        width: 700px;
-        height: 900px;
-    }
-
-    .choixForm {
-        padding: 90px 70px 100px 70px;
-        border-radius: 20px;
-        background: #e0e0e0;
-        box-shadow: 30px 30px 30px #b3b3b3,
-            -30px -30px 30px #ffffff;
-        width: 700px;
-        height: 550px;
-    }
-
-    .suppForm {
-        padding: 90px 70px 100px 70px;
-        border-radius: 20px;
-        background: #e0e0e0;
-        box-shadow: 30px 30px 30px #b3b3b3,
-            -30px -30px 30px #ffffff;
-        width: 700px;
-        height: 460px;
-    }
+.creer:hover {
+    box-shadow: 37px 37px 74px #8b8b8b,
+        -37px -37px 74px #ffffff;
+}
 
 
-    button {
-        height: 70px;
-        border-radius: 20px;
-    }
+.event {
 
-    .plus {
-        height: 60px;
-    }
+    padding-top: 50px;
+    padding-bottom: 100px;
+    text-decoration: none;
+    border-radius: 20px;
+    background: #e0e0e0;
+    box-shadow: 30px 30px 60px #b3b3b3,
+        -30px -30px 60px #ffffff;
+    transition: 0.4s;
+}
 
-    select {
-        height: 60px;
-        font-size: 30pt;
-    }
+.event h2 {
+    font-size: 40pt;
+    font-weight: lighter;
+    letter-spacing: 3px;
+}
 
-    input {
-        height: 60px;
-        font-size: 30pt;
-    }
+.event p {
+    color: rgba(22, 22, 22, 0.7);
+    font-size: 15pt;
+    padding-left: 150px;
+    padding-right: 150px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.event:hover {
+    box-shadow: 37px 37px 74px #8b8b8b,
+        -37px -37px 74px #ffffff;
+}
 
 
-    input[type="text"] {
-        font-size: 15pt;
-    }
 
-    input[type="date"] {
-        font-size: 15pt;
-    }
+.sourire {
 
-    input[type="password"] {
-        font-size: 15pt;
-    }
+    padding-top: 50px;
+    padding-bottom: 100px;
+    text-decoration: none;
+    border-radius: 20px;
+    background: #e0e0e0;
+    box-shadow: 30px 30px 60px #b3b3b3,
+        -30px -30px 60px #ffffff;
+    transition: 0.4s;
+}
 
-    input[type="number"] {
-        font-size: 15pt;
-    }
+.sourire h2 {
+    font-size: 40pt;
+    font-weight: lighter;
+    letter-spacing: 3px;
+}
 
-    .pageCreer,
-    .pageDepart,
-    .pageUser,
-    .pageModif,
-    .pageChoix,
-    .pageEtu,
-    .login,
-    .pageSupp {
-        background-color: #e0e0e0;
-    }
+.sourire p {
+    color: rgba(22, 22, 22, 0.7);
+    font-size: 15pt;
+    padding-left: 150px;
+    padding-right: 150px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
 
-    .pageEmp {
-        background-color: #343a40;
-    }
+.sourire:hover {
+    box-shadow: 37px 37px 74px #8b8b8b,
+        -37px -37px 74px #ffffff;
+}
 
-    #btnContent,
-    #btnMoyen,
-    #btnPasContent {
-        visibility: hidden;
-    }
+.utilisateur {
+    text-decoration: none;
+    text-align: right;
+}
 
-    #btnContent img,
-    #btnMoyen img,
-    #btnPasContent img {
-        visibility: visible;
-    }
+.deco {
+    text-decoration: none;
+}
 
-    .emp {
-        background-color: #343a40;
-    }
+.navBar {
+    max-height: 1%;
+}
 
-    .face{
-        margin-top: -200px;
-    }
+.navBar1 {
+    min-height: 99%;
+}
 
-    .visage{
-        border-radius: 100%;
-        background: #e0e0e0;
-        box-shadow: 30px 30px 60px #b3b3b3,
-            -30px -30px 60px #ffffff;
-    }
+.loginForm {
+    padding: 100px 70px 100px 70px;
+    margin-top: 240px;
+    border-radius: 20px;
+    background: #e0e0e0;
+    box-shadow: 30px 30px 60px #b3b3b3,
+        -30px -30px 60px #ffffff;
+    width: 700px;
+    height: 600px;
+}
 
-    .visage2{
-        border-radius: 100%;
-        background: #343a40;
-        box-shadow: 30px 30px 60px #2c3136,
-            -30px -30px 60px #3c434a;
-    }
+.creerForme {
+    padding: 100px 70px 100px 70px;
+    border-radius: 20px;
+    background: #e0e0e0;
+    box-shadow: 30px 30px 30px #b3b3b3,
+        -30px -30px 30px #ffffff;
+    width: 700px;
+    min-height: 800px;
+    max-height: 1000px;
+}
 
-    .annule{
-        text-decoration: none;
-        font-size: 25pt;
-    }
+.departForm {
+    padding: 90px 70px 100px 70px;
+    border-radius: 20px;
+    background: #e0e0e0;
+    box-shadow: 30px 30px 30px #b3b3b3,
+        -30px -30px 30px #ffffff;
+    width: 700px;
+    height: 500px;
+}
 
-    .oui.form-control{
-        transition: 0.4s;
-        height: 120px;
-        font-size: 20pt;
-    }
+.userForm {
+    padding: 90px 70px 100px 70px;
+    border-radius: 20px;
+    background: #e0e0e0;
+    box-shadow: 30px 30px 30px #b3b3b3,
+        -30px -30px 30px #ffffff;
+    width: 700px;
+    height: 700px;
+}
 
-    .oui:hover{
-        background-color: rgb(253, 57, 57);
-    }
+.modifForm {
+    padding: 90px 70px 100px 70px;
+    border-radius: 20px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    background: #e0e0e0;
+    box-shadow: 30px 30px 30px #b3b3b3,
+        -30px -30px 30px #ffffff;
+    width: 700px;
+    height: 900px;
+}
+
+.choixForm {
+    padding: 90px 70px 100px 70px;
+    border-radius: 20px;
+    background: #e0e0e0;
+    box-shadow: 30px 30px 30px #b3b3b3,
+        -30px -30px 30px #ffffff;
+    width: 700px;
+    height: 550px;
+}
+
+.suppForm {
+    padding: 90px 70px 100px 70px;
+    border-radius: 20px;
+    background: #e0e0e0;
+    box-shadow: 30px 30px 30px #b3b3b3,
+        -30px -30px 30px #ffffff;
+    width: 700px;
+    height: 460px;
+}
+
+
+button {
+    height: 70px;
+    border-radius: 20px;
+}
+
+.plus {
+    height: 60px;
+}
+
+select {
+    height: 60px;
+    font-size: 30pt;
+}
+
+input {
+    height: 60px;
+    font-size: 30pt;
+}
+
+
+input[type="text"] {
+    font-size: 15pt;
+}
+
+input[type="date"] {
+    font-size: 15pt;
+}
+
+input[type="password"] {
+    font-size: 15pt;
+}
+
+input[type="number"] {
+    font-size: 15pt;
+}
+
+.pageCreer,
+.pageDepart,
+.pageUser,
+.pageModif,
+.pageChoix,
+.pageEtu,
+.login,
+.pageSupp {
+    background-color: #e0e0e0;
+}
+
+.pageEmp {
+    background-color: #343a40;
+}
+
+#btnContent,
+#btnMoyen,
+#btnPasContent {
+    visibility: hidden;
+}
+
+#btnContent img,
+#btnMoyen img,
+#btnPasContent img {
+    visibility: visible;
+}
+
+.emp {
+    background-color: #343a40;
+}
+
+.face {
+    margin-top: -200px;
+}
+
+.visage {
+    border-radius: 100%;
+    background: #e0e0e0;
+    box-shadow: 30px 30px 60px #b3b3b3,
+        -30px -30px 60px #ffffff;
+}
+
+.visage2 {
+    border-radius: 100%;
+    background: #343a40;
+    box-shadow: 30px 30px 60px #2c3136,
+        -30px -30px 60px #3c434a;
+}
+
+.annule {
+    text-decoration: none;
+    font-size: 25pt;
+}
+
+.oui.form-control {
+    transition: 0.4s;
+    height: 120px;
+    font-size: 20pt;
+}
+
+.oui:hover {
+    background-color: rgb(253, 57, 57);
+}
 
 
 
 /*mode portrait*/
 @media only screen and (orientation: portrait) {
-    .boite-menu{
+    .boite-menu {
         width: 83.33333% !important;
         margin-bottom: 100px;
         margin-left: auto;
         margin-right: auto;
     }
 
-    .boite{
+    .boite {
         width: 83.33333% !important;
     }
 
-    .creerForme{
+    .creerForme {
         min-height: 1000px;
         max-height: 1400px;
     }
 
-    .modifForm{
+    .modifForm {
         height: 1000px;
     }
 
@@ -382,15 +382,15 @@
         height: 80px;
     }
 
-    select.form-control{
+    select.form-control {
         font-size: 20pt;
     }
 
-    input.form-control{
+    input.form-control {
         font-size: 20pt;
     }
 
-    textarea.form-control{
+    textarea.form-control {
         font-size: 20pt;
     }
 
@@ -402,12 +402,12 @@
         height: 500px;
     }
 
-    .annule{
+    .annule {
         text-decoration: none;
         font-size: 30pt;
     }
 
-    .oui.form-control{
+    .oui.form-control {
         transition: 0.4s;
         height: 160px;
         font-size: 20pt;
