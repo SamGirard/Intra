@@ -55,6 +55,7 @@ a {
     height: 100%;
     padding: 0px;
     background-color: #e0e0e0;
+    overflow: hidden;
 }
 
 
@@ -366,7 +367,6 @@ input[type="number"] {
 }
 
 
-
 /*mode portrait*/
 @media only screen and (orientation: portrait) {
     .boite-menu {
@@ -441,6 +441,9 @@ input[type="number"] {
         margin-top: 140px;
     }
 
-
+    .colDePlus{
+        flex: 0 0 16.666667% !important;
+        max-width: 16.666667% !important;
+    }
 
 }
