@@ -118,7 +118,7 @@ a {
     margin-bottom: 50px;
 }
 
-.event:hover {
+.event:active {
     box-shadow: 37px 37px 74px #8b8b8b,
         -37px -37px 74px #ffffff;
 }
@@ -324,14 +324,15 @@ input[type="number"] {
     background: #e0e0e0;
     box-shadow: 30px 30px 60px #b3b3b3,
         -30px -30px 60px #ffffff;
-    transition: 0.3s;
+    transition: 0.2s;
 }
 
-.visage:hover {
+.visage:active {
     border-radius: 100%;
     background: #e0e0e0;
     box-shadow:  8px 8px 16px #7d7d7d,
              -8px -8px 16px #ffffff;
+             
 }
 
 .visag2 {
@@ -339,10 +340,10 @@ input[type="number"] {
     background: #343a40;
     box-shadow: 30px 30px 60px #2c3136,
         -30px -30px 60px #3c434a;
-    transition: 0.3s;
+    transition: 0.2s;
 }
 
-.visag2:hover {
+.visag2:active {
     border-radius: 100%;
     background: #343a40;
     box-shadow:  8px 8px 16px #1d2024,
@@ -360,7 +361,7 @@ input[type="number"] {
     font-size: 20pt;
 }
 
-.oui:hover {
+.oui:active {
     background-color: rgb(253, 57, 57);
 }
 

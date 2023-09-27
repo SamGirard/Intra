@@ -65,14 +65,8 @@
                     $sql2 = "SELECT * FROM tbdepartement";
                     $result2 = $conn->query($sql2);
 
-                    if ($result2->num_rows > 0) {
-                        $row2 = $result2->fetch_assoc();
-                        $nomDep = $row2['nomDepartement'];
-                    } else {
-                        echo "donnee = 0";
-                    }
 
-
+                    $departement = "";
                     $nomErreur = $lieuErreur = $dateErreur = $choixErreur = "";
                ?>
 
@@ -106,7 +100,7 @@
                                                     $ctr = 0;
                                                     while($row2 = $result2->fetch_assoc()){
                                                 ?>
-                                                    <option value="<?php echo $row2['nomDepartement'];?>" class="form-control"><?php echo $nomDep;?></option>
+                                                    <option value="<?php echo $row2['nomDepartement'];?>" class="form-control"><?php echo $row2['nomDepartement'];?></option>
                                                 <?php
                                                     $ctr++;
                                                     }
@@ -202,7 +196,7 @@
                             $choixErreur = "Choisissez un département";
                             $erreur = true;
                         } else {
-                            $nomDepartement = $choix;
+                            $departement = $choix;
                         }
 
                         $nom = trojan($_POST['nom']);
@@ -221,7 +215,7 @@
     
 
                         // Mettre à jour la base de données
-                        $sql = "UPDATE evenement SET nomEvent = '$sql_Nom', description = '$sql_Description', departement = '$sql2_Departement', lieu = '$sql_Lieu', date = '$sql_Date' WHERE id = $id";
+                        $sql = "UPDATE evenement SET nomEvent = '$sql_Nom', description = '$sql_Description', departement = '$departement', lieu = '$sql_Lieu', date = '$sql_Date' WHERE id = $id";
 
                         echo $sql;
                         if ($conn->query($sql) === TRUE) {

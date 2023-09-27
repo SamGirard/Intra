@@ -107,7 +107,7 @@ session_start();
             }
 
             
-                $sql = "UPDATE evenement SET $updateField = $updateField + 1 WHERE id = 2";
+                $sql = "UPDATE evenement SET $updateField = $updateField + 1 WHERE id = $id";
 
                 if ($conn->query($sql) === TRUE) {
                     header("Location: sourireEtu.php?id=" . $id);
