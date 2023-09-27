@@ -126,7 +126,6 @@ a {
 
 
 .sourire {
-
     padding-top: 50px;
     padding-bottom: 100px;
     text-decoration: none;
@@ -325,13 +324,29 @@ input[type="number"] {
     background: #e0e0e0;
     box-shadow: 30px 30px 60px #b3b3b3,
         -30px -30px 60px #ffffff;
+    transition: 0.3s;
 }
 
-.visage2 {
+.visage:hover {
+    border-radius: 100%;
+    background: #e0e0e0;
+    box-shadow:  8px 8px 16px #7d7d7d,
+             -8px -8px 16px #ffffff;
+}
+
+.visag2 {
     border-radius: 100%;
     background: #343a40;
     box-shadow: 30px 30px 60px #2c3136,
         -30px -30px 60px #3c434a;
+    transition: 0.3s;
+}
+
+.visag2:hover {
+    border-radius: 100%;
+    background: #343a40;
+    box-shadow:  8px 8px 16px #1d2024,
+             -8px -8px 16px #4b545c;
 }
 
 .annule {

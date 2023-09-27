@@ -50,13 +50,13 @@ session_start();
                         </form>
 
                         <div class="col-md-4 face mx-auto px-0">
-                            <button id="btnContent" onclick="clickButton('content')" data-type="content"><img src="img/contentEtu.jpg" height="400" width="400" class="visage2"></button>
+                            <button id="btnContent" onclick="clickButton('content')" data-type="content"><img src="img/contentEmp.jpg" height="400" width="400" class="visag2"></button>
                         </div>
                         <div class="col-md-4 face mx-auto px-0">
-                            <button id="btnMoyen" onclick="clickButton('moyen')" data-type="moyen"><img src="img/moyenEtu.jpg" height="400" width="400" class="visage2"></button>
+                            <button id="btnMoyen" onclick="clickButton('moyen')" data-type="moyen"><img src="img/moyenEmp.jpg" height="400" width="400" class="visag2"></button>
                         </div>
                         <div class="col-md-4 face mx-auto px-0">
-                            <button id="btnPasContent" onclick="clickButton('pasContent')" data-type="pasContent"><img src="img/pasContentEtu.jpg" height="400" width="400" class="visage2"></button>
+                            <button id="btnPasContent" onclick="clickButton('pasContent')" data-type="pasContent"><img src="img/pasContentEmp.jpg" height="400" width="400" class="visag2"></button>
                         </div>
                     </div>
 
@@ -105,7 +105,7 @@ session_start();
             }
 
             
-                $sql = "UPDATE evenement SET $updateField = $updateField + 1 WHERE id = 1";
+                $sql = "UPDATE evenement SET $updateField = $updateField + 1 WHERE id = $id";
 
                 if ($conn->query($sql) === TRUE) {
                     header("Location: sourireEtu.php?id=" . $id);
@@ -122,6 +122,6 @@ session_start();
 
 
 
-        <script src="js/sourireEtu.js"></script>
+        <script src="js/sourireEmp.js"></script>
     </body>
 </html>
