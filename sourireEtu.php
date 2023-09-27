@@ -107,14 +107,23 @@ session_start();
             }
 
             
-                $sql = "UPDATE evenement SET $updateField = $updateField + 1 WHERE id = $id";
+                // Utilisez une requête préparée pour éviter l'injection SQL
+                $sql = "UPDATE evenement SET $updateField = $updateField + 1 WHERE id = ?";
+                $stmt = $conn->prepare($sql);
 
-                if ($conn->query($sql) === TRUE) {
-                    header("Location: sourireEtu.php?id=" . $id);
-                    exit();
+                if ($stmt) {
+                    $stmt->bind_param("i", $id); // "i" indique que $id est un entier
+                    if ($stmt->execute()) {
+                        header("Location: sourireEtu.php?id=" . $id);
+                        exit();
+                    } else {
+                        echo "Erreur lors de la mise à jour : " . $stmt->error;
+                    }
+                    $stmt->close();
                 } else {
-                    echo "Erreur lors de la mise à jour : " . $conn->error;
+                    echo "Erreur lors de la préparation de la requête : " . $conn->error;
                 }
+
         
 
             // Fermer la connexion

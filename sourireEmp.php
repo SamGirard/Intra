@@ -46,7 +46,7 @@ session_start();
                     <div class="container emp min-vh-100 d-flex justify-content-center align-items-center p-0">
                         <form id="voteForm" method="post">
                             <input type="hidden" name="voteType" id="voteType">
-                            <input type="hidden" name="id" id="id" value="<?php echo $id; ?>">
+                            <input type="hidden" name="id" id="id" value="<?php echo $id;?>">
                         </form>
 
                         <div class="col-md-4 face mx-auto px-0">
@@ -105,14 +105,22 @@ session_start();
             }
 
             
-                $sql = "UPDATE evenement SET $updateField = $updateField + 1 WHERE id = $id";
-
-                if ($conn->query($sql) === TRUE) {
-                    header("Location: sourireEtu.php?id=" . $id);
-                    exit();
-                } else {
-                    echo "Erreur lors de la mise à jour : " . $conn->error;
-                }
+                     // Utilisez une requête préparée pour éviter l'injection SQL
+                     $sql = "UPDATE evenement SET $updateField = $updateField + 1 WHERE id = ?";
+                     $stmt = $conn->prepare($sql);
+     
+                     if ($stmt) {
+                         $stmt->bind_param("i", $id); // "i" indique que $id est un entier
+                         if ($stmt->execute()) {
+                             header("Location: sourireEmp.php?id=" . $id);
+                             exit();
+                         } else {
+                             echo "Erreur lors de la mise à jour : " . $stmt->error;
+                         }
+                         $stmt->close();
+                     } else {
+                         echo "Erreur lors de la préparation de la requête : " . $conn->error;
+                     }
         
 
             // Fermer la connexion
