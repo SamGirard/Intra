@@ -9,6 +9,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vote Sourire</title>
+    <link rel="shortcut icon" href="#">
     <link rel="stylesheet" href="css/index.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -42,13 +43,13 @@ session_start();
 
                 
             ?>
-                    <div class="container min-vh-100 d-flex justify-content-center align-items-center p-0">
+                    <div class="container smile min-vh-100 d-flex justify-content-center align-items-center p-0">
                         <form id="voteForm" method="post">
                             <input type="hidden" name="voteType" id="voteType">
                             <input type="hidden" name="id" id="id" value="<?php echo $id; ?>">
                         </form>
 
-                        <div class="col-md-4 face mx-auto px-0">
+                        <div class="col-md-4 face face1 mx-auto px-0">
                             <button id="btnContent" onclick="clickButton('content')" data-type="content"><img src="img/contentEtu.jpg" height="400" width="400" class="visage"></button>
                         </div>
                         <div class="col-md-4 face mx-auto px-0">
@@ -58,11 +59,6 @@ session_start();
                             <button id="btnPasContent" onclick="clickButton('pasContent')" data-type="pasContent"><img src="img/pasContentEtu.jpg" height="400" width="400" class="visage"></button>
                         </div>
                     </div>
-
-                    <h2 id="ctr1"></h2>
-                    <h2 id="ctr2"></h2>
-                    <h2 id="ctr3"></h2>
-
     <?php 
         }
     }
@@ -107,12 +103,11 @@ session_start();
             }
 
             
-                // Utilisez une requête préparée pour éviter l'injection SQL
                 $sql = "UPDATE evenement SET $updateField = $updateField + 1 WHERE id = ?";
                 $stmt = $conn->prepare($sql);
 
                 if ($stmt) {
-                    $stmt->bind_param("i", $id); // "i" indique que $id est un entier
+                    $stmt->bind_param("i", $id);
                     if ($stmt->execute()) {
                         header("Location: sourireEtu.php?id=" . $id);
                         exit();

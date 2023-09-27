@@ -9,9 +9,9 @@ function clickButton(type) {
     $.ajax({
         type: "POST",
         url: "sourireEtu.php",
-        data: { voteType: type, id: id }, // Inclure l'ID dans les données envoyées au serveur
+        data: { voteType: type, id: id },
         success: function (data) {
-            // Gérez ici la réponse du serveur, si nécessaire
+           
             console.log("Vote enregistré pour : " + type);
         },
         error: function () {

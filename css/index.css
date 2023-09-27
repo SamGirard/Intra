@@ -429,5 +429,18 @@ input[type="number"] {
         font-size: 20pt;
     }
 
+    .smile{
+        flex-direction: column;
+    }
+
+    .face{
+        height: 700px;
+    }
+
+    .face1{
+        margin-top: 140px;
+    }
+
+
 
 }

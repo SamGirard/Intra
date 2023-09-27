@@ -43,13 +43,13 @@ session_start();
 
                 
             ?>
-                    <div class="container emp min-vh-100 d-flex justify-content-center align-items-center p-0">
+                    <div class="container smile emp min-vh-100 d-flex justify-content-center align-items-center p-0">
                         <form id="voteForm" method="post">
                             <input type="hidden" name="voteType" id="voteType">
                             <input type="hidden" name="id" id="id" value="<?php echo $id;?>">
                         </form>
 
-                        <div class="col-md-4 face mx-auto px-0">
+                        <div class="col-md-4 face face1 mx-auto px-0">
                             <button id="btnContent" onclick="clickButton('content')" data-type="content"><img src="img/contentEmp.jpg" height="400" width="400" class="visag2"></button>
                         </div>
                         <div class="col-md-4 face mx-auto px-0">
@@ -59,10 +59,6 @@ session_start();
                             <button id="btnPasContent" onclick="clickButton('pasContent')" data-type="pasContent"><img src="img/pasContentEmp.jpg" height="400" width="400" class="visag2"></button>
                         </div>
                     </div>
-
-                    <h2 id="ctr1"></h2>
-                    <h2 id="ctr2"></h2>
-                    <h2 id="ctr3"></h2>
 
     <?php 
         }
