@@ -14,7 +14,16 @@
         </head>
 
         <body class="pageModif">
+
             <?php
+
+        function trojan($data){
+            $data = trim($data); //Enleve les caractères invisibles
+            $data = addslashes($data); //Mets des backslashs devant les ' et les  "
+            $data = htmlspecialchars($data); // Remplace les caractères spéciaux par leurs symboles comme ­< devient &lt;
+
+            return $data;
+        }
             if($_SESSION["connexion"] == true){
                 $erreur = false;
 
@@ -234,13 +243,6 @@
                     ?>
                     
             <?php
-                function trojan($data){
-                    $data = trim($data); //Enleve les caractères invisibles
-                    $data = addslashes($data); //Mets des backslashs devant les ' et les  "
-                    $data = htmlspecialchars($data); // Remplace les caractères spéciaux par leurs symboles comme ­< devient &lt;
-                
-                    return $data;
-                }
             }else {
                 header("Location: login.php");
             }
