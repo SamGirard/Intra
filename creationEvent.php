@@ -16,7 +16,7 @@
 
     <?php
 
-    $_SESSION["connexion"] = true;
+    if ($_SESSION["connexion"] = true){
     
 
 
@@ -175,7 +175,9 @@
                 return $data;
             }
 
-
+        }else {
+            header("Location: login.php");
+        }
         ?>
 
         <script src="https://kit.fontawesome.com/2ad1095675.js" crossorigin="anonymous"></script>

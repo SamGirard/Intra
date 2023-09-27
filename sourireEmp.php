@@ -17,110 +17,116 @@ session_start();
 <body class="pageEmp">
 
     <?php
-            if ($_SERVER["REQUEST_METHOD"] == "GET") {
-                if (isset($_GET['id'])) {
-                    $id = $_GET['id'];
+            if($_SESSION["connexion"] == true){
+                
+                if ($_SERVER["REQUEST_METHOD"] == "GET") {
+                    if (isset($_GET['id'])) {
+                        $id = $_GET['id'];
 
-                    // Faire la connexion à la base de données
-                    $servername = "localhost";
-                    $username = "root";
-                    $password = "root";
-                    $db = "intra smiley";
+                        // Faire la connexion à la base de données
+                        $servername = "localhost";
+                        $username = "root";
+                        $password = "root";
+                        $db = "intra smiley";
+
+                        
+
+                        $conn = new mysqli($servername, $username, $password, $db);
+
+                        // Vérifier la connexion
+                        if ($conn->connect_error) {
+                            die("Connection échouée : " . $conn->connect_error);
+                        }
+
+                        $conn->query('SET NAMES utf8');
+                        $sql = "SELECT * FROM evenement WHERE id = $id";
+                        $result = $conn->query($sql);
+
 
                     
+                ?>
+                        <div class="container smile emp min-vh-100 d-flex justify-content-center align-items-center p-0">
+                            <form id="voteForm" method="post">
+                                <input type="hidden" name="voteType" id="voteType">
+                                <input type="hidden" name="id" id="id" value="<?php echo $id;?>">
+                            </form>
 
-                    $conn = new mysqli($servername, $username, $password, $db);
+                            <div class="col-md-4 face face1 mx-auto px-0">
+                                <button id="btnContent" onclick="clickButton('content')" data-type="content"><img src="img/contentEmp.jpg" height="400" width="400" class="visag2"></button>
+                            </div>
+                            <div class="col-md-4 face mx-auto px-0">
+                                <button id="btnMoyen" onclick="clickButton('moyen')" data-type="moyen"><img src="img/moyenEmp.jpg" height="400" width="400" class="visag2"></button>
+                            </div>
+                            <div class="col-md-4 face mx-auto px-0">
+                                <button id="btnPasContent" onclick="clickButton('pasContent')" data-type="pasContent"><img src="img/pasContentEmp.jpg" height="400" width="400" class="visag2"></button>
+                            </div>
+                        </div>
 
-                    // Vérifier la connexion
-                    if ($conn->connect_error) {
-                        die("Connection échouée : " . $conn->connect_error);
-                    }
+        <?php 
+            }
+        }
 
-                    $conn->query('SET NAMES utf8');
-                    $sql = "SELECT * FROM evenement WHERE id = $id";
-                    $result = $conn->query($sql);
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+                $servername = "localhost";
+                $username = "root";
+                $password = "root";
+                $db = "intra smiley";
+
+                // Créer la connexion
+                $conn = new mysqli($servername, $username, $password, $db);
+
+                // Vérifier la connexion
+                if ($conn->connect_error) {
+                    die("Connection échouée : " . $conn->connect_error);
+                }
+
+                $id = $_POST['id'];
+                $voteType = $_POST['voteType'];
+                
+                $conn->query('SET NAMES utf8');
+                $sql = "SELECT * FROM evenement WHERE id = $id";
+                $result = $conn->query($sql);
+
+                // Mettre à jour la base de données en fonction du type de vote
+                $updateField = "";
+                switch ($voteType) {
+                    case "content":
+                        $updateField = "contentEmp";
+                        break;
+                    case "moyen":
+                        $updateField = "moyenEmp";
+                        break;
+                    case "pasContent":
+                        $updateField = "pasContentEmp";
+                        break;
+                }
 
                 
-            ?>
-                    <div class="container smile emp min-vh-100 d-flex justify-content-center align-items-center p-0">
-                        <form id="voteForm" method="post">
-                            <input type="hidden" name="voteType" id="voteType">
-                            <input type="hidden" name="id" id="id" value="<?php echo $id;?>">
-                        </form>
-
-                        <div class="col-md-4 face face1 mx-auto px-0">
-                            <button id="btnContent" onclick="clickButton('content')" data-type="content"><img src="img/contentEmp.jpg" height="400" width="400" class="visag2"></button>
-                        </div>
-                        <div class="col-md-4 face mx-auto px-0">
-                            <button id="btnMoyen" onclick="clickButton('moyen')" data-type="moyen"><img src="img/moyenEmp.jpg" height="400" width="400" class="visag2"></button>
-                        </div>
-                        <div class="col-md-4 face mx-auto px-0">
-                            <button id="btnPasContent" onclick="clickButton('pasContent')" data-type="pasContent"><img src="img/pasContentEmp.jpg" height="400" width="400" class="visag2"></button>
-                        </div>
-                    </div>
-
-    <?php 
-        }
-    }
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-            $servername = "localhost";
-            $username = "root";
-            $password = "root";
-            $db = "intra smiley";
-
-            // Créer la connexion
-            $conn = new mysqli($servername, $username, $password, $db);
-
-            // Vérifier la connexion
-            if ($conn->connect_error) {
-                die("Connection échouée : " . $conn->connect_error);
-            }
-
-            $id = $_POST['id'];
-            $voteType = $_POST['voteType'];
-            
-            $conn->query('SET NAMES utf8');
-            $sql = "SELECT * FROM evenement WHERE id = $id";
-            $result = $conn->query($sql);
-
-            // Mettre à jour la base de données en fonction du type de vote
-            $updateField = "";
-            switch ($voteType) {
-                case "content":
-                    $updateField = "contentEmp";
-                    break;
-                case "moyen":
-                    $updateField = "moyenEmp";
-                    break;
-                case "pasContent":
-                    $updateField = "pasContentEmp";
-                    break;
-            }
-
-            
-                     // Utilisez une requête préparée pour éviter l'injection SQL
-                     $sql = "UPDATE evenement SET $updateField = $updateField + 1 WHERE id = ?";
-                     $stmt = $conn->prepare($sql);
-     
-                     if ($stmt) {
-                         $stmt->bind_param("i", $id); // "i" indique que $id est un entier
-                         if ($stmt->execute()) {
-                             header("Location: sourireEmp.php?id=" . $id);
-                             exit();
-                         } else {
-                             echo "Erreur lors de la mise à jour : " . $stmt->error;
-                         }
-                         $stmt->close();
-                     } else {
-                         echo "Erreur lors de la préparation de la requête : " . $conn->error;
-                     }
+                        // Utilisez une requête préparée pour éviter l'injection SQL
+                        $sql = "UPDATE evenement SET $updateField = $updateField + 1 WHERE id = ?";
+                        $stmt = $conn->prepare($sql);
         
+                        if ($stmt) {
+                            $stmt->bind_param("i", $id); // "i" indique que $id est un entier
+                            if ($stmt->execute()) {
+                                header("Location: sourireEmp.php?id=" . $id);
+                                exit();
+                            } else {
+                                echo "Erreur lors de la mise à jour : " . $stmt->error;
+                            }
+                            $stmt->close();
+                        } else {
+                            echo "Erreur lors de la préparation de la requête : " . $conn->error;
+                        }
+            
 
-            // Fermer la connexion
-            $conn->close();
+                // Fermer la connexion
+                $conn->close();
+            }
+
+        }else {
+            header("Location: login.php");
         }
         ?>
 
