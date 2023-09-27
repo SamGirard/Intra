@@ -55,7 +55,6 @@ a {
     height: 100%;
     padding: 0px;
     background-color: #e0e0e0;
-    overflow: hidden;
 }
 
 
@@ -176,7 +175,7 @@ a {
 
 .loginForm {
     padding: 100px 70px 100px 70px;
-    margin-top: 240px;
+    margin-top: 0px;
     border-radius: 20px;
     background: #e0e0e0;
     box-shadow: 30px 30px 60px #b3b3b3,

@@ -89,7 +89,7 @@
         ?>
 
 
-        <div class="container d-flex justify-content-center align-items-center">
+        <div class="container min-vh-100 d-flex justify-content-center align-items-center">
             
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" class="loginForm">
                     <h1>Se connecter</h1>
