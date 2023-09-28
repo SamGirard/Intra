@@ -51,7 +51,7 @@
 
 
         $nom = $description = $departement = $lieu = $date = "";
-        $nomErreur = $descriptionErreur = $departementErreur = $LieuErreur = $dateErreur = $choixErreur=  "";
+        $nomErreur = $descriptionErreur = $departementErreur = $LieuErreur = $dateErreur = $choixErreur = "";
         $content = $moyen = $pasContent = 0;
 
         $erreur = false;

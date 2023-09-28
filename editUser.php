@@ -6,7 +6,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Ajouter un utilisateur</title>
+        <title>Modifier un utilisateur</title>
         <link rel="stylesheet" href="css/index.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     </head>
@@ -45,49 +45,39 @@
             
             
                 $username = $mdp = $confMdp = $mdpHash = $confMdpHash =  "";
-                $usernameErreur = $mdpErreur = $confMdpErreur = "";
+                $usernameErreur = $mdpErreur = $confMdpErreur = $choixErreur = "";
                 $erreur = false;
 
                 if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
-                    if(empty($_POST['nUsername'])){
-                        $usernameErreur = "Le nom ne peut pas être vide";
-                        $erreur = true;
-                    }
-                    else {
-                        $username = trojan($_POST['nUsername']);
-                    }
-                    if(empty($_POST['nMdp'])){
-                        $mdpErreur = "Le mot de passe ne peut pas être vide";
-                        $erreur = true;
-                    }
-                    else {
-                        $mdp = trojan($_POST['nMdp']);
-                    }
-                    if(empty($_POST['nConfMdp'])){
-                        $confMdpErreur = "Veuillez réecrire le mot de passe";
-                        $erreur = true;
-                    }
-                    else if($_POST['nConfMdp'] != $_POST['nMdp']){
+                    if($_POST['nConfMdp'] != $_POST['nMdp']){
                         $confMdpErreur = "Veuillez réecrire le même mot de passe";
                         $erreur = true;
                     } else {
                         $confMdpHash = trojan($_POST['nConfMdp']);
                     }
+
+                    $choix = $_POST['userChoix'];
+
+                    if ($choix == "rien") {
+                        $choixErreur = "Choisissez un utilisateur";
+                        $erreur = true;
+                    } else {
+                        $usager = $choix;
+                    }
                     
                     
-        
+                    $username = $_POST['nUsername'];
+                    $password = $_POST[MD5('nPassword')];
+
                     $username = trojan($_POST['nUsername']);
                     $mdp = trojan($_POST['nMdp']);
                     $confMdp = trojan($_POST['nConfMdp']);
                     
         
                     if($erreur != true){
-                    $sql = "INSERT INTO utilisateur (nom, password)
-                    VALUES ('$username', MD5('$mdp'))";
+                    $sql = "UPDATE utilisateur SET nom = '$username', password = MD5('$password') WHERE id = $ctr";
 
-
-        
                         if (mysqli_query($conn, $sql)) {
                             echo "Enregistrement réussi";
                         } else {
@@ -106,14 +96,27 @@
 
                         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="userForm">
                             <a href="optionUsager.php"><i class="fa-solid fa-3x fa-arrow-left p-0 m-0 mb-3"></i></a>
-                            <h1>Créer un utilisateur</h1>
-                            <input type="text" placeholder="Créer un nom d'utilisateur" class="form-control mt-4" name="nUsername" value=<?php echo $username?>>
+                            <h1>Modifier un utilisateur</h1>
+                            <Select class="form-control" name="userChoix">
+                                    <option value="rien" class="form-control">Choisissez un usager</option>
+                                        <?php
+                                            $ctr = 1;
+                                            while($row = $result->fetch_assoc()){
+                                        ?>
+                                            <option value="$ctr" class="form-control"><?php echo $row['nom']?></option>
+                                        <?php
+                                            $ctr++;
+                                            }
+                                        ?>
+                                </Select>
+                                <p class="error"><?php echo $choixErreur; ?></p>
+                            <input type="text" placeholder="Modifier le nom d'utilisateur (facultatif)" class="form-control mt-4" name="nUsername" value=<?php echo $username?>>
                             <p class="error mt-1"><?php echo $usernameErreur; ?></p>
 
-                            <input type="password" placeholder="Créer un mot de passe" name="nMdp" class="form-control mt-4">
+                            <input type="password" placeholder="Modifier le mot de passe (facultatif)" name="nMdp" class="form-control mt-4">
                             <p class="error mt-1"><?php echo $mdpErreur; ?></p>
 
-                            <input type="password" placeholder="Confirmer le mot de passe" name="nConfMdp" class="form-control mt-4">
+                            <input type="password" placeholder="Modifier le mot de passe (facultatif)" name="nConfMdp" class="form-control mt-4">
                             <p class="error mt-1"><?php echo $confMdpErreur; ?></p>
 
                             <button type="submit" class="form-control mt-4 bg-dark text-white rounded-pill">Créer</button>

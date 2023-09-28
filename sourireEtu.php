@@ -14,7 +14,7 @@ session_start();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<body class="pageEtu">
+<body class="pageEtu overflow-hidden">
 
     <?php
             if($_SESSION["connexion"] == true){
@@ -60,14 +60,12 @@ session_start();
                                 <button id="btnPasContent" onclick="clickButton('pasContent')" data-type="pasContent"><img src="img/pasContentEtu.jpg" height="400" width="400" class="visage"></button>
                             </div>
                         </div>
+                        
         <?php 
             }
         }
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-                
-
 
                 $servername = "localhost";
                 $username = "root";

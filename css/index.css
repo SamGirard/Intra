@@ -247,6 +247,16 @@ a {
     height: 460px;
 }
 
+.suppUserForm {
+    padding: 90px 70px 100px 70px;
+    border-radius: 20px;
+    background: #e0e0e0;
+    box-shadow: 30px 30px 30px #b3b3b3,
+        -30px -30px 30px #ffffff;
+    width: 700px;
+    height: 600px;
+}
+
 
 button {
     height: 70px;
@@ -291,7 +301,8 @@ input[type="number"] {
 .pageChoix,
 .pageEtu,
 .login,
-.pageSupp {
+.pageSupp,
+.pageOptions {
     background-color: #e0e0e0;
 }
 
