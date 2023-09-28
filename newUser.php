@@ -62,7 +62,7 @@
                         $erreur = true;
                     }
                     else {
-                        $mdpHash = md5($mdp);
+                        $mdp = trojan($_POST['nMdp']);
                     }
                     if(empty($_POST['nConfMdp'])){
                         $confMdpErreur = "Veuillez réecrire le mot de passe";
@@ -72,7 +72,7 @@
                         $confMdpErreur = "Veuillez réecrire le même mot de passe";
                         $erreur = true;
                     } else {
-                        $confMdpHash = md5($confMdp);
+                        $confMdpHash = trojan($_POST['nConfMdp']);
                     }
                     
                     
@@ -84,7 +84,7 @@
         
                     if($erreur != true){
                     $sql = "INSERT INTO utilisateur (nom, password)
-                    VALUES ('$username', '$mdpHash')";
+                    VALUES ('$username', MD5('$mdp'))";
 
 
         
