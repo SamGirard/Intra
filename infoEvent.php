@@ -59,12 +59,6 @@
                             $lieu = $row['lieu'];
                             $date = $row['date'];
                             $departement = $row['departement'];
-                            //$contentEtu = $row['contentEtu'];
-                            //$moyenEtu = $row['moyenEtu'];
-                            //$pasContentEtu = $row['pasContentEtu'];
-                            //$contentEmp = $row['contentEmp'];
-                            //$moyenEmp = $row['moyenEmp'];
-                            //$pasContentEmp = $row['pasContentEmp'];
                         } else {
                             echo "pas de donnée";
                         }
@@ -116,26 +110,7 @@
                                                     ?>
                                                 </Select>
                                             <p class="error"><?php echo $choixErreur; ?></p>
-    <!--
-                                            <label class="mt-3">Nombre d'avis satisfait (Étudiant) : </label>
-                                            <input type="number" class="form-control" value="<?php echo $contentEtu; ?>" name="contentEtu">
-            
-                                            <label class="mt-3">Nombre d'avis moyennement satisfait (Étudiant) : </label>
-                                            <input type="number" class="form-control" value="<?php echo $moyenEtu; ?>" name="moyenEtu">
-            
-                                            <label class="mt-3">Nombre d'avis pas satisfait (Étudiant) : </label>
-                                            <input type="number" class="form-control" value="<?php echo $pasContentEtu; ?>" name="pasContentEtu">
-            
-                                            <label class="mt-3">Nombre d'avis satisfait (Employeur) : </label>
-                                            <input type="number" class="form-control" value="<?php echo $contentEmp; ?>" name="contentEmp">
-            
-                                            <label class="mt-3">Nombre d'avis moyennement satisfait (Employeur) : </label>
-                                            <input type="number" class="form-control" value="<?php echo $moyenEmp; ?>" name="moyenEmp">
-            
-                                            <label class="mt-3">Nombre d'avis pas satisfait (Employeur) : </label>
-                                            <input type="number" class="form-control" value="<?php echo $pasContentEmp; ?>" name="pasContentEmp">
-    --> 
-                                            <button type="submit" name="action" class="form-control mt-3 bg-dark text-white">Modifier</button>
+                                            <button type="submit" name="action" class="form-control mt-3 bg-dark text-white rounded-pill">Modifier</button>
                                         
                                         </form>
             

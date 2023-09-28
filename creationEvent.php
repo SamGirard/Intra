@@ -160,7 +160,7 @@
                         <textarea type="textarea" class="form-control mb-2" placeholder="Description" name="nDescription" value="<?php echo $description;?>"></textarea>
                         <p class="error"><?php echo $descriptionErreur; ?></p>
 
-                        <button type="submit" class="form-control mb-2 mt-5 bg-dark text-white">Ajouter</button>
+                        <button type="submit" class="form-control mb-2 mt-5 bg-dark text-white rounded-pill">Ajouter</button>
                     </form>
         </div>
 

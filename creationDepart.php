@@ -91,7 +91,7 @@
                             <input class="form-control" type="text" name="nNom" value="<?php echo $nom;?>" placeholder="Nom du nouveau département">
                             <p class="error"><?php echo $nomErreur; ?></p>
                             
-                            <button type="submit" class="form-control mt-3 bg-dark text-white">Créer</button>
+                            <button type="submit" class="form-control mt-3 bg-dark text-white rounded-pill">Créer</button>
                         </form>
             </div>
 

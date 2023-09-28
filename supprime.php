@@ -62,7 +62,7 @@
                             }
                         ?>
                     <div class="d-flex flex-column align-items-center">
-                        <button type="submit" class="form-control oui">Oui</button>
+                        <button type="submit" class="form-control oui rounded-pill">Oui</button>
                         <a class="mt-5 annule" href="evenement.php">Annuler</a>
                     </div>
                 </form>

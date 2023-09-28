@@ -65,8 +65,8 @@
                                     
                                     <p type="text" class="error mt-1"><?php echo $choixErreur ?></p>
 
-                                    <button class="form-control mt-5 bg-dark text-white" type="submit" name="etudiant" value="Etudiant">Commencer le sondage pour les étudiants</button>
-                                    <button class="form-control mt-3 bg-dark text-white" type="submit" name="employeur" value="Employeur">Commencer le sondage pour les employeurs</button>
+                                    <button class="form-control mt-5 bg-dark text-white rounded-pill" type="submit" name="etudiant" value="Etudiant">Commencer le sondage pour les étudiants</button>
+                                    <button class="form-control mt-3 bg-dark text-white rounded-pill" type="submit" name="employeur" value="Employeur">Commencer le sondage pour les employeurs</button>
                                 </form>
 
                     </div>

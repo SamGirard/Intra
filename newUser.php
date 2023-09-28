@@ -116,7 +116,7 @@
                             <input type="password" placeholder="Confirmer le mot de passe" name="nConfMdp" class="form-control mt-4">
                             <p class="error mt-1"><?php echo $confMdpErreur; ?></p>
 
-                            <button type="submit" class="form-control mt-4 bg-dark text-white">Créer</button>
+                            <button type="submit" class="form-control mt-4 bg-dark text-white rounded-pill">Créer</button>
                         </form>
 
             </div>
