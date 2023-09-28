@@ -3,75 +3,80 @@
     margin-top: -8px;
 }
 
+/*mode paysage*/
+
 textarea {
-    height: 100px;
+    height: 150px;
 }
 
-.boite{
+.boite {
     border-radius: 20px;
     background: #e0e0e0;
-    box-shadow:  30px 30px 60px #b3b3b3,
-                 -30px -30px 60px #ffffff;
+    box-shadow: 30px 30px 60px #b3b3b3,
+        -30px -30px 60px #ffffff;
     justify-content: space-around;
 }
 
-.pageEvent{
+.pageEvent {
     background-color: #e0e0e0;
 }
 
-.rowEmployeur{
+.rowEmployeur {
     border-radius: 0px 0px 20px 20px;
     background: #343a40;
-    box-shadow:  10px 10px 60px #3e3f41;
+    box-shadow: 10px 10px 60px #3e3f41;
     color: white;
     padding: 20px 0px 20px 0px;
 }
 
-.desc{
+.desc {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 
-.titre{
+.titre {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     font-size: 29pt;
 }
 
-.boite h5{
+.boite h5 {
     font-size: 20pt;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-.index, .container{
+.index,
+.container {
     height: 100%;
     padding: 0px;
     background-color: #e0e0e0;
 }
 
 
-.creer{
-    
+.creer {
+
     padding-top: 50px;
     padding-bottom: 100px;
     text-decoration: none;
     border-radius: 20px;
     background: #e0e0e0;
-    box-shadow:  30px 30px 60px #b3b3b3,
-                 -30px -30px 60px #ffffff;
+    box-shadow: 30px 30px 60px #b3b3b3,
+        -30px -30px 60px #ffffff;
     transition: 0.4s;
 }
-.creer h2{
+
+.creer h2 {
     font-size: 40pt;
     font-weight: lighter;
     letter-spacing: 3px;
 }
-.creer p{
+
+.creer p {
     color: rgba(22, 22, 22, 0.7);
     font-size: 15pt;
     padding-left: 150px;
@@ -80,29 +85,31 @@ a{
     margin-bottom: 50px;
 }
 
-.creer:hover{
-    box-shadow:  37px 37px 74px #8b8b8b,
-             -37px -37px 74px #ffffff;
+.creer:hover {
+    box-shadow: 37px 37px 74px #8b8b8b,
+        -37px -37px 74px #ffffff;
 }
 
 
-.event{
-    
+.event {
+
     padding-top: 50px;
     padding-bottom: 100px;
     text-decoration: none;
     border-radius: 20px;
     background: #e0e0e0;
-    box-shadow:  30px 30px 60px #b3b3b3,
-                 -30px -30px 60px #ffffff;
+    box-shadow: 30px 30px 60px #b3b3b3,
+        -30px -30px 60px #ffffff;
     transition: 0.4s;
 }
-.event h2{
+
+.event h2 {
     font-size: 40pt;
     font-weight: lighter;
     letter-spacing: 3px;
 }
-.event p{
+
+.event p {
     color: rgba(22, 22, 22, 0.7);
     font-size: 15pt;
     padding-left: 150px;
@@ -111,30 +118,31 @@ a{
     margin-bottom: 50px;
 }
 
-.event:hover{
-    box-shadow:  37px 37px 74px #8b8b8b,
-             -37px -37px 74px #ffffff;
+.event:active {
+    box-shadow: 37px 37px 74px #8b8b8b,
+        -37px -37px 74px #ffffff;
 }
 
 
 
-.sourire{
-   
+.sourire {
     padding-top: 50px;
     padding-bottom: 100px;
     text-decoration: none;
     border-radius: 20px;
     background: #e0e0e0;
-    box-shadow:  30px 30px 60px #b3b3b3,
-                 -30px -30px 60px #ffffff;
+    box-shadow: 30px 30px 60px #b3b3b3,
+        -30px -30px 60px #ffffff;
     transition: 0.4s;
 }
-.sourire h2{
+
+.sourire h2 {
     font-size: 40pt;
     font-weight: lighter;
     letter-spacing: 3px;
 }
-.sourire p{
+
+.sourire p {
     color: rgba(22, 22, 22, 0.7);
     font-size: 15pt;
     padding-left: 150px;
@@ -143,144 +151,299 @@ a{
     margin-bottom: 50px;
 }
 
-.sourire:hover{
-    box-shadow:  37px 37px 74px #8b8b8b,
-             -37px -37px 74px #ffffff;
+.sourire:hover {
+    box-shadow: 37px 37px 74px #8b8b8b,
+        -37px -37px 74px #ffffff;
 }
 
-.utilisateur{
+.utilisateur {
     text-decoration: none;
     text-align: right;
 }
 
-.deco{
+.deco {
     text-decoration: none;
 }
 
-.navBar{
+.navBar {
     max-height: 1%;
 }
 
-.navBar1{
+.navBar1 {
     min-height: 99%;
 }
 
-.loginForm{
+.loginForm {
     padding: 100px 70px 100px 70px;
-    margin-top: 240px;
+    margin-top: 0px;
     border-radius: 20px;
     background: #e0e0e0;
-    box-shadow:  30px 30px 60px #b3b3b3,
-                 -30px -30px 60px #ffffff;
+    box-shadow: 30px 30px 60px #b3b3b3,
+        -30px -30px 60px #ffffff;
     width: 700px;
     height: 600px;
 }
 
-.creerForme{
+.creerForme {
     padding: 100px 70px 100px 70px;
-    margin-top: 190px;
     border-radius: 20px;
     background: #e0e0e0;
-    box-shadow:  30px 30px 30px #b3b3b3,
-                 -30px -30px 30px #ffffff;
+    box-shadow: 30px 30px 30px #b3b3b3,
+        -30px -30px 30px #ffffff;
     width: 700px;
     min-height: 800px;
     max-height: 1000px;
 }
 
-.departForm{
+.departForm {
     padding: 90px 70px 100px 70px;
     border-radius: 20px;
     background: #e0e0e0;
-    box-shadow:  30px 30px 30px #b3b3b3,
-                 -30px -30px 30px #ffffff;
+    box-shadow: 30px 30px 30px #b3b3b3,
+        -30px -30px 30px #ffffff;
     width: 700px;
     height: 500px;
 }
 
-.userForm{
+.userForm {
     padding: 90px 70px 100px 70px;
     border-radius: 20px;
     background: #e0e0e0;
-    box-shadow:  30px 30px 30px #b3b3b3,
-                 -30px -30px 30px #ffffff;
+    box-shadow: 30px 30px 30px #b3b3b3,
+        -30px -30px 30px #ffffff;
     width: 700px;
     height: 700px;
 }
 
-.modifForm{
+.modifForm {
     padding: 90px 70px 100px 70px;
     border-radius: 20px;
     margin-top: 100px;
     margin-bottom: 100px;
     background: #e0e0e0;
-    box-shadow:  30px 30px 30px #b3b3b3,
-                 -30px -30px 30px #ffffff;
+    box-shadow: 30px 30px 30px #b3b3b3,
+        -30px -30px 30px #ffffff;
     width: 700px;
     height: 900px;
 }
 
-.choixForm{
+.choixForm {
     padding: 90px 70px 100px 70px;
     border-radius: 20px;
     background: #e0e0e0;
-    box-shadow:  30px 30px 30px #b3b3b3,
-                 -30px -30px 30px #ffffff;
+    box-shadow: 30px 30px 30px #b3b3b3,
+        -30px -30px 30px #ffffff;
     width: 700px;
     height: 550px;
 }
 
-
-.login{
-    background-color: #e0e0e0;
+.suppForm {
+    padding: 90px 70px 100px 70px;
+    border-radius: 20px;
+    background: #e0e0e0;
+    box-shadow: 30px 30px 30px #b3b3b3,
+        -30px -30px 30px #ffffff;
+    width: 700px;
+    height: 460px;
 }
 
-button{
+
+button {
     height: 70px;
     border-radius: 20px;
 }
 
-.plus{
+.plus {
     height: 60px;
 }
 
-select{
-    height: 60px;
-    font-size: 30pt;
-}
-
-input{
+select {
     height: 60px;
     font-size: 30pt;
 }
 
+input {
+    height: 60px;
+    font-size: 30pt;
+}
 
-input[type="text"]{
+
+input[type="text"] {
     font-size: 15pt;
 }
 
-input[type="date"]{
+input[type="date"] {
     font-size: 15pt;
 }
 
-input[type="password"]{
-    font-size: 15pt;
-}
-input[type="number"]{
+input[type="password"] {
     font-size: 15pt;
 }
 
-.pageCreer, .pageDepart, .pageUser, .pageModif, .pageChoix, .pageEtu{
+input[type="number"] {
+    font-size: 15pt;
+}
+
+.pageCreer,
+.pageDepart,
+.pageUser,
+.pageModif,
+.pageChoix,
+.pageEtu,
+.login,
+.pageSupp {
     background-color: #e0e0e0;
 }
 
-.pageEmp{
+.pageEmp {
     background-color: #343a40;
 }
 
-#btnContent, #btnMoyen, #btnPasContent{
+#btnContent,
+#btnMoyen,
+#btnPasContent {
     visibility: hidden;
 }
-#btnContent img, #btnMoyen img, #btnPasContent img{
+
+#btnContent img,
+#btnMoyen img,
+#btnPasContent img {
     visibility: visible;
+}
+
+.emp {
+    background-color: #343a40;
+}
+
+.face {
+    margin-top: -200px;
+}
+
+.visage {
+    border-radius: 100%;
+    background: #e0e0e0;
+    box-shadow: 30px 30px 60px #b3b3b3,
+        -30px -30px 60px #ffffff;
+    transition: 0.2s;
+}
+
+.visage:active {
+    border-radius: 100%;
+    background: #e0e0e0;
+    box-shadow:  8px 8px 16px #7d7d7d,
+             -8px -8px 16px #ffffff;
+             
+}
+
+.visag2 {
+    border-radius: 100%;
+    background: #343a40;
+    box-shadow: 30px 30px 60px #2c3136,
+        -30px -30px 60px #3c434a;
+    transition: 0.2s;
+}
+
+.visag2:active {
+    border-radius: 100%;
+    background: #343a40;
+    box-shadow:  8px 8px 16px #1d2024,
+             -8px -8px 16px #4b545c;
+}
+
+.annule {
+    text-decoration: none;
+    font-size: 25pt;
+}
+
+.oui.form-control {
+    transition: 0.4s;
+    height: 120px;
+    font-size: 20pt;
+}
+
+.oui:active {
+    background-color: rgb(253, 57, 57);
+}
+
+
+
+/*mode portrait*/
+@media only screen and (orientation: portrait) {
+    .boite-menu {
+        width: 83.33333% !important;
+        margin-bottom: 100px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .boite {
+        width: 83.33333% !important;
+    }
+
+    .creerForme {
+        min-height: 1000px;
+        max-height: 1400px;
+    }
+
+    .modifForm {
+        height: 1000px;
+    }
+
+    input {
+        height: 80px;
+        font-size: 35pt;
+    }
+
+    select {
+        height: 80px;
+    }
+
+    select.form-control {
+        font-size: 20pt;
+    }
+
+    input.form-control {
+        font-size: 20pt;
+    }
+
+    textarea.form-control {
+        font-size: 20pt;
+    }
+
+    .plus {
+        height: 80px;
+    }
+
+    .suppForm {
+        height: 500px;
+    }
+
+    .annule {
+        text-decoration: none;
+        font-size: 30pt;
+    }
+
+    .oui.form-control {
+        transition: 0.4s;
+        height: 160px;
+        font-size: 20pt;
+    }
+
+    .smile{
+        flex-direction: column;
+    }
+
+    .face{
+        height: 700px;
+    }
+
+    .face1{
+        margin-top: 140px;
+    }
+
+    .colDePlus{
+        flex: 0 0 16.666667% !important;
+        max-width: 16.666667% !important;
+    }
+
 }

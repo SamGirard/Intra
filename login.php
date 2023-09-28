@@ -89,7 +89,7 @@
         ?>
 
 
-        <div class="container d-flex justify-content-center align-items-center">
+        <div class="container min-vh-100 d-flex justify-content-center align-items-center">
             
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" class="loginForm">
                     <h1>Se connecter</h1>
@@ -101,7 +101,7 @@
 
 
                         <p class="error"><?php echo $erreurLogin?></p>
-                        <button type="submit" class="form-control mb-1 mt-5 bg-dark text-white" name="action" value="connecter">Se connecter</button>
+                        <button type="submit" class="form-control mb-1 mt-5 bg-dark text-white rounded-pill" name="action" value="connecter">Se connecter</button>
                     </form>
         </div>
 

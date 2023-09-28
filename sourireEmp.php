@@ -1,86 +1,137 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Vote Sourire</title>
-        <link rel="stylesheet" href="css/index.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    </head>
-
-    <body class="pageEmp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote Sourire</title>
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="css/index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="pageEmp">
 
     <?php
-        $id = $_GET['id'];
+            if($_SESSION["connexion"] == true){
+                
+                if ($_SERVER["REQUEST_METHOD"] == "GET") {
+                    if (isset($_GET['id'])) {
+                        $id = $_GET['id'];
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                        // Faire la connexion à la base de données
+                        $servername = "localhost";
+                        $username = "root";
+                        $password = "root";
+                        $db = "intra smiley";
 
-            $type = $_POST['type'];
-            $value = intval($_POST['value']);
+                        
 
-            // Faire la connexion à la base de données
-            $servername = "localhost";
-            $username = "root";
-            $password = "root";
-            $db = "intra smiley";
+                        $conn = new mysqli($servername, $username, $password, $db);
 
-            $conn = new mysqli($servername, $username, $password, $db);
+                        // Vérifier la connexion
+                        if ($conn->connect_error) {
+                            die("Connection échouée : " . $conn->connect_error);
+                        }
 
-            // Vérifier la connexion
-            if ($conn->connect_error) {
-                die("Connection échouée : " . $conn->connect_error);
+                        $conn->query('SET NAMES utf8');
+                        $sql = "SELECT * FROM evenement WHERE id = $id";
+                        $result = $conn->query($sql);
+
+
+                    
+                ?>
+                        <div class="container smile emp min-vh-100 d-flex justify-content-center align-items-center p-0">
+                            <form id="voteForm" method="post">
+                                <input type="hidden" name="voteType" id="voteType">
+                                <input type="hidden" name="id" id="id" value="<?php echo $id;?>">
+                            </form>
+
+                            <div class="col-md-4 face face1 mx-auto px-0">
+                                <button id="btnContent" onclick="clickButton('content')" data-type="content"><img src="img/contentEmp.jpg" height="400" width="400" class="visag2"></button>
+                            </div>
+                            <div class="col-md-4 face mx-auto px-0">
+                                <button id="btnMoyen" onclick="clickButton('moyen')" data-type="moyen"><img src="img/moyenEmp.jpg" height="400" width="400" class="visag2"></button>
+                            </div>
+                            <div class="col-md-4 face mx-auto px-0">
+                                <button id="btnPasContent" onclick="clickButton('pasContent')" data-type="pasContent"><img src="img/pasContentEmp.jpg" height="400" width="400" class="visag2"></button>
+                            </div>
+                        </div>
+
+        <?php 
+            }
+        }
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+                $servername = "localhost";
+                $username = "root";
+                $password = "root";
+                $db = "intra smiley";
+
+                // Créer la connexion
+                $conn = new mysqli($servername, $username, $password, $db);
+
+                // Vérifier la connexion
+                if ($conn->connect_error) {
+                    die("Connection échouée : " . $conn->connect_error);
+                }
+
+                $id = $_POST['id'];
+                $voteType = $_POST['voteType'];
+                
+                $conn->query('SET NAMES utf8');
+                $sql = "SELECT * FROM evenement WHERE id = $id";
+                $result = $conn->query($sql);
+
+                // Mettre à jour la base de données en fonction du type de vote
+                $updateField = "";
+                switch ($voteType) {
+                    case "content":
+                        $updateField = "contentEmp";
+                        break;
+                    case "moyen":
+                        $updateField = "moyenEmp";
+                        break;
+                    case "pasContent":
+                        $updateField = "pasContentEmp";
+                        break;
+                }
+
+                
+                        // Utilisez une requête préparée pour éviter l'injection SQL
+                        $sql = "UPDATE evenement SET $updateField = $updateField + 1 WHERE id = ?";
+                        $stmt = $conn->prepare($sql);
+        
+                        if ($stmt) {
+                            $stmt->bind_param("i", $id); // "i" indique que $id est un entier
+                            if ($stmt->execute()) {
+                                header("Location: sourireEmp.php?id=" . $id);
+                                exit();
+                            } else {
+                                echo "Erreur lors de la mise à jour : " . $stmt->error;
+                            }
+                            $stmt->close();
+                        } else {
+                            echo "Erreur lors de la préparation de la requête : " . $conn->error;
+                        }
+            
+
+                // Fermer la connexion
+                $conn->close();
             }
 
-            // Mettre à jour les valeurs dans la base de données
-            $updateField = "";
-            switch ($type) {
-                case "content":
-                    $updateField = "contentEtu";
-                    break;
-                case "moyen":
-                    $updateField = "moyenEtu";
-                    break;
-                case "pasContent":
-                    $updateField = "pasContentEtu";
-                    break;
-            }
-
-    if (!empty($updateField)) {
-        $sql = "UPDATE `evenement` SET `contentEtu`='".$updateField."',`moyenEtu`='".$updateField."',`pasContentEtu`='".$updateField."',`contentEmp`='".$updateField."',`moyenEmp`='".$updateField."',`pasContentEmp`='".$updateField."' WHERE `id`";
-
-        if ($conn->query($sql) === TRUE) {
-            echo "Mise à jour réussie.";
-        } else {
-            echo "Erreur lors de la mise à jour : " . $conn->error;
+        }else {
+            header("Location: login.php");
         }
-    }
-
-            // Fermer la connexion
-            $conn->close();
-        }
-    ?>
+        ?>
 
 
-<h1>emp</h1>
-    <div class="container-fluid h-100">
-        <div class="row text-center">
-            <div class="col-md-3 mx-auto">
-                <button id="btnContent" onclick="clickContent()"><img src="img/content.jpg" height="400" width="400"></button>
-            </div>
-            <div class="col-md-3 mx-auto">
-                <button onclick="clickMoyen()"><img src="img/bof.jpg" height="400" width="400"></button>
-            </div>
-            <div class="col-md-3 mx-auto">
-                <button onclick="clickPasContent()"><img src="img/pas content.jpg" height="400" width="400"></button>
-            </div>
-        </div>
-    </div>
-    <h1><?php echo $id;?></h1>
-    <h2 id="ctr1"></h2>
-    <h2 id="ctr2"></h2>
-    <h2 id="ctr3"></h2>
 
-    <script src="js/sourireEmp.js"></script>
+        <script src="js/sourireEmp.js"></script>
     </body>
 </html>

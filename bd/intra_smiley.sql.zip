@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Jeu 21 Septembre 2023 à 21:27
+-- Généré le :  Lun 18 Septembre 2023 à 18:44
 -- Version du serveur :  5.7.11
 -- Version de PHP :  7.0.3
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `evenement` (
   `id` int(11) NOT NULL,
-  `nom` varchar(255) NOT NULL,
+  `nomEvent` varchar(255) NOT NULL,
   `description` varchar(1000) NOT NULL,
   `departement` varchar(255) NOT NULL,
   `lieu` varchar(255) NOT NULL,
@@ -46,7 +46,9 @@ CREATE TABLE `evenement` (
 --
 
 INSERT INTO `evenement` (`id`, `nom`, `description`, `departement`, `lieu`, `date`, `contentEtu`, `moyenEtu`, `pasContentEtu`, `contentEmp`, `moyenEmp`, `pasContentEmp`) VALUES
-(1, 'Testtttttt', 'Le premier evenement creer', 'Informatique', 'Cégep', '2023-09-20', 1, 1, 1, 1, 1, 1),
+(1, 'Test', 'Le premier evenement creer', 'Info', 'Cégep', '2023-09-20', 1, 1, 1, 1, 1, 1),
+(2, 'Réunion du département de marketing', 'La réunion du département de marketing aura lieu le jeudi 20 octobre 2023 Ã  14h00. L\'objectif de cette réunion est de discuter des prochaines campagnes publicitaires pour le quatrième trimestre et de planifier les stratégies de marketing numérique. Tous les membres de l\'équipe sont invités Ã  assister Ã  cette réunion importante pour contribuer Ã  la croissance de notre entreprise', 'Marketing', 'Chez moi', '2023-09-28', 0, 0, 0, 0, 0, 0),
+(3, 'Event au pub', 'Un pub (mot dâ€™origine anglais venant de public house1) est un Ã©tablissement oÃ¹ l\'on consomme des boissons gÃ©nÃ©ralement alcoolisÃ©es (biÃ¨re, whisky) qui se trouve en grand nombre en Grande-Bretagne, en Irlande, et en Bretagne mais qui sâ€™est Ã©galement exportÃ© dans dâ€™autres pays anglo-saxons comme l\'Australie.', 'Soins Infirmier', 'Hopital', '2024-02-23', 0, 0, 0, 0, 0, 0),
 (4, 'Test 2', 'TESTETSTETTSTETSTTETSTETSTTETSTETSTTETSTETTS', 'Soins Infirmier', 'Hoptial', '2023-09-13', 0, 0, 0, 0, 0, 0),
 (5, 'Test', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'Soins Infirmier', 'DADSAD', '2023-06-06', 0, 0, 0, 0, 0, 0),
 (6, 'Test 2', 'TEST DU LIEU  et de la date', 'Logique', 'Cegep', '2023-09-14', 0, 0, 0, 0, 0, 0);
@@ -89,7 +91,9 @@ CREATE TABLE `utilisateur` (
 --
 
 INSERT INTO `utilisateur` (`id`, `nom`, `password`) VALUES
-(1, 'Samuel', '4c8adb23b40476cf7f603df1c7b19f8a');
+(1, 'Samuel', '4c8adb23b40476cf7f603df1c7b19f8a'),
+(2, 'root', '63a9f0ea7bb98050796b649e85481845'),
+(3, 'admin', 'd41d8cd98f00b204e9800998ecf8427e');
 
 --
 -- Index pour les tables exportées
@@ -121,7 +125,12 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT pour la table `evenement`
 --
 ALTER TABLE `evenement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+--
+-- AUTO_INCREMENT pour la table `tbdepartement`
+--
+ALTER TABLE `tbdepartement`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT pour la table `tbdepartement`
 --
@@ -131,7 +140,7 @@ ALTER TABLE `tbdepartement`
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

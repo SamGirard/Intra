@@ -18,39 +18,42 @@
     <?php 
         if($_SESSION['connexion'] == true){
     ?>
-        <div class="container-fluid mx-0 navBar">
-            <div class = "row">
+        <div class="container-fluid mx-0 navBar px-0 overflow-visible">
+            <div class="row">
                 <div class="col-md-1">
-                    <a href="deconnecter.php"><i class="fa-solid fa-3x fa-right-from-bracket mt-2"></i></a>
+                    <a href="deconnecter.php"><i class="fa-solid fa-3x fa-right-from-bracket mx-1 mt-2"></i></a>
                 </div>
                 <div class="col-sm-1 offset-10 mr-auto text-right p-0">
-                    <a href="newUser.php"><i class="fa-solid fa-user-plus mt-2 fa-3x"></i></a>
+                    <div class="row">
+                        <div class="col-md-5 colDePlus"></div>
+                        <div class="col-md-7">
+                            <a href="newUser.php"><i class="fa-solid fa-user-plus mt-2 fa-3x"></i></a>
+                        </div>
+                    </div>
                 </div>
-            </div>
+                </div>
+                <div class="row align-items-center min-vh-100 choixTrois">
+                    <div class="col-md-4 boite-menu px-0 mb-5">
+                        <a href="evenement.php" class="event mx-4 d-flex flex-column align-items-center text-center">
+                            <h2>Évènement</h2>
+                            <p>Afficher, éditer ou supprimer les évènements passés</p>
+                        </a>
+                    </div>
+                    <div class="col-md-4 boite-menu px-0 mb-5">
+                        <a href="creationEvent.php" class="creer mx-4 d-flex flex-column align-items-center text-center">
+                            <h2>Créer</h2>
+                            <p>Créer un nouvel évènement ou un département et l'enregistrer</p>
+                        </a>
+                    </div>
+                    <div class="col-md-4 boite-menu px-0 mb-5">
+                        <a href="choixEvenement.php" class="sourire mx-4 d-flex flex-column align-items-center text-center">
+                            <h2>Sondage</h2>
+                            <p>Commencer un sondage pour un évènement</p>
+                        </a>
+                    </div>
+                </div>
         </div>
-        
-        <div class="container-fluid navBar1 d-flex justify-content-center align-items-center p-0">
-            <div class="row align-items-center text-center ranger">
-                <div class="col-md-4 px-0">
-                    <a href="evenement.php" class="event mx-4 d-flex flex-column align-items-center">
-                        <h2>Évènement</h2>
-                        <p>Afficher ou éditer les évènements passé</p>
-                    </a>
-                </div>
-                <div class="col-md-4 px-0">
-                    <a href="creationEvent.php" class="creer mx-4 d-flex flex-column align-items-center">
-                        <h2>Créer</h2>
-                        <p>Créer un nouvel évènement et l'enregistrer</p>
-                    </a>
-                </div>
-                <div class="col-md-4 px-0">
-                    <a href="choixEvenement.php" class="sourire mx-4 d-flex flex-column align-items-center">
-                        <h2>Sondage</h2>
-                        <p>Commencer un sondage pour un évènement</p>
-                    </a>
-                </div>
-            </div>
-        </div>
+
 
 
 

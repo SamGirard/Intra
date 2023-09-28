@@ -16,7 +16,15 @@
 
     <?php
 
-    $_SESSION["connexion"] = true;
+        function trojan($data){
+            $data = trim($data); //Enleve les caractères invisibles
+            $data = addslashes($data); //Mets des backslashs devant les ' et les  "
+            $data = htmlspecialchars($data); // Remplace les caractères spéciaux par leurs symboles comme ­< devient &lt;
+
+            return $data;
+        }
+
+    if ($_SESSION["connexion"] = true){
     
 
 
@@ -95,7 +103,7 @@
             $date = trojan($_POST['nDate']);
 
             if($erreur != true){
-            $sql = "INSERT INTO evenement (nom, description, departement, lieu, date, contentEtu, moyenEtu, pasContentEtu, contentEmp, moyenEmp, pasContentEmp)
+            $sql = "INSERT INTO evenement (nomEvent, description, departement, lieu, date, contentEtu, moyenEtu, pasContentEtu, contentEmp, moyenEmp, pasContentEmp)
             VALUES ('$nom', '$description', '$departement', '$lieu', '$date', 0, 0, 0, 0, 0, 0)";
 
                 if (mysqli_query($conn, $sql)) {
@@ -112,7 +120,7 @@
         if ($_SERVER['REQUEST_METHOD'] != "POST" || $erreur == true){
 
     ?>
-        <div class="container d-flex justify-content-center align-items-center">
+        <div class="container min-vh-100 d-flex justify-content-center align-items-center">
             
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="creerForme">
                     <a href="index.php"><i class="fa-solid fa-3x fa-arrow-left p-0 m-0 mb-3"></i></a>
@@ -152,7 +160,7 @@
                         <textarea type="textarea" class="form-control mb-2" placeholder="Description" name="nDescription" value="<?php echo $description;?>"></textarea>
                         <p class="error"><?php echo $descriptionErreur; ?></p>
 
-                        <button type="submit" class="form-control mb-2 mt-5 bg-dark text-white">Ajouter</button>
+                        <button type="submit" class="form-control mb-2 mt-5 bg-dark text-white rounded-pill">Ajouter</button>
                     </form>
         </div>
 
@@ -167,15 +175,11 @@
         <?php
         }
 
-            function trojan($data){
-                $data = trim($data); //Enleve les caractères invisibles
-                $data = addslashes($data); //Mets des backslashs devant les ' et les  "
-                $data = htmlspecialchars($data); // Remplace les caractères spéciaux par leurs symboles comme ­< devient &lt;
-            
-                return $data;
-            }
 
 
+        }else {
+            header("Location: login.php");
+        }
         ?>
 
         <script src="https://kit.fontawesome.com/2ad1095675.js" crossorigin="anonymous"></script>
