@@ -17,7 +17,7 @@
 
         <?php
         if($_SESSION["connexion"] == true){
-            $erreur = false;
+                $erreur = false;
 
                 //Faire la connection
                 $servername = "localhost";
