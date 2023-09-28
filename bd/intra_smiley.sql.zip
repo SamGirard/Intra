@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Lun 18 Septembre 2023 à 18:44
+-- Généré le :  Jeu 21 Septembre 2023 à 21:27
 -- Version du serveur :  5.7.11
 -- Version de PHP :  7.0.3
 
@@ -19,25 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `intra smiley`
 --
-
--- --------------------------------------------------------
-
---
--- Structure de la table `departement`
---
-
-CREATE TABLE `departement` (
-  `id` int(11) NOT NULL,
-  `nomDepartement` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Contenu de la table `departement`
---
-
-INSERT INTO `departement` (`id`, `nomDepartement`) VALUES
-(1, 'Informatique'),
-(2, 'Marketing');
 
 -- --------------------------------------------------------
 
@@ -65,12 +46,31 @@ CREATE TABLE `evenement` (
 --
 
 INSERT INTO `evenement` (`id`, `nom`, `description`, `departement`, `lieu`, `date`, `contentEtu`, `moyenEtu`, `pasContentEtu`, `contentEmp`, `moyenEmp`, `pasContentEmp`) VALUES
-(1, 'Test', 'Le premier evenement creer', 'Info', 'Cégep', '2023-09-20', 1, 1, 1, 1, 1, 1),
-(2, 'Réunion du département de marketing', 'La réunion du département de marketing aura lieu le jeudi 20 octobre 2023 Ã  14h00. L\'objectif de cette réunion est de discuter des prochaines campagnes publicitaires pour le quatrième trimestre et de planifier les stratégies de marketing numérique. Tous les membres de l\'équipe sont invités Ã  assister Ã  cette réunion importante pour contribuer Ã  la croissance de notre entreprise', 'Marketing', 'Chez moi', '2023-09-28', 0, 0, 0, 0, 0, 0),
-(3, 'Event au pub', 'Un pub (mot dâ€™origine anglais venant de public house1) est un Ã©tablissement oÃ¹ l\'on consomme des boissons gÃ©nÃ©ralement alcoolisÃ©es (biÃ¨re, whisky) qui se trouve en grand nombre en Grande-Bretagne, en Irlande, et en Bretagne mais qui sâ€™est Ã©galement exportÃ© dans dâ€™autres pays anglo-saxons comme l\'Australie.', 'Soins Infirmier', 'Hopital', '2024-02-23', 0, 0, 0, 0, 0, 0),
+(1, 'Testtttttt', 'Le premier evenement creer', 'Informatique', 'Cégep', '2023-09-20', 1, 1, 1, 1, 1, 1),
 (4, 'Test 2', 'TESTETSTETTSTETSTTETSTETSTTETSTETSTTETSTETTS', 'Soins Infirmier', 'Hoptial', '2023-09-13', 0, 0, 0, 0, 0, 0),
 (5, 'Test', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'Soins Infirmier', 'DADSAD', '2023-06-06', 0, 0, 0, 0, 0, 0),
 (6, 'Test 2', 'TEST DU LIEU  et de la date', 'Logique', 'Cegep', '2023-09-14', 0, 0, 0, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `tbdepartement`
+--
+
+CREATE TABLE `tbdepartement` (
+  `id` int(11) NOT NULL,
+  `nomDepartement` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `tbdepartement`
+--
+
+INSERT INTO `tbdepartement` (`id`, `nomDepartement`) VALUES
+(1, 'Informatique'),
+(2, 'Marketing'),
+(3, 'Logique'),
+(4, 'Soins Infirmier');
 
 -- --------------------------------------------------------
 
@@ -96,15 +96,15 @@ INSERT INTO `utilisateur` (`id`, `nom`, `password`) VALUES
 --
 
 --
--- Index pour la table `departement`
---
-ALTER TABLE `departement`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Index pour la table `evenement`
 --
 ALTER TABLE `evenement`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `tbdepartement`
+--
+ALTER TABLE `tbdepartement`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -118,15 +118,15 @@ ALTER TABLE `utilisateur`
 --
 
 --
--- AUTO_INCREMENT pour la table `departement`
---
-ALTER TABLE `departement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
 -- AUTO_INCREMENT pour la table `evenement`
 --
 ALTER TABLE `evenement`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT pour la table `tbdepartement`
+--
+ALTER TABLE `tbdepartement`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
