@@ -25,9 +25,6 @@
             if ($_SESSION["connexion"] == true) {
 
                 $erreur = false;
-                $usernameErreur = $mdpErreur = $confMdpErreur = "";
-            
-                $nom = $motDePasse = $mdp = $confMdp = "";
             
                 if ($_SERVER["REQUEST_METHOD"] == "GET") {
                     if (isset($_GET['id'])) {
@@ -55,12 +52,13 @@
                         if ($result->num_rows > 0) {
                             $row = $result->fetch_assoc();
                             $nom = $row['nom'];
-                            $motDePasse = $row['password'];
                         } else {
                             echo "pas de donnée";
                         }
-                    }
-                }
+
+                $usernameBd = $passwordBd = "";
+                $usernameErreur = $mdpErreur = $confMdpErreur = "";
+                $nom = $motDePasse = $mdp = $confMdp = "";
             ?>
 
             <div class="container min-vh-100 d-flex justify-content-center align-items-center">
@@ -70,13 +68,14 @@
 
                             <a href="choixUserEdit.php"><i class="fa-solid fa-3x fa-arrow-left p-0 m-0 mb-3"></i></a>
                             <h1>Modifier un utilisateur</h1>
+
                             <input type="text" placeholder="Modifier le nom d'utilisateur (facultatif)" class="form-control mt-4" name="nUsername" value=<?php echo $nom?>>
                             <p class="error mt-1"><?php echo $usernameErreur; ?></p>
 
-                            <input type="password" placeholder="Modifier le mot de passe (facultatif)" name="nMdp" class="form-control mt-4" value=<?php echo $motDePasse?>>
+                            <input type="password" placeholder="Modifier le mot de passe (facultatif)" name="nMdp" class="form-control mt-4">
                             <p class="error mt-1"><?php echo $mdpErreur; ?></p>
 
-                            <input type="password" placeholder="Modifier le mot de passe (facultatif)" name="nConfMdp" class="form-control mt-4" value=<?php echo $motDePasse?>>
+                            <input type="password" placeholder="Modifier le mot de passe (facultatif)" name="nConfMdp" class="form-control mt-4">
                             <p class="error mt-1"><?php echo $confMdpErreur; ?></p>
 
                             <button type="submit" name="action" class="form-control mt-4 bg-dark text-white rounded-pill">Modifier</button>
@@ -86,11 +85,12 @@
             
             <?php
                 
-                    
+            }
+        }
                 
 
                 if ($_SERVER['REQUEST_METHOD'] == "POST" || $erreur == true) {
-                    //Faire la connection
+
                     $servername = "localhost";
                     $username = "root";
                     $password = "root";
@@ -115,7 +115,7 @@
                         $usernameErreur = "Veuillez entrer un nom d'utilisateur";
                         $erreur = true;
                     } else {
-                        $username = trojan($_POST['nUsername']);
+                        $usernameBd = trojan($_POST['nUsername']);
                     }
             
                     if (empty($_POST['nMdp'])) {
@@ -133,8 +133,8 @@
                     }
             
                     // Mettez à jour la base de données uniquement si aucune erreur n'est survenue
-                    if (!$erreur) {
-                        $sql = "UPDATE utilisateur SET nom = '$username', password = '$mdp' WHERE id = '$id'";
+
+                        $sql = "UPDATE utilisateur SET nom = '$usernameBd', password = MD5('$mdp') WHERE id = 4";
             
                         echo $sql;
                         if ($conn->query($sql) === TRUE) {
@@ -143,10 +143,10 @@
                             echo "Erreur lors de la mise à jour: " . $conn->error;
                         }
             
-                        mysqli_close($conn);
+                        $conn->close();
             
                         header("Location: optionUsager.php");
-                    }
+
                 }
                 
         
