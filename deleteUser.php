@@ -15,9 +15,11 @@
 
     <body class="pageSupp">
 
-        <?php
-        if($_SESSION["connexion"] == true){
-                $erreur = false;
+<?php
+if ($_SESSION["connexion"] == true) {
+    // Déclaration des variables d'erreur
+    $nomErreur = $passErreur = "";
+    $erreur = false;
 
                 //Faire la connection
                 $servername = "localhost";
@@ -33,63 +35,67 @@
                     die("Connection échoué: " . $conn->connect_error);
                 }
 
-                $nomErreur = $passErreur = "";
-
                 //Afficher les donnée
                     $conn->query('SET NAMES utf8');
                     $sql = "SELECT * FROM utilisateur";
                     $result = $conn->query($sql);
 
 
-                    if ($_SERVER['REQUEST_METHOD'] == "POST" || $erreur == true){
-
+                    if ($_SERVER['REQUEST_METHOD'] == "POST") {
+                        // Récupération des données du formulaire
                         $username = $_POST['nUsager'];
-                        $password = $_POST['nPass'];
-
-                        if(empty($_POST['nUsager'])){
+                        $password = md5($_POST['nPass']);
+                
+                        // Vérification des champs vides
+                        if (empty($username)) {
                             $nomErreur = "Le nom ne peut pas être vide";
                             $erreur = true;
                         }
-                        
-                        if(empty($_POST['nPass'])){
+                
+                        if ($password === md5('')) { 
                             $passErreur = "Le mot de passe ne peut pas être vide";
                             $erreur = true;
                         }
-
-                        $sql = "DELETE FROM utilisateur WHERE nom='$username' AND password= '$password'";
-
-                        if ($conn->query($sql) === TRUE) {
-                            header("Location: optionUsager.php");
-                            exit();
-                        } else {
-                            echo "Erreur lors de la suppression : " . $conn->error;
+                
+                        // Si aucune erreur n'est détectée, effectuer la suppression
+                        if (!$erreur) {
+                            $sql = "DELETE FROM utilisateur WHERE nom=? AND password=?";
+                            $stmt = $conn->prepare($sql);
+                            $stmt->bind_param("ss", $username, $password);
+                
+                            if ($stmt->execute()) {
+                                header("Location: optionUsager.php");
+                                exit();
+                            } else {
+                                echo "Erreur lors de la suppression : " . $stmt->error;
+                            }
                         }
                     }
-
-                    
-            ?>
-
-            <div class="container min-vh-100 d-flex justify-content-center align-items-center">
-                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="suppUserForm">
-                    <h1>Supprimer un utilisateur</h1>
-                    <input type="text" class="form-control mb-4" name="nUsager" placeholder="Écriver le nom de l'usager à supprimer">
-                    <p class="error"><?php echo $nomErreur; ?></p>
-
-                    <input type="password" class="form-control mb-5" name="nPass" placeholder="Écriver le mot passe de l'usager à supprimer">
-                    <p class="error"><?php echo $passErreur; ?></p>
-
-                    <div class="d-flex flex-column align-items-center">
-                        <button type="submit" class="form-control oui rounded-pill">Oui</button>
-                        <a class="mt-5 annule" href="optionUsager.php">Annuler</a>
+                    ?>
+                
+                    <div class="container min-vh-100 d-flex justify-content-center align-items-center">
+                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="suppUserForm">
+                            <a href="optionUsager.php"><i class="fa-solid fa-3x fa-arrow-left p-0 m-0 mb-3"></i></a>
+                            <h1>Supprimer un utilisateur</h1>
+                            <input type="text" class="form-control mb-2" name="nUsager" placeholder="Écriver le nom de l'usager à supprimer">
+                            <p class="error mb-4"><?php echo $nomErreur; ?></p>
+                
+                            <input type="password" class="form-control mb-2" name="nPass" placeholder="Écriver le mot passe de l'usager à supprimer">
+                            <p class="error mb-5"><?php echo $passErreur; ?></p>
+                
+                            <div class="d-flex flex-column align-items-center">
+                                <button type="submit" class="form-control oui rounded-pill">Supprimer</button>
+                                <a class="mt-5 annule" href="optionUsager.php">Annuler</a>
+                            </div>
+                        </form>
                     </div>
-                </form>
-            </div>
-
-        <?php
-            }else {
-                header("Location: login.php");
-            }
-        ?>
-
+                
+                    <?php
+                } else {
+                    header("Location: login.php");
+                }
+                ?>
+                
+        <script src="https://kit.fontawesome.com/2ad1095675.js" crossorigin="anonymous"></script>
     </body>
 </html>

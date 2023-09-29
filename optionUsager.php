@@ -11,9 +11,15 @@
 
     <body class="pageOptions">
         <div class="container min-vh-100 d-flex justify-content-center align-items-center">
-            <a href="newUser.php"><button class="form-control mt-3 bg-dark text-white rounded-pill">Ajouter un usager</button></a>
-            <a href="editUser.php"><button class="form-control mt-3 bg-dark text-white rounded-pill">Modifier un usager</button></a>
-            <a href="deleteUser.php"><button class="form-control mt-3 bg-dark text-white rounded-pill">Supprimer un usager</button></a>
+            <div class="formOptions">
+                <a href="index.php"><i class="fa-solid fa-3x fa-arrow-left p-0 m-0 mb-3"></i></a>
+                <h1>Options des utilisateurs</h1>
+                <a href="newUser.php" class="aBtn"><button class="form-control mt-3 mb-5 bg-dark text-white rounded-pill btUsager">Ajouter un usager</button></a>
+                <a href="choixUserEdit.php" class="aBtn"><button class="form-control mt-3 mb-5 bg-dark text-white rounded-pill btUsager">Modifier un usager</button></a>
+                <a href="deleteUser.php" class="aBtn"><button class="form-control mt-3 mb-5 bg-dark text-white rounded-pill btUsager">Supprimer un usager</button></a>
+            </div>
         </div>
+
+        <script src="https://kit.fontawesome.com/2ad1095675.js" crossorigin="anonymous"></script>
     </body>
 </html>

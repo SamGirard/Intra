@@ -110,6 +110,7 @@
 
     } else {
             header("Location: index.php");
+            $_SESSION['connexion'] = true;
         ?>
 
 

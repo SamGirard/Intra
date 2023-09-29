@@ -22,118 +22,135 @@
                 return $data;
             }
 
-            if($_SESSION["connexion"] = true){
+            if ($_SESSION["connexion"] == true) {
 
-                //Faire la connection
-                $servername = "localhost";
-                $username = "root";
-                $password = "root";
-                $db = "intra smiley";
-        
-                //Creer la connection
-                $conn = new mysqli($servername, $username, $password, $db);
-        
-                //vérifier la connection
-                if($conn->connect_error) {
-                    die("Connection échoué: " . $conn->connect_error);
-                }
-        
-                //Afficher les donnée pour departemnet
-                $conn->query('SET NAMES utf8');
-                $sql = "SELECT * FROM utilisateur";
-                $result = $conn->query($sql);
-            
-            
-                $username = $mdp = $confMdp = $mdpHash = $confMdpHash =  "";
-                $usernameErreur = $mdpErreur = $confMdpErreur = $choixErreur = "";
                 $erreur = false;
-
-                if ($_SERVER['REQUEST_METHOD'] == "POST"){
-
-                    if($_POST['nConfMdp'] != $_POST['nMdp']){
-                        $confMdpErreur = "Veuillez réecrire le même mot de passe";
-                        $erreur = true;
-                    } else {
-                        $confMdpHash = trojan($_POST['nConfMdp']);
-                    }
-
-                    $choix = $_POST['userChoix'];
-
-                    if ($choix == "rien") {
-                        $choixErreur = "Choisissez un utilisateur";
-                        $erreur = true;
-                    } else {
-                        $usager = $choix;
-                    }
-                    
-                    
-                    $username = $_POST['nUsername'];
-                    $password = $_POST[MD5('nPassword')];
-
-                    $username = trojan($_POST['nUsername']);
-                    $mdp = trojan($_POST['nMdp']);
-                    $confMdp = trojan($_POST['nConfMdp']);
-                    
-        
-                    if($erreur != true){
-                    $sql = "UPDATE utilisateur SET nom = '$username', password = MD5('$password') WHERE id = $ctr";
-
-                        if (mysqli_query($conn, $sql)) {
-                            echo "Enregistrement réussi";
-                        } else {
-                            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                $usernameErreur = $mdpErreur = $confMdpErreur = "";
+            
+                $nom = $motDePasse = $mdp = $confMdp = "";
+            
+                if ($_SERVER["REQUEST_METHOD"] == "GET") {
+                    if (isset($_GET['id'])) {
+                        $id = $_GET['id'];
+            
+                        //Faire la connection
+                        $servername = "localhost";
+                        $username = "root";
+                        $password = "root";
+                        $db = "intra smiley";
+            
+                        //Creer la connection
+                        $conn = new mysqli($servername, $username, $password, $db);
+            
+                        //vérifier la connection
+                        if ($conn->connect_error) {
+                            die("Connection échoué: " . $conn->connect_error);
                         }
             
-                        mysqli_close($conn);
+                        //Afficher les donnée pour departemnet
+                        $conn->query('SET NAMES utf8');
+                        $sql = "SELECT * FROM utilisateur WHERE id = $id";
+                        $result = $conn->query($sql);
+            
+                        if ($result->num_rows > 0) {
+                            $row = $result->fetch_assoc();
+                            $nom = $row['nom'];
+                            $motDePasse = $row['password'];
+                        } else {
+                            echo "pas de donnée";
+                        }
                     }
                 }
-        
-        
-                if ($_SERVER['REQUEST_METHOD'] != "POST" || $erreur == true){
             ?>
 
             <div class="container min-vh-100 d-flex justify-content-center align-items-center">
 
                         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="userForm">
-                            <a href="optionUsager.php"><i class="fa-solid fa-3x fa-arrow-left p-0 m-0 mb-3"></i></a>
+                            <input type="hidden" name="id" value="<?php echo $id; ?>">
+
+                            <a href="choixUserEdit.php"><i class="fa-solid fa-3x fa-arrow-left p-0 m-0 mb-3"></i></a>
                             <h1>Modifier un utilisateur</h1>
-                            <Select class="form-control" name="userChoix">
-                                    <option value="rien" class="form-control">Choisissez un usager</option>
-                                        <?php
-                                            $ctr = 1;
-                                            while($row = $result->fetch_assoc()){
-                                        ?>
-                                            <option value="$ctr" class="form-control"><?php echo $row['nom']?></option>
-                                        <?php
-                                            $ctr++;
-                                            }
-                                        ?>
-                                </Select>
-                                <p class="error"><?php echo $choixErreur; ?></p>
-                            <input type="text" placeholder="Modifier le nom d'utilisateur (facultatif)" class="form-control mt-4" name="nUsername" value=<?php echo $username?>>
+                            <input type="text" placeholder="Modifier le nom d'utilisateur (facultatif)" class="form-control mt-4" name="nUsername" value=<?php echo $nom?>>
                             <p class="error mt-1"><?php echo $usernameErreur; ?></p>
 
-                            <input type="password" placeholder="Modifier le mot de passe (facultatif)" name="nMdp" class="form-control mt-4">
+                            <input type="password" placeholder="Modifier le mot de passe (facultatif)" name="nMdp" class="form-control mt-4" value=<?php echo $motDePasse?>>
                             <p class="error mt-1"><?php echo $mdpErreur; ?></p>
 
-                            <input type="password" placeholder="Modifier le mot de passe (facultatif)" name="nConfMdp" class="form-control mt-4">
+                            <input type="password" placeholder="Modifier le mot de passe (facultatif)" name="nConfMdp" class="form-control mt-4" value=<?php echo $motDePasse?>>
                             <p class="error mt-1"><?php echo $confMdpErreur; ?></p>
 
-                            <button type="submit" class="form-control mt-4 bg-dark text-white rounded-pill">Créer</button>
+                            <button type="submit" name="action" class="form-control mt-4 bg-dark text-white rounded-pill">Modifier</button>
                         </form>
 
             </div>
-
-
-
-            <?php
-                } else {
-                    header("Location: index.php");
-                    die;
             
-                }
+            <?php
+                
+                    
+                
 
-            }else {
+                if ($_SERVER['REQUEST_METHOD'] == "POST" || $erreur == true) {
+                    //Faire la connection
+                    $servername = "localhost";
+                    $username = "root";
+                    $password = "root";
+                    $db = "intra smiley";
+            
+                    //Creer la connection
+                    $conn = new mysqli($servername, $username, $password, $db);
+            
+                    //vérifier la connection
+                    if ($conn->connect_error) {
+                        die("Connection échoué: " . $conn->connect_error);
+                    }
+            
+                    $id = $_POST['id'];
+
+                    //Afficher les donnée pour departemnet
+                    $conn->query('SET NAMES utf8');
+                    $sql = "SELECT * FROM utilisateur WHERE id = $id";
+                    $result = $conn->query($sql);
+            
+                    if (empty($_POST['nUsername'])) {
+                        $usernameErreur = "Veuillez entrer un nom d'utilisateur";
+                        $erreur = true;
+                    } else {
+                        $username = trojan($_POST['nUsername']);
+                    }
+            
+                    if (empty($_POST['nMdp'])) {
+                        $mdpErreur = "Veuillez entrer un mot de passe";
+                        $erreur = true;
+                    } else {
+                        $mdp = trojan($_POST['nMdp']);
+                    }
+            
+                    if ($_POST['nConfMdp'] != $_POST['nMdp']) {
+                        $confMdpErreur = "Veuillez réécrire le même mot de passe";
+                        $erreur = true;
+                    } else {
+                        $confMdpHash = trojan($_POST['nConfMdp']);
+                    }
+            
+                    // Mettez à jour la base de données uniquement si aucune erreur n'est survenue
+                    if (!$erreur) {
+                        $sql = "UPDATE utilisateur SET nom = '$username', password = '$mdp' WHERE id = '$id'";
+            
+                        echo $sql;
+                        if ($conn->query($sql) === TRUE) {
+                            echo "Mise à jour réussie.";
+                        } else {
+                            echo "Erreur lors de la mise à jour: " . $conn->error;
+                        }
+            
+                        mysqli_close($conn);
+            
+                        header("Location: optionUsager.php");
+                    }
+                }
+                
+        
+            } else {
                 header("Location: login.php");
             }
     

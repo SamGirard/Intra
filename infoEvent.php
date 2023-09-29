@@ -190,14 +190,7 @@
 
                             $nomDepartement = $_POST['departe'];
                             $date = $_POST['date'];
-                            //$contentEtu = $_POST['contentEtu'];
-                            //$moyenEtu = $_POST['moyenEtu'];
-                            //$pasContentEtu = $_POST['pasContentEtu'];
-                            //$contentEmp = $_POST['contentEmp'];
-                            //$moyenEmp = $_POST['moyenEmp'];
-                            //pasContentEmp = $_POST['pasContentEmp'];
         
-
                             // Mettre à jour la base de données
                             $sql = "UPDATE evenement SET nomEvent = '$sql_Nom', description = '$sql_Description', departement = '$departement', lieu = '$sql_Lieu', date = '$sql_Date' WHERE id = $id";
 
@@ -215,9 +208,6 @@
 
                         }
 
-                    ?>
-                    
-            <?php
             }else {
                 header("Location: login.php");
             }

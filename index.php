@@ -27,7 +27,7 @@
                     <div class="row">
                         <div class="col-md-5 colDePlus"></div>
                         <div class="col-md-7">
-                            <a href="optionUsager.php"><i class="fa-solid fa-user-plus mt-2 fa-3x"></i></a>
+                            <a href="optionUsager.php"><i class="fa-solid fa-user-gear mt-2 fa-3x"></i></a>
                         </div>
                     </div>
                 </div>
