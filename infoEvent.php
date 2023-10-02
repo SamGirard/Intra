@@ -26,7 +26,7 @@
                 //Faire la connection
                 $servername = "cours.cegep3r.info";
                 $username = "2172853";
-                $password = "2172853";
+                $password = "Samu2004";
                 $db = "2172853-girard-samuel";
 
                 //Creer la connection
@@ -143,7 +143,7 @@
                     
                         $servername = "cours.cegep3r.info";
                         $username = "2172853";
-                        $password = "2172853";
+                        $password = "Samu2004";
                         $db = "2172853-girard-samuel";
 
                         //Creer la connection
