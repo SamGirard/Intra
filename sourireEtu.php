@@ -67,7 +67,7 @@ session_start();
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-                $servername = "localhost";
+                $servername = "cours.cegep3r.info";
                 $username = "root";
                 $password = "2j4Tzg4CxdFwIZBJ";
                 $db = "intra smiley";

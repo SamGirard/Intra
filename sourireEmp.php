@@ -24,7 +24,7 @@ session_start();
                         $id = $_GET['id'];
 
                         // Faire la connexion à la base de données
-                        $servername = "localhost";
+                        $servername = "cours.cegep3r.info";
                         $username = "root";
                         $password = "2j4Tzg4CxdFwIZBJ";
                         $db = "intra smiley";
