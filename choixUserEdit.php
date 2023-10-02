@@ -27,9 +27,9 @@
         if ($_SESSION["connexion"] == true) {
             // Faire la connection
             $servername = "cours.cegep3r.info";
-            $username = "root";
-            $password = "2j4Tzg4CxdFwIZBJ";
-            $db = "intra smiley";
+            $username = "2172853";
+            $password = "2172853";
+            $db = "2172853-girard-samuel";
 
             // Créer la connection
             $conn = new mysqli($servername, $username, $password, $db);
