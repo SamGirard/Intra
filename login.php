@@ -34,7 +34,7 @@
             //vérifier que l'usager est dans la BD
             $servername = "localhost";
             $usernameDB = "root";
-            $passwordDB = "root";
+            $passwordDB = "2j4Tzg4CxdFwIZBJ";
             $dbname = "intra smiley";
 
             $conn = new mysqli($servername, $usernameDB, $passwordDB, $dbname);

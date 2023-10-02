@@ -26,7 +26,7 @@ session_start();
                         // Faire la connexion à la base de données
                         $servername = "localhost";
                         $username = "root";
-                        $password = "root";
+                        $password = "2j4Tzg4CxdFwIZBJ";
                         $db = "intra smiley";
 
                         
@@ -70,7 +70,7 @@ session_start();
 
                 $servername = "localhost";
                 $username = "root";
-                $password = "root";
+                $password = "2j4Tzg4CxdFwIZBJ";
                 $db = "intra smiley";
 
                 // Créer la connexion

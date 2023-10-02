@@ -27,7 +27,7 @@
                 //Faire la connection
                 $servername = "localhost";
                 $username = "root";
-                $password = "root";
+                $password = "2j4Tzg4CxdFwIZBJ";
                 $db = "intra smiley";
         
                 //Creer la connection
