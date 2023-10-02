@@ -33,11 +33,11 @@
 
             //vérifier que l'usager est dans la BD
             $servername = "cours.cegep3r.info";
-            $username = "2172853";
-            $password = "2172853";
+            $usernameDB = "2172853";
+            $passwordDB = "2172853";
             $db = "2172853-girard-samuel";
 
-            $conn = new mysqli($servername, $username, $password, $dbname);
+            $conn = new mysqli($servername, $usernameDB, $passwordDB, $dbname);
 
             if($conn->connect_error){
                 die("Connection erreur : " . $conn->connect_error);
