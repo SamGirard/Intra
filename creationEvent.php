@@ -29,10 +29,10 @@
 
 
         //Faire la connection
-        $servername = "cours.cegep3r.info";
-            $username = "2172853";
-            $password = "2172853";
-            $db = "intra smiley";
+        $servername = "localhost";
+        $username = "root";
+        $password = "2j4Tzg4CxdFwIZBJ";
+        $db = "intra smiley";
 
         //Creer la connection
         $conn = new mysqli($servername, $username, $password, $db);

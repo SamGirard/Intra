@@ -23,10 +23,10 @@ session_start();
                         $id = $_GET['id'];
 
                         // Faire la connexion à la base de données
-                        $servername = "cours.cegep3r.info";
-            $username = "2172853";
-            $password = "2172853";
-            $db = "intra smiley";
+                        $servername = "localhost";
+                        $username = "root";
+                        $password = "2j4Tzg4CxdFwIZBJ";
+                        $db = "intra smiley";
 
                         
 
@@ -67,10 +67,10 @@ session_start();
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-            $servername = "cours.cegep3r.info";
-            $username = "2172853";
-            $password = "2172853";
-            $db = "intra smiley";
+            $servername = "localhost";
+                $username = "root";
+                $password = "2j4Tzg4CxdFwIZBJ";
+                $db = "intra smiley";
 
                 // Créer la connexion
                 $conn = new mysqli($servername, $username, $password, $db);
