@@ -34,7 +34,7 @@
             //vérifier que l'usager est dans la BD
             $servername = "cours.cegep3r.info";
             $username = "2172853";
-            $password = "Samu2004";
+            $password = "2172853";
             $db = "2172853-girard-samuel";
 
             $conn = new mysqli($servername, $usernameDB, $passwordDB, $dbname);
