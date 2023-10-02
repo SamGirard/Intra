@@ -27,8 +27,8 @@
         if ($_SESSION["connexion"] == true) {
             // Faire la connection
             $servername = "cours.cegep3r.info";
-            $username = "root";
-            $password = "2j4Tzg4CxdFwIZBJ";
+            $username = "2172853";
+            $password = "2172853";
             $db = "intra smiley";
 
             // Créer la connection

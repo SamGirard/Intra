@@ -25,9 +25,9 @@
             
                         //Faire la connection
                         $servername = "cours.cegep3r.info";
-                        $username = "root";
-                        $password = "2j4Tzg4CxdFwIZBJ";
-                        $db = "intra smiley";
+            $username = "2172853";
+            $password = "2172853";
+            $db = "intra smiley";
             
                         //Creer la connection
                         $conn = new mysqli($servername, $username, $password, $db);
@@ -84,9 +84,9 @@
 
                 if ($_SERVER['REQUEST_METHOD'] == "POST" || $erreur == true) {
 
-                    $servername = "localhost";
-                    $username = "root";
-                    $password = "2j4Tzg4CxdFwIZBJ";
+                    $servername = "cours.cegep3r.info";
+                    $username = "2172853";
+                    $password = "2172853";
                     $db = "intra smiley";
             
                     //Creer la connection
