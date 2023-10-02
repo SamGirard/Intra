@@ -44,20 +44,9 @@
             }
 
             $sql = "SELECT * FROM utilisateur WHERE nom = '$usager' AND password ='$password'";
-            //echo $sql;
+
 
             $result = $conn->query($sql);
-
-            if($result->num_rows > 0){
-                $row = $result->fetch_assoc();
-                echo "<h1>Connecter</h1>";
-                $_SESSION["connexion"] = true;
-            }
-            else {
-                $erreur = true;
-                $erreurLogin = "Un des champs est invalide";
-            }
-            $conn->close();
 
 
             if(empty($_POST['mdp'])){
@@ -75,6 +64,17 @@
             else {
                 $usager = trojan($_POST['usager']);
             }
+
+            if($result->num_rows > 0){
+                $row = $result->fetch_assoc();
+                echo "<h1>Connecter</h1>";
+                $_SESSION["connexion"] = true;
+            }
+            else {
+                $erreur = true;
+                $erreurLogin = "Un des champs est invalide";
+            }
+            $conn->close();
 
             $usager = trojan($_POST['usager']);
             $mdp = trojan($_POST['mdp']);
