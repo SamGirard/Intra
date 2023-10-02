@@ -24,7 +24,7 @@
                         $id = $_GET['id'];
             
                         //Faire la connection
-                        $servername = "localhost";
+                        $servername = "cours.cegep3r.info";
                         $username = "root";
                         $password = "2j4Tzg4CxdFwIZBJ";
                         $db = "intra smiley";
@@ -84,7 +84,7 @@
 
                 if ($_SERVER['REQUEST_METHOD'] == "POST" || $erreur == true) {
 
-                    $servername = "localhost";
+                    $servername = "cours.cegep3r.info";
                     $username = "root";
                     $password = "2j4Tzg4CxdFwIZBJ";
                     $db = "intra smiley";

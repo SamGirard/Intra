@@ -32,7 +32,7 @@
             //echo $password;
 
             //vérifier que l'usager est dans la BD
-            $servername = "localhost";
+            $servername = "cours.cegep3r.info";
             $username = "root";
             $password = "2j4Tzg4CxdFwIZBJ";
             $db = "intra smiley";
