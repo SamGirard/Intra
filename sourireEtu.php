@@ -23,7 +23,7 @@ session_start();
                         $id = $_GET['id'];
 
                         // Faire la connexion à la base de données
-                        $servername = "cours.cegep3r.info";
+                        $servername = "@cours.cegep3r.info";
                         $username = "2172853";
                         $password = "Samu2004";
                         $db = "2172853-girard-samuel";
@@ -67,7 +67,7 @@ session_start();
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-            $servername = "cours.cegep3r.info";
+            $servername = "@cours.cegep3r.info";
             $username = "2172853";
             $password = "2172853";
             $db = "2172853-girard-samuel";
