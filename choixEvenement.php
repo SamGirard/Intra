@@ -32,7 +32,7 @@
 
             //Afficher les donnée
                 $conn->query('SET NAMES utf8');
-                $sql = "SELECT * FROM evenement";
+                $sql = "SELECT * FROM evenement ORDER BY id DESC";
                 $result = $conn->query($sql);
 
 

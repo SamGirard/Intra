@@ -14,13 +14,6 @@
     <body class="pageUser">
         <?php
 
-            function trojan($data){
-                $data = trim($data); //Enleve les caractères invisibles
-                $data = addslashes($data); //Mets des backslashs devant les ' et les  "
-                $data = htmlspecialchars($data); // Remplace les caractères spéciaux par leurs symboles comme ­< devient &lt;
-
-                return $data;
-            }
 
             if ($_SESSION["connexion"] == true) {
 
@@ -134,7 +127,7 @@
             
                     // Mettez à jour la base de données uniquement si aucune erreur n'est survenue
 
-                        $sql = "UPDATE utilisateur SET nom = '$usernameBd', password = MD5('$mdp') WHERE id = 4";
+                        $sql = "UPDATE utilisateur SET nom = '$usernameBd', password = MD5('$mdp') WHERE id = $id";
             
                         echo $sql;
                         if ($conn->query($sql) === TRUE) {
@@ -154,6 +147,13 @@
                 header("Location: login.php");
             }
     
+            function trojan($data){
+                $data = trim($data); //Enleve les caractères invisibles
+                $data = addslashes($data); //Mets des backslashs devant les ' et les  "
+                $data = htmlspecialchars($data); // Remplace les caractères spéciaux par leurs symboles comme ­< devient &lt;
+
+                return $data;
+            }
     
             ?>
 
