@@ -17,6 +17,7 @@ textarea {
     justify-content: space-around;
 }
 
+
 .pageEvent {
     background-color: #e0e0e0;
 }
@@ -59,7 +60,6 @@ a {
 
 
 .creer {
-
     padding-top: 50px;
     padding-bottom: 100px;
     text-decoration: none;
@@ -79,9 +79,9 @@ a {
 .creer p {
     color: rgba(22, 22, 22, 0.7);
     font-size: 15pt;
-    padding-left: 150px;
-    padding-right: 150px;
-    margin-top: 100px;
+    padding-left: 80px;
+    padding-right: 80px;
+    margin-top: 70px;
     margin-bottom: 50px;
 }
 
@@ -112,9 +112,9 @@ a {
 .event p {
     color: rgba(22, 22, 22, 0.7);
     font-size: 15pt;
-    padding-left: 150px;
-    padding-right: 150px;
-    margin-top: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-top: 70px;
     margin-bottom: 50px;
 }
 
@@ -145,9 +145,9 @@ a {
 .sourire p {
     color: rgba(22, 22, 22, 0.7);
     font-size: 15pt;
-    padding-left: 150px;
-    padding-right: 150px;
-    margin-top: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-top: 70px;
     margin-bottom: 50px;
 }
 
@@ -185,18 +185,18 @@ a {
 }
 
 .creerForme {
-    padding: 100px 70px 100px 70px;
+    padding: 60px 50px 70px 50px;
     border-radius: 20px;
     background: #e0e0e0;
     box-shadow: 30px 30px 30px #b3b3b3,
         -30px -30px 30px #ffffff;
     width: 700px;
-    min-height: 800px;
-    max-height: 1000px;
+    min-height: 600px;
+    max-height: 900px;
 }
 
 .departForm {
-    padding: 90px 70px 100px 70px;
+    padding: 100px 70px 100px 70px;
     border-radius: 20px;
     background: #e0e0e0;
     box-shadow: 30px 30px 30px #b3b3b3,
@@ -283,16 +283,16 @@ button {
 }
 
 .plus {
-    height: 60px;
+    height: 50px;
 }
 
 select {
-    height: 60px;
+    height: 50px;
     font-size: 30pt;
 }
 
 input {
-    height: 60px;
+    height: 50px;
     font-size: 30pt;
 }
 
@@ -347,7 +347,7 @@ input[type="number"] {
 }
 
 .face {
-    margin-top: -200px;
+    margin-top: -150px;
 }
 
 .visage {
@@ -413,9 +413,41 @@ input[type="number"] {
 @media only screen and (orientation: portrait) {
     .boite-menu {
         width: 83.33333% !important;
-        margin-bottom: 100px;
+        margin-bottom: 80px;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .boite-menu p{
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+
+    .creer p {
+        color: rgba(22, 22, 22, 0.7);
+        font-size: 15pt;
+        padding-left: 80px;
+        padding-right: 80px;
+        margin-top: 70px;
+        margin-bottom: 30px;
+    }
+
+    .sourire p {
+        color: rgba(22, 22, 22, 0.7);
+        font-size: 15pt;
+        padding-left: 80px;
+        padding-right: 80px;
+        margin-top: 70px;
+        margin-bottom: 30px;
+    }
+
+    .event p {
+        color: rgba(22, 22, 22, 0.7);
+        font-size: 15pt;
+        padding-left: 80px;
+        padding-right: 80px;
+        margin-top: 70px;
+        margin-bottom: 30px;
     }
 
     .boite {
@@ -476,7 +508,7 @@ input[type="number"] {
     }
 
     .face{
-        height: 700px;
+        height: 600px;
     }
 
     .face1{

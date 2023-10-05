@@ -60,10 +60,10 @@
                                     <h2 class="mt-3 titre"><?php echo $row['nomEvent'];?></h1>
                                 </div>
                                 <div class="col-md-1">
-                                    <a href="infoEvent.php?id=<?php echo $row['id'];?>"><i class="mt-3 fa-solid fa-square-pen fa-4x" style="color: #292929"></i></a>
+                                    <a href="infoEvent.php?id=<?php echo $row['id'];?>"><i class="mt-3 fa-solid fa-square-pen fa-3x" style="color: #292929"></i></a>
                                 </div>
                                 <div class="col-md-1 px-2">
-                                    <a href="supprime.php?id=<?php echo $row['id'];?>"><i class="mt-3 fa-solid fa-square-xmark fa-4x" style="color: #ff4242;"></i></a>
+                                    <a href="supprime.php?id=<?php echo $row['id'];?>"><i class="mt-3 fa-solid fa-square-xmark fa-3x" style="color: #ff4242;"></i></a>
                                 </div>
                             </div>
                             

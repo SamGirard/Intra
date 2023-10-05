@@ -52,13 +52,13 @@ session_start();
                             </form>
 
                             <div class="col-md-4 face face1 mx-auto px-0">
-                                <button id="btnContent" onclick="clickButton('content')" data-type="content"><img src="img/contentEmp.jpg" height="400" width="400" class="visag2"></button>
+                                <button id="btnContent" onclick="clickButton('content')" data-type="content"><img src="img/contentEmp.jpg" height="300" width="300" class="visag2"></button>
                             </div>
                             <div class="col-md-4 face mx-auto px-0">
-                                <button id="btnMoyen" onclick="clickButton('moyen')" data-type="moyen"><img src="img/moyenEmp.jpg" height="400" width="400" class="visag2"></button>
+                                <button id="btnMoyen" onclick="clickButton('moyen')" data-type="moyen"><img src="img/moyenEmp.jpg" height="300" width="300" class="visag2"></button>
                             </div>
                             <div class="col-md-4 face mx-auto px-0">
-                                <button id="btnPasContent" onclick="clickButton('pasContent')" data-type="pasContent"><img src="img/pasContentEmp.jpg" height="400" width="400" class="visag2"></button>
+                                <button id="btnPasContent" onclick="clickButton('pasContent')" data-type="pasContent"><img src="img/pasContentEmp.jpg" height="300" width="300" class="visag2"></button>
                             </div>
                         </div>
 
